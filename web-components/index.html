@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A brief Introduction to Web Components">
+		<meta name="author" content="Simon Heimler">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/fannon.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/monokai_fannon.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<!-- Logo -->
+		<div id="logo-top" class="logo">
+		    <div class="logo-left"></div>
+		    <div class="logo-right"></div>
+		    <div class="logo-1" style="overflow: hidden; left: 5.451724652232474%; width: 18.197542186244444%;"></div>
+		    <div class="logo-2" style="overflow: hidden; left: 17.738023514210347%; width: 35.95025719963371%;"></div>
+		    <div class="logo-3" style="overflow: hidden; left: 32.45847831046833%; width: 53.70577551761715%;"></div>
+		    <div class="logo-4" style="overflow: hidden; left: 72.26044234225029%; width: 27.756931045506352%;"></div>
+		</div>
+
+
+		<!-- Reveal Presentation -->
+		<div class="reveal">
+
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Web Components</h1>
+					<h3>Eine kurze Einführung</h3>
+					<p>
+						<small>Simon Heimler - 2014 - <a href="http://www.fannon.de">www.fannon.de</a></small>
+					</p>
+					<aside class="notes">
+			        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+			    </aside>
+				</section>
+
+				<section>
+					<h2>Was sind Web Components?</h2>
+					<p>
+						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
+						support for CSS 3D transforms to see it in its full glory.
+					</p>
+
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					</aside>
+				</section>
+
+				<section class="align-left">
+					<h2 >Übersicht</h2>
+			          <div class="spec-list">
+			            <h3 class="fragment">Templates</h3>
+			            <h3 class="fragment">Decorators</h3>
+			            <h3 class="fragment">Shadow DOM</h3>
+			            <h3 class="fragment">Custom Elements</h3>
+			            <h3 class="fragment">Imports</h3>
+			          </div>
+		        </section>
+
+
+
+
+				<section class="align-left">
+					<h2>Quellenangaben</h2>
+					<ul class="bibliography">
+						<li>https://www.youtube.com/watch?v=Byux3Jfw5e8</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h1>Fragen?</h1>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/presentation.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				width: 1280,
+				height: 720,
+
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+
+				// transitionSpeed: 'normal',
+
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+				backgroundTransition: 'slide', // default/none/slide/concave/convex/zoom
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'img/bg.jpg',
+				// parallaxBackgroundSize: '1920px 1080px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

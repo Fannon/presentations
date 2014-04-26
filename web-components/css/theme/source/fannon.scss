@@ -66,6 +66,28 @@
 
 @font-face {
     font-family: 'Roboto';
+    src: url('../../lib/font/Roboto-Medium-webfont.eot');
+    src: url('../../lib/font/Roboto-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../lib/font/Roboto-Medium-webfont.woff') format('woff'),
+         url('../../lib/font/Roboto-Medium-webfont.ttf') format('truetype'),
+         url('../../lib/font/Roboto-Medium-webfont.svg#RobotoBold') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../lib/font/Roboto-MediumItalic-webfont.eot');
+    src: url('../../lib/font/Roboto-MediumItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../lib/font/Roboto-MediumItalic-webfont.woff') format('woff'),
+         url('../../lib/font/Roboto-MediumItalic-webfont.ttf') format('truetype'),
+         url('../../lib/font/Roboto-MediumItalic-webfont.svg#RobotoBoldItalic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
     src: url('../../lib/font/Roboto-Bold-webfont.eot');
     src: url('../../lib/font/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
          url('../../lib/font/Roboto-Bold-webfont.woff') format('woff'),
@@ -162,7 +184,7 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
 
     h1 {
         font-weight: 100;
-        color: #AAA;
+        color: rgba(255, 255, 255, 0.7);
         margin-bottom: 0.5em;
     }
 
@@ -170,7 +192,7 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
         font-weight: 300;
         color: #FFF;
         display: block;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.15);
         padding: $box-padding;
         width: 100%;
         border-radius: $border-radius;
@@ -181,7 +203,7 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
     }
 
     h3 {
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.1);
     }
 
     h4 {
@@ -208,6 +230,15 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
         color: #CCC;
     }
 
+    strong {
+      font-weight: 500;
+    }
+
+    small {
+      vertical-align: bottom;
+      font-size: 0.5em;
+    }
+
     hr {
         border: none;
         // border-top: 1px solid
@@ -218,6 +249,7 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
     }
 
     blockquote {
+
         width: 90%;
         font-family: RobotoSlab;
         font-style: normal;
@@ -225,6 +257,10 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
         background: rgba(255,255, 255, 0.1);
         border: 1px solid rgba(255,255, 255, 0.2);
         padding: $box-padding;
+
+        ol, ul {
+          font-size: 1em;
+        }
 
         strong {
             font-weight: 300;
@@ -257,7 +293,7 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
         font-size: 1.6em;
         line-height: 1.2em;
         padding: 14px;
-        border: 1px solid #222;
+        // border: 1px solid #222;
         border-radius: $border-radius;
         width: 100%;
     }
@@ -274,6 +310,24 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
         h1, h2 {
             text-align: center;
         }
+    }
+
+    .bibliography {
+
+      font-size: 0.5em;
+
+      ul {
+
+
+        list-style-type: none;
+        margin-left: $default-padding;
+
+        li {
+          border-left: 5px solid rgba(255, 255, 255, 0.3);
+          padding-left: 10px;
+          margin-bottom: $default-padding;
+        }
+      }
     }
 
 }

@@ -31,6 +31,18 @@
   font-style: italic; }
 @font-face {
   font-family: 'Roboto';
+  src: url("../../lib/font/Roboto-Medium-webfont.eot");
+  src: url("../../lib/font/Roboto-Medium-webfont.eot?#iefix") format("embedded-opentype"), url("../../lib/font/Roboto-Medium-webfont.woff") format("woff"), url("../../lib/font/Roboto-Medium-webfont.ttf") format("truetype"), url("../../lib/font/Roboto-Medium-webfont.svg#RobotoBold") format("svg");
+  font-weight: 500;
+  font-style: normal; }
+@font-face {
+  font-family: 'Roboto';
+  src: url("../../lib/font/Roboto-MediumItalic-webfont.eot");
+  src: url("../../lib/font/Roboto-MediumItalic-webfont.eot?#iefix") format("embedded-opentype"), url("../../lib/font/Roboto-MediumItalic-webfont.woff") format("woff"), url("../../lib/font/Roboto-MediumItalic-webfont.ttf") format("truetype"), url("../../lib/font/Roboto-MediumItalic-webfont.svg#RobotoBoldItalic") format("svg");
+  font-weight: 500;
+  font-style: italic; }
+@font-face {
+  font-family: 'Roboto';
   src: url("../../lib/font/Roboto-Bold-webfont.eot");
   src: url("../../lib/font/Roboto-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../../lib/font/Roboto-Bold-webfont.woff") format("woff"), url("../../lib/font/Roboto-Bold-webfont.ttf") format("truetype"), url("../../lib/font/Roboto-Bold-webfont.svg#RobotoBold") format("svg");
   font-weight: 700;
@@ -199,20 +211,20 @@ body {
   text-shadow: none; }
 .reveal h1 {
   font-weight: 100;
-  color: #AAA;
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.5em; }
 .reveal h2, .reveal h3, .reveal h4 {
   font-weight: 300;
   color: #FFF;
   display: block;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   padding: 10px 21px 14px 21px;
   width: 100%;
   border-radius: 3px; }
 .reveal h2 {
   text-transform: uppercase; }
 .reveal h3 {
-  background: rgba(255, 255, 255, 0.15); }
+  background: rgba(255, 255, 255, 0.1); }
 .reveal h4 {
   font-weight: 100;
   background: rgba(255, 255, 255, 0.1); }
@@ -228,6 +240,11 @@ body {
   font-style: normal;
   font-size: 0.9em;
   color: #CCC; }
+.reveal strong {
+  font-weight: 500; }
+.reveal small {
+  vertical-align: bottom;
+  font-size: 0.5em; }
 .reveal hr {
   border: none;
   height: 0.1em;
@@ -242,6 +259,8 @@ body {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 10px 21px 14px 21px; }
+  .reveal blockquote ol, .reveal blockquote ul {
+    font-size: 1em; }
   .reveal blockquote strong {
     font-weight: 300; }
   .reveal blockquote .citation {
@@ -261,7 +280,6 @@ body {
   font-size: 1.6em;
   line-height: 1.2em;
   padding: 14px;
-  border: 1px solid #222;
   border-radius: 3px;
   width: 100%; }
 .reveal .small {
@@ -270,6 +288,15 @@ body {
   text-align: left; }
   .reveal .align-left h1, .reveal .align-left h2 {
     text-align: center; }
+.reveal .bibliography {
+  font-size: 0.5em; }
+  .reveal .bibliography ul {
+    list-style-type: none;
+    margin-left: 7px; }
+    .reveal .bibliography ul li {
+      border-left: 5px solid rgba(255, 255, 255, 0.3);
+      padding-left: 10px;
+      margin-bottom: 7px; }
 
 #logo-top {
   width: 100%;

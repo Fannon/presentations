@@ -55,49 +55,194 @@
 					<h1>Web Components</h1>
 					<h3>Eine kurze Einführung</h3>
 					<p>
-						<small>Simon Heimler - 2014 - <a href="http://www.fannon.de">www.fannon.de</a></small>
+						<small>2014 | Simon Heimler | <a href="http://www.fannon.de">www.fannon.de</a></small>
 					</p>
 					<aside class="notes">
-			        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-			    </aside>
+			        	Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+			    	</aside>
 				</section>
 
 				<section>
-					<h2>Was sind Web Components?</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
+					<section class="vertical-align">
+						<h1>Web Components?</h1>
+					</section>
+
+					<section>
+						<p>(2014)</p>
+						<p>Eine experimentelle Browser-Technologie</p>
+						<p>Aktuell in aktiver Entwicklung</p>
+						<p><em>Webentwicklung der Zukunft?</em></p>
+					</section>
+
+					<section>
+						<h2>Wozu Web Components?</h2>
+						<p>Ermöglichen es eigene HTML Elemente zu entwickeln</p>
+					</section>
+
+					<section>
+						<h2>Wer steckt dahinter?</h2>
+						<ul>
+							<li>Aktuell: W3C <strong>Draft</strong></li>
+							<li>Google Chrome ist Vorreiter, Firefox zieht nach, Internet Explorer: Wartet ab.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Hintergrund</h2>
+						<ul>
+						<li>Browser Hersteller </li>
+							<li>Erlaubt Webentwicklern einen tieferen Zugang zu dem Browser</li>
+							<li>Bisher war dieses Gebiet nur für Brower-Hersteller zugänglich</li>
+						</ul>
+					</section>
+
+
+				</section>
+
+				<section>
+					<section>
+						<h1>Beispiele</h1>
+					</section>
+
+					<section>
+						<h2>Altbekanntes</h2>
+						<pre><code data-trim contenteditable class="html">
+
+<select>
+	<option value="volvo">Volvo</option>
+	<option value="saab">Saab</option>
+	<option value="mercedes">Mercedes</option>
+	<option value="audi">Audi</option>
+</select>
+						</code></pre>
+
+						<select>
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="mercedes">Mercedes</option>
+							<option value="audi">Audi</option>
+						</select>
+					</section>
+
+
+					<section>
+						<h2>Neue Elemente "erfinden"</h2>
+						<pre><code data-trim contenteditable class="html">
+							<qr-code data="Web Components!"></qr-code>
+						</code></pre>
+
+						<p>
+							<img width="200px" height="200px" src="data:image/png;base64,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">
+						</p>
+
+						<p class="small">
+							<a href="https://github.com/educastellano/qr-code">https://github.com/educastellano/qr-code</a>
+						</p>
+
+					</section>
+
+					<section>
+						<h2>Responsive Images?</h2>
+
+						<p>Wird seit Jahren von Webentwicklern gewünscht. Browserhersteller können sich nicht einigen.</p>
+
+						<pre><code data-trim contenteditable class="html">
+							<the-image mdpi="image.jpg" xhdpi="image@2X.jpg" width="300" height="200"></the-image>
+						</code></pre>
+
+						<p class="small">
+							<a href="http://the-grid.github.io/the-image/">http://the-grid.github.io/the-image</a>
+						</p>
+					</section>
+
 				</section>
 
 				<section class="align-left">
-					<h2 >Übersicht</h2>
+					<h2>Übersicht</h2>
 			          <div class="spec-list">
-			            <h3 class="fragment">Templates</h3>
-			            <h3 class="fragment">Decorators</h3>
-			            <h3 class="fragment">Shadow DOM</h3>
-			            <h3 class="fragment">Custom Elements</h3>
-			            <h3 class="fragment">Imports</h3>
+			            <h3 class="fragment" style="background: #963924;">1. Templates</h3>
+			            <h3 class="fragment" style="background: #8D1F63;">2. Decorators <small>(Noch keine Spezifikation)</small></h3>
+			            <h3 class="fragment" style="background: #4E2377;">3. Shadow DOM</h3>
+			            <h3 class="fragment" style="background: #3A6990;">4. Custom Elements</h3>
+			            <h3 class="fragment" style="background: #1F8B82;">5. Imports</h3>
 			          </div>
 		        </section>
 
+		        <section data-background="#963924">
+			        <section>
+			        	<h1>Templates</h1>
+			        </section>
+		        	<section>
+		        		<blockquote class="align-left">
+				          	<strong>1. Templates</strong>, which define chunks of markup that are inert but can be activated for use later.
+							<div class="citation">W3C - Introduction to Web Components</div>
+			          </blockquote>
+		        	</section>
+		        </section>
 
+				<section data-background="#8D1F63">
+			        <section>
+			        	<h1>Decorators</h1>
 
+			        </section>
+		        	<section>
+		        		<blockquote class="align-left">
+				          	<strong>2. Decorators</strong>, which apply templates based on CSS selectors to affect rich visual and behavioral changes to documents.
+							<div class="citation">W3C - Introduction to Web Components</div>
+			          </blockquote>
 
-				<section class="align-left">
-					<h2>Quellenangaben</h2>
-					<ul class="bibliography">
-						<li>https://www.youtube.com/watch?v=Byux3Jfw5e8</li>
-					</ul>
+			          <br>
+			          <p>
+			          	Überspringen wir!
+			          </p>
+		        	</section>
+		        </section>
+
+		        <section data-background="#4E2377">
+			        <section>
+			        	<h1>Custom Elements</h1>
+			        </section>
+		        	<section>
+		        		<h2>Erklärung</h2>
+		        	</section>
+		        </section>
+
+		        <section data-background="#3A6990">
+			        <section>
+			        	<h1>Shadow DOM</h1>
+			        </section>
+		        	<section>
+		        		<h2>Erklärung</h2>
+		        	</section>
+		        </section>
+
+		        <section data-background="#1F8B82">
+			        <section>
+			        	<h1>Imports</h1>
+			        </section>
+		        	<section>
+		        		<h2>Erklärung</h2>
+		        	</section>
+		        </section>
+
+		        <section>
+					<h1>Aussicht</h1>
 				</section>
 
 
 				<section>
 					<h1>Fragen?</h1>
+				</section>
+
+				<section class="bibliography">
+					<h2>Quellenverzeichnis</h2>
+					<ul>
+						<li>Dimitri Glazkov; Dominic Cooney (2013): Introduction to Web Components. W3C. Online verfügbar unter <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">http://www.w3.org/TR/2013/WD-components-intro-20130606/</a>, zuletzt geprüft am 26.04.2014.
+						</li>
+						<li>Rob Dodson: Web Components & The Future of the Web. Online verfügbar unter <a href="https://www.youtube.com/watch?v=Byux3Jfw5e8">https://www.youtube.com/watch?v=Byux3Jfw5e8</a>, zuletzt geprüft am 26.04.2014.
+						</li>
+					</ul>
 				</section>
 
 			</div>
@@ -121,7 +266,6 @@
 				width: 1280,
 				height: 720,
 
-
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 
 				// transitionSpeed: 'normal',
@@ -137,8 +281,11 @@
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
 					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+
 				]
 			});
 

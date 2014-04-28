@@ -14,18 +14,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-
+	<!-- build:css css/app.min.css -->
     <link rel="stylesheet" href="css/reveal.min.css">
     <link rel="stylesheet" href="css/theme/fannon.css" id="theme">
 
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/monokai_fannon.css">
 
-
     <link rel="stylesheet" type="text/css" href="lib/font-awesome.css"/>
-
-    <script type="text/javascript" src="lib/sparkline-master/demo/x-tag-components.js"></script>
-    <script type="text/javascript" src="lib/sparkline-master/src/main.js"></script>
+    <!-- endbuild -->
 
 
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
@@ -94,7 +91,7 @@
         <h2>Wozu Web Components?</h2>
         <ul class="fa-ul">
             <li><i class="fa-li fa fa-angle-double-right"></i>Eigene (native) HTML Elemente definieren</li>
-            <li><i class="fa-li fa fa-angle-double-right"></i>Modulare(re) Webentwicklung</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Modulare Webentwicklung</li>
             <li><i class="fa-li fa fa-angle-double-right"></i>Abstraktion</li>
         </ul>
     </section>
@@ -120,19 +117,19 @@
         <h2>Altbekanntes</h2>
 
         <h3>HTML5 Input Type: Range</h3>
-						<pre><code data-trim contenteditable class="html">
-                            <input type="range" name="points" min="1" max="10" value="7">
-                        </code></pre>
+		<pre><code data-trim contenteditable class="html">
+            <input type="range" name="points" min="1" max="10" value="7">
+        </code></pre>
 
         <input type="range" name="points" min="1" max="10" value="7">
     </section>
 
     <section>
         <h2>X-Tag: Sparklines</h2>
-						<pre><code data-trim contenteditable class="html">
-                            <x-sparkline points="3,4,5,6,5,4,5,6,7,8,7,5,9" height="100" width="300"
-                                         color="#AEC7F7"></x-sparkline>
-                        </code></pre>
+		<pre><code data-trim contenteditable class="html">
+            <x-sparkline points="3,4,5,6,5,4,5,6,7,8,7,5,9" height="100" width="300"
+                         color="#AEC7F7"></x-sparkline>
+        </code></pre>
         <br>
         <x-sparkline points="3,4,5,6,5,4,5,6,7,8,7,5,9" height="100" width="300" color="#AEC7F7"></x-sparkline>
 
@@ -206,8 +203,20 @@
         <blockquote class="align-left">
             <strong>1. Templates</strong>, which define chunks of markup that are inert but can be activated for use
             later.
-            <div class="citation">W3C - Introduction to Web Components</div>
+            <div class="citation">Jens Ihlenfeld 2013 (<a href="http://www.w3.org/TR/components-intro/#introduction">http://www.w3.org/TR/components-intro/#introduction</a>)</div>
         </blockquote>
+    </section>
+
+    <section>
+    	<h2>Code</h2>
+    	<pre><code data-trim contenteditable class="html">
+<template id="commentTemplate">
+    <div>
+        <img src="">
+        <div class="comment-text"></div>
+    </div>
+</template>
+        </code></pre>
     </section>
 </section>
 
@@ -220,8 +229,15 @@
         <blockquote class="align-left">
             <strong>2. Decorators</strong>, which apply templates based on CSS selectors to affect rich visual and
             behavioral changes to documents.
-            <div class="citation">W3C - Introduction to Web Components</div>
+            <div class="citation">Jens Ihlenfeld 2013 (<a href="http://www.w3.org/TR/components-intro/#introduction">http://www.w3.org/TR/components-intro/#introduction</a>)</div>
         </blockquote>
+
+        <blockquote class="align-left">
+            A decorator is something that enhances or overrides the presentation of an existing element.
+            <div class="citation"><a href="http://www.w3.org/TR/components-intro/#decorator-section">http://www.w3.org/TR/components-intro/#decorator-section</a></div>
+        </blockquote>
+
+
 
         <br>
 
@@ -263,7 +279,7 @@
         <h1>Hintergrund</h1>
     </section>
     <section>
-        <h2>Problem</h2>
+        <h2>Wie es aktuell läuft</h2>
         <ul class="fa-ul">
             <li><i class="fa-li fa fa-angle-double-right"></i>Browser Hersteller sind sehr langsam in der Entwicklung
                 neuer Standards
@@ -273,7 +289,7 @@
         </ul>
     </section>
     <section>
-        <h2>Lösung</h2>
+        <h2>Mit WebComponents</h2>
         <ul class="fa-ul">
             <li><i class="fa-li fa fa-angle-double-right"></i>Browser Hersteller erlauben Entwickleren tieferen Zugang
                 (low level) zum Browser
@@ -299,7 +315,7 @@
 
         <p>Warten auf...</p>
         <ul class="fa-ul">
-            <li><i class="fa-li fa fa-spinner fa-spin"></i>Standard definiert</li>
+            <li><i class="fa-li fa fa-spinner fa-spin"></i>Feste Standard Definition</li>
             <li><i class="fa-li fa fa-spinner fa-spin"></i>W3C Recommendation</li>
             <li><i class="fa-li fa fa-spinner fa-spin"></i>Browser Support</li>
         </ul>
@@ -307,7 +323,8 @@
     <section>
         <h2>Bis dahin...</h2>
 
-        <p>Polyfills!</p>
+		<p>Abwarten.</p>
+        <p>Polyfills?</p>
     </section>
     <section>
         <img src="img/polymer.png" alt="" style="width: 100%; height: auto;">
@@ -323,6 +340,14 @@
 
     <p>
         <i class="fa fa-comments-o bg-center"></i>
+    </p>
+</section>
+
+<section>
+
+    <p>
+        Folien online:<br>
+        <a href="http://fannon.de/presentation/web-components">http://fannon.de/presentation/web-components</a>
     </p>
 </section>
 
@@ -357,10 +382,13 @@
 </div>
 
 </div>
-
+<!-- build:js js/app.min.js -->
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.min.js"></script>
+<script type="text/javascript" src="lib/sparkline-master/demo/x-tag-components.js"></script>
+<script type="text/javascript" src="lib/sparkline-master/src/main.js"></script>
 <script src="js/presentation.js"></script>
+<!-- endbuild -->
 
 <script>
 

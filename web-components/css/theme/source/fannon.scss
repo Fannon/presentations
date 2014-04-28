@@ -157,14 +157,16 @@ $headingFont: 'Roboto', sans-serif;
 $headingColor: #DDD;
 $headingTextShadow: none;
 $headingTextTransform: none;
-$backgroundColor: #000;
-$linkColor: #C4EE28;
-$linkColorHover: lighten($linkColor, 20%);
+$backgroundColor: #111;
+// $linkColor: #C4EE28;
+$linkColor: rgba(255, 255, 255, 0.55);
+$linkColorHover: rgba(255, 255, 255, 0.8);
 $selectionBackgroundColor: rgba(255, 255, 255, 0.3);
 
 $border-radius: 3px;
 $default-padding: 7px;
-$box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $default-padding*3;
+$horizontal-padding: $default-padding*2;
+$box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $horizontal-padding;
 
 // Theme template ------------------------------
 @import "../template/theme";
@@ -186,7 +188,7 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
     font-weight: 300;
     display: block;
     background: rgba(255, 255, 255, 0.14);
-    padding: $box-padding;
+    padding: 14px;
     width: 100%;
     border-radius: $border-radius;
     margin: 0.5em 0;
@@ -209,6 +211,25 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
     background: rgba(255, 255, 255, 0.1);
     color: #FFF;
   }
+
+  a, a:hover {
+
+    display: inline-block;
+    padding: 0 0.2em;
+    // border-bottom: 1px dotted rgba(255, 255, 255, 0.3) !important;
+    border-radius: $border-radius;
+  }
+
+  a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  a:before {
+    content: "\f0c1";
+    font-family: "FontAwesome";
+    margin-right: 0.3em;
+    font-size: 0.75em;
+}
 
   p, ol, ul {
     font-weight: 100;
@@ -284,6 +305,7 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: $box-padding;
+    margin-bottom: 0.5em;
 
     ol, ul {
       font-size: 1em;
@@ -298,6 +320,7 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
       font-family: Roboto;
       text-align: right;
       font-size: 0.7em;
+      height: 1.2em;
       margin: 1em 0 0 0;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       color: #CCC;
@@ -315,13 +338,12 @@ $box-padding: $default-padding + 3px $default-padding*3 $default-padding*2 $defa
   }
 
   .hljs {
-    // font-family: Consolas, Mono;
     font-size: 1.6em;
     line-height: 1.2em;
     padding: 14px;
-    // border: 1px solid #222;
     border-radius: $border-radius;
     width: 100%;
+    background: rgba(0, 0, 0, 0.75);
   }
 
   .small {

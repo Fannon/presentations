@@ -75,8 +75,7 @@ module.exports = function(grunt) {
 					port: port,
 					base: '.',
                     livereload: true
-				},
-
+				}
 			}
 		},
 
@@ -90,6 +89,41 @@ module.exports = function(grunt) {
 				'plugin/**'
 			]
 		},
+
+        clean: {
+            dist: {
+                src: ['_dist/*']
+            },
+            temp: {
+                src: ['.sass-cache/*']
+            }
+        },
+
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd:'/',
+                    src: ['favicon.ico', 'img/**', 'fonts/**', '**/*.html', '!**/*.scss', '!bower_components/**'],
+                    dest: '_dist/'
+                }]
+            }
+        },
+
+        useminPrepare: {
+            html: ['index.html'],
+            options: {
+                dest: '_dist'
+            }
+        },
+
+        usemin: {
+            html: ['_dist/**/*.html', '!src/bower_components/**'],
+            css: ['_dist/css/**/*.css'],
+            options: {
+                dirs: ['_dist']
+            }
+        },
 
 		watch: {
 			main: {
@@ -118,10 +152,19 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-connect' );
+	grunt.loadNpmTasks( 'grunt-usemin' );
 	grunt.loadNpmTasks( 'grunt-zip' );
 
 	// Default task
 	grunt.registerTask( 'build', [ 'jshint', 'cssmin', 'uglify'] );
+
+    grunt.registerTask('ub', [
+        'useminPrepare',
+//        'concat',
+//        'cssmin',
+//        'uglify',
+        'usemin'
+    ]);
 
 	// Theme task
 	grunt.registerTask( 'themes', [ 'sass' ] );

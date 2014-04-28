@@ -205,6 +205,10 @@ body {
   src: url("../../fonts/RobotoSlab-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../../fonts/RobotoSlab-bold-webfont.woff") format("woff"), url("../../fonts/RobotoSlab-bold-webfont.ttf") format("truetype"), url("../../fonts/RobotoSlab-bold-webfont.svg#RobotoMediumItalic") format("svg");
   font-weight: 700;
   font-style: normal; }
+body {
+  font-family: Roboto;
+  font-weight: 100; }
+
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p {
   text-shadow: none; }
 .reveal h1 {
@@ -290,13 +294,19 @@ body {
   font-weight: 500; }
 .reveal small {
   vertical-align: bottom;
-  font-size: 0.5em; }
+  font-size: 1.6rem; }
+.reveal small * {
+  vertical-align: bottom; }
 .reveal hr {
   border: none;
   height: 0.1em;
   background: rgba(255, 255, 255, 0.3);
   margin: 0.7em;
   overflow: hidden; }
+.reveal vr {
+  height: 100%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.3); }
 .reveal blockquote {
   width: 90%;
   font-family: RobotoSlab;
@@ -341,8 +351,6 @@ body {
   border-radius: 0.2rem;
   width: 100%;
   background: rgba(0, 0, 0, 0.75); }
-.reveal .small {
-  font-size: 0.75em; }
 .reveal .align-left {
   text-align: left; }
   .reveal .align-left h1, .reveal .align-left h2 {

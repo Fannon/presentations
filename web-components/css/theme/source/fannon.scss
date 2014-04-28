@@ -301,6 +301,7 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
 
   i.bg-center {
     position: fixed;
+    z-index: -999;
     top: 50%;
     left: 50%;
 
@@ -310,8 +311,6 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     font-size: 800px;
   }
 
-
-
   strong {
     font-weight: 500;
   }
@@ -319,7 +318,7 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
   small {
     vertical-align: bottom;
     font-size: 1.6rem;
-
+    line-height: 1.8rem;
   }
 
   small * {
@@ -333,12 +332,6 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     background: rgba(255, 255, 255, 0.3);
     margin: 0.7em;
     overflow: hidden;
-  }
-
-  vr {
-    height: 100%;
-    width: 1px;
-    background: rgba(255, 255, 255, 0.3);
   }
 
   blockquote {
@@ -394,7 +387,7 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     box-shadow: none;
   }
 
-  .hljs {
+  .hljs { // Highlight.js
     font-size:2rem;
     line-height: 2.2rem;
     padding: 14px;
@@ -413,9 +406,11 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
   }
 
   .align-center {
-
     text-align: center;
+  }
 
+  .faded {
+    opacity: 0.75;
   }
 
   .bibliography {

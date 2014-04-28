@@ -284,6 +284,7 @@ body {
   border-radius: 0.2rem; }
 .reveal i.bg-center {
   position: fixed;
+  z-index: -999;
   top: 50%;
   left: 50%;
   margin-top: -40px;
@@ -294,7 +295,8 @@ body {
   font-weight: 500; }
 .reveal small {
   vertical-align: bottom;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  line-height: 1.8rem; }
 .reveal small * {
   vertical-align: bottom; }
 .reveal hr {
@@ -303,10 +305,6 @@ body {
   background: rgba(255, 255, 255, 0.3);
   margin: 0.7em;
   overflow: hidden; }
-.reveal vr {
-  height: 100%;
-  width: 1px;
-  background: rgba(255, 255, 255, 0.3); }
 .reveal blockquote {
   width: 90%;
   font-family: RobotoSlab;
@@ -357,6 +355,8 @@ body {
     text-align: center; }
 .reveal .align-center {
   text-align: center; }
+.reveal .faded {
+  opacity: 0.75; }
 .reveal .bibliography {
   font-size: 1.6rem;
   line-height: 1.8rem;

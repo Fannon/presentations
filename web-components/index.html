@@ -201,9 +201,10 @@
     </section>
     <section>
         <blockquote class="align-left">
-            <strong>1. Templates</strong>, which define chunks of markup that are inert but can be activated for use
-            later.
-            <div class="citation">Jens Ihlenfeld 2013 (<a href="http://www.w3.org/TR/components-intro/#introduction">http://www.w3.org/TR/components-intro/#introduction</a>)</div>
+            The <q>&lt;template&gt;</q> element contains markup intended to be used later.<br>
+            The content of the <q>&lt;template&gt;</q> element is parsed by the parser, but it is inert: scripts aren't processed, images aren't downloaded, and so on. <br>
+            The <q>&lt;template&gt;</q> element is not rendered.
+            <div class="citation">Jens Ihlenfeld 2013 (<a href="http://www.w3.org/TR/components-intro/#template-section">http://www.w3.org/TR/components-intro/#template-section</a>)</div>
         </blockquote>
     </section>
 
@@ -227,17 +228,9 @@
     </section>
     <section>
         <blockquote class="align-left">
-            <strong>2. Decorators</strong>, which apply templates based on CSS selectors to affect rich visual and
-            behavioral changes to documents.
-            <div class="citation">Jens Ihlenfeld 2013 (<a href="http://www.w3.org/TR/components-intro/#introduction">http://www.w3.org/TR/components-intro/#introduction</a>)</div>
+            <p>A decorator is something that enhances or overrides the presentation of an existing element.</p>
+            <div class="citation">Jens Ihlenfeld 2013 (<a href="http://www.w3.org/TR/components-intro/#decorator-section">http://www.w3.org/TR/components-intro/#decorator-section</a>)</div>
         </blockquote>
-
-        <blockquote class="align-left">
-            A decorator is something that enhances or overrides the presentation of an existing element.
-            <div class="citation"><a href="http://www.w3.org/TR/components-intro/#decorator-section">http://www.w3.org/TR/components-intro/#decorator-section</a></div>
-        </blockquote>
-
-
 
         <br>
 
@@ -248,12 +241,50 @@
 </section>
 
 <section data-background="#4E2377">
+
     <section>
         <h1>Custom Elements</h1>
     </section>
+
     <section>
-        <h2>Erklärung</h2>
+        <blockquote class="align-left">
+            <p>Custom elements are new types of DOM elements that can be defined by authors. Unlike decorators, which are stateless and ephemeral, custom elements can encapsulate state and provide script interfaces.</p>
+            <div class="citation">Jens Ihlenfeld 2013 (<a href="http://www.w3.org/TR/components-intro/#decorator-section">http://www.w3.org/TR/components-intro/#custom-element-section</a>)</div>
+        </blockquote>
     </section>
+
+    <section>
+    	<h2>Code</h2>
+    	<pre><code data-trim contenteditable class="html">
+<element extends="button" name="fancy-button">
+    …
+</element>
+        </code></pre>
+    </section>
+
+    <section>
+    	<h2>Features</h2>
+    	<ul class="fa-ul">
+            <li><i class="fa-li fa fa-angle-double-right"></i>Eigene Methoden und Eigenschaften</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Lifecycle Callbacks</li>
+            <ul class="fa-ul">
+            	<li><i class="fa-li fa fa-angle-right"></i>readyCallback</li>
+            	<li><i class="fa-li fa fa-angle-right"></i>insertedCallback</li>
+            	<li><i class="fa-li fa fa-angle-right"></i>removedCallback</li>
+            </ul>
+        </ul>
+    </section>
+
+    <section>
+    	<h2>Verwendung</h2>
+    	<ul class="fa-ul">
+            <li><i class="fa-li fa fa-angle-double-right"></i>Markup im HTML</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Mit JavaScript: <q>new Element()</q></li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Erweiterbar: <q>extend</q></q></li>
+
+        </ul>
+    </section>
+
 </section>
 
 <section data-background="#3A6990">

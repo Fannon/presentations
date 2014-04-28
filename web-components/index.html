@@ -117,7 +117,7 @@
         <h2>Altbekanntes</h2>
 
         <h3>HTML5 Input Type: Range</h3>
-		<pre><code data-trim contenteditable class="html">
+		<pre><code data-trim class="html">
             <input type="range" name="points" min="1" max="10" value="7">
         </code></pre>
 
@@ -126,12 +126,12 @@
 
     <section>
         <h2>X-Tag: Sparklines</h2>
-		<pre><code data-trim contenteditable class="html">
+		<pre><code data-trim class="html">
             <x-sparkline points="3,4,5,6,5,4,5,6,7,8,7,5,9" height="100" width="300"
                          color="#AEC7F7"></x-sparkline>
         </code></pre>
         <br>
-        <x-sparkline points="3,4,5,6,5,4,5,6,7,8,7,5,9" height="100" width="300" color="#AEC7F7"></x-sparkline>
+        <x-sparkline points="3,4,5,6,5,4,5,6,7,8,7,5,9" height="100" width="300" color="#FFF"></x-sparkline>
 
         <p>
             <small><a href="https://github.com/x-tag/sparkline">https://github.com/x-tag/sparkline</a></small>
@@ -141,7 +141,7 @@
 
     <section>
         <h2>Neue Elemente "erfinden"</h2>
-						<pre><code data-trim contenteditable class="html">
+						<pre><code data-trim class="html">
                             <qr-code data="Web Components!"></qr-code>
                         </code></pre>
 
@@ -161,7 +161,7 @@
 
         <p>Wird seit Jahren von Webentwicklern gewünscht. Browserhersteller können sich nicht einigen.</p>
 
-						<pre><code data-trim contenteditable class="html">
+						<pre><code data-trim class="html">
                             <the-image mdpi="image.jpg" xhdpi="image@2X.jpg" width="300" height="200"></the-image>
                         </code></pre>
 
@@ -172,13 +172,20 @@
 
 </section>
 
-<section class="align-left">
+<section >
 
     <section>
         <h1>Übersicht</h1>
     </section>
+
     <section>
-        <h2>5 Kernkomponenten</h2>
+    	<h2>Nach den W3C Drafts</h2>
+    	<img src="img/w3c.png" alt="">
+    </section>
+
+    <section class="align-left">
+        <h2>5 Kernkomponenten<br><small align="center"><a href="http://www.w3.org/TR/components-intro/">http://www.w3.org/TR/components-intro/</a></small></h2>
+
 
         <div class="spec-list">
             <h3 class="fragment" style="background: #963924;">1. Templates</h3>
@@ -201,16 +208,16 @@
     </section>
     <section>
         <blockquote class="align-left">
-            The <q>&lt;template&gt;</q> element contains markup intended to be used later.<br>
-            The content of the <q>&lt;template&gt;</q> element is parsed by the parser, but it is inert: scripts aren't processed, images aren't downloaded, and so on. <br>
-            The <q>&lt;template&gt;</q> element is not rendered.
+            <p>The <q>&lt;template&gt;</q> element contains markup intended to be used later.</p>
+           	<p> The content of the <q>&lt;template&gt;</q> element is parsed by the parser, but it is inert: scripts aren't processed, images aren't downloaded, and so on. </p>
+            <p>The <q>&lt;template&gt;</q> element is not rendered.</p>
             <div class="citation">Jens Ihlenfeld 2013 (<a href="http://www.w3.org/TR/components-intro/#template-section">http://www.w3.org/TR/components-intro/#template-section</a>)</div>
         </blockquote>
     </section>
 
     <section>
     	<h2>Code</h2>
-    	<pre><code data-trim contenteditable class="html">
+    	<pre><code data-trim class="html">
 <template id="commentTemplate">
     <div>
         <img src="">
@@ -232,10 +239,16 @@
             <div class="citation">Jens Ihlenfeld 2013 (<a href="http://www.w3.org/TR/components-intro/#decorator-section">http://www.w3.org/TR/components-intro/#decorator-section</a>)</div>
         </blockquote>
 
+		<blockquote class="align-left">
+            <p>Decorators, unlike other parts of Web Components, do not have a specification yet. </p>
+            <div class="citation">Jens Ihlenfeld 2013 (<a href="http://www.w3.org/TR/components-intro/#decorator-section">http://www.w3.org/TR/components-intro/#decorator-section</a>)</div>
+        </blockquote>
+
+
         <br>
 
         <p>
-            Überspringen wir!
+            <i class="fa fa-angle-double-right"></i> Überspringen wir!
         </p>
     </section>
 </section>
@@ -254,8 +267,8 @@
     </section>
 
     <section>
-    	<h2>Code</h2>
-    	<pre><code data-trim contenteditable class="html">
+    	<!-- <h2>Code</h2> -->
+    	<pre><code data-trim class="html">
 <element extends="button" name="fancy-button">
     …
 </element>
@@ -278,8 +291,11 @@
     <section>
     	<h2>Verwendung</h2>
     	<ul class="fa-ul">
-            <li><i class="fa-li fa fa-angle-double-right"></i>Markup im HTML</li>
-            <li><i class="fa-li fa fa-angle-double-right"></i>Mit JavaScript: <q>new Element()</q></li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Einfach: Markup im HTML</li>
+            <ul class="fa-ul">
+            	<li><i class="fa-li fa fa-angle-right"></i>HTML ist das API!</li>
+            </ul>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Advanced: Mit JavaScript: <q>new Element()</q></li>
             <li><i class="fa-li fa fa-angle-double-right"></i>Erweiterbar: <q>extend</q></q></li>
 
         </ul>
@@ -292,17 +308,44 @@
         <h1>Shadow DOM</h1>
     </section>
     <section>
-        <h2>Erklärung</h2>
+        <blockquote class="align-left">
+            <p>Shadow DOM is an adjunct tree of DOM nodes.</p>
+            <p>These shadow DOM subtrees can be associated with an element, but do not appear as child nodes of the element. Instead the subtrees form their own scope.</p>
+            <div class="citation">Jens Ihlenfeld 2013 (<a href="http://www.w3.org/TR/components-intro/#shadow-dom-section">http://www.w3.org/TR/components-intro/#custom-element-section</a>)</div>
+        </blockquote>
+    </section>
+    <section>
+    	<img src="img/shadow-dom.png" alt="Shadow DOM Beispiel" style="width: 60%">
+    	<img src="img/shadow-dom-baum.png" alt="Shadow DOM Beispiel" style="width: 60%">
+    </section>
+    <section>
+    	<ul class="fa-ul">
+            <li><i class="fa-li fa fa-angle-double-right"></i>Element hat eigenen JavaScript und CSS Scope!</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Kann Black-Box sein, muss aber nicht</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Komplexeres Thema</li>
+        </ul>
     </section>
 </section>
 
 <section data-background="#1F8B82">
+
     <section>
         <h1>Imports</h1>
     </section>
     <section>
-        <h2>Erklärung</h2>
+        <blockquote class="align-left">
+            <p>HTML Imports are a way to include and reuse HTML documents in other HTML documents.</p>
+            <div class="citation">Dimitri Glazkov 2014 (<a href="http://www.w3.org/TR/2014/WD-html-imports-20140311/">http://www.w3.org/TR/2014/WD-html-imports-20140311/</a>)</div>
+        </blockquote>
     </section>
+
+    <section>
+    	<!-- <h2>Code</h2> -->
+    	<pre><code data-trim class="html">
+			&lt;link rel=&quot;import&quot; href=&quot;goodies.html&quot;&gt;
+        </code></pre>
+    </section>
+
 </section>
 
 <section>
@@ -386,23 +429,35 @@
     <h2>Quellenverzeichnis</h2>
     <ul class="fa-ul bibliography">
 
-        <li><i class="fa-li fa fa-file-text-o"></i>Dimitri Glazkov; Dominic Cooney (2013): Introduction to Web
+        <li>
+        	<i class="fa-li fa fa-file-text-o"></i>
+        	Dimitri Glazkov; Dominic Cooney (2013): Introduction to Web
             Components. W3C. Online verfügbar unter <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">http://www.w3.org/TR/2013/WD-components-intro-20130606/</a>,
             zuletzt geprüft am 26.04.2014.
         </li>
 
-        <li><i class="fa-li fa fa-file-text-o"></i>Dimitri Glazkov (2013): Custom Elements. W3C. Online verfügbar unter
+        <li>
+        	<i class="fa-li fa fa-file-text-o"></i>
+        	Dimitri Glazkov (2013): Custom Elements. W3C. Online verfügbar unter
             <a href="http://www.w3.org/TR/2013/WD-custom-elements-20131024/">http://www.w3.org/TR/2013/WD-custom-elements-20131024</a>,
             zuletzt geprüft am 28.04.2014.
         </li>
 
-        <li><i class="fa-li fa fa-file-text-o"></i>Jens Ihlenfeld (2013): HTML-Elemente selber bauen. Hg. v. golem.de.
-            Online verfügbar unter <a
-                    href="http://www.golem.de/news/web-components-html-elemente-selber-bauen-1305-99318.html">http://www.golem.de/news/web-components-html-elemente-selber-bauen-1305-99318.html</a>,
+		<li><i class="fa-li fa fa-file-text-o"></i>
+			Dimitri Glazkov; Hajime Morita (2014): HTML Imports. W3C. Online verfügbar unter <a href="http://www.w3.org/TR/2014/WD-html-imports-20140311/">http://www.w3.org/TR/2014/WD-html-imports-20140311/</a>, zuletzt geprüft am 28.04.2014.
+        </li>
+
+
+        <li>
+        	<i class="fa-li fa fa-file-text-o"></i>
+        	Jens Ihlenfeld (2013): HTML-Elemente selber bauen. Hg. v. golem.de. Online verfügbar unter
+        	<a href="http://www.golem.de/news/web-components-html-elemente-selber-bauen-1305-99318.html">http://www.golem.de/news/web-components-html-elemente-selber-bauen-1305-99318.html</a>,
             zuletzt aktualisiert am 17.05.2013, zuletzt geprüft am 28.04.2014.
         </li>
 
-        <li><i class="fa-li fa fa-youtube-play"></i>Rob Dodson: Web Components & The Future of the Web. Online verfügbar
+        <li>
+        	<i class="fa-li fa fa-youtube-play"></i>
+        	Rob Dodson: Web Components & The Future of the Web. Online verfügbar
             unter <a href="https://www.youtube.com/watch?v=Byux3Jfw5e8">https://www.youtube.com/watch?v=Byux3Jfw5e8</a>,
             zuletzt geprüft am 26.04.2014.
         </li>
@@ -416,6 +471,7 @@
 <!-- build:js js/app.min.js -->
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.min.js"></script>
+<!-- <script src="lib/jquery-2.1.0.min.js"></script> -->
 <script type="text/javascript" src="lib/sparkline-master/demo/x-tag-components.js"></script>
 <script type="text/javascript" src="lib/sparkline-master/src/main.js"></script>
 <script src="js/presentation.js"></script>

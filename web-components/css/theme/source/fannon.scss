@@ -1,20 +1,43 @@
 /**
- * A simple theme for reveal.js presentations, similar
- * to the default theme. The accent color is darkblue.
- *
- * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
- * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ * Fannon Theme
+ * 2014 Simon Heimler (https://github.com/Fannon/presentations)
  */
-// Default mixins and settings -----------------
+
+//////////////////////////////////////////
+//  Imports and Variables               //
+//////////////////////////////////////////
+
 @import "../template/mixins";
 @import "../template/settings";
 
+// Default Variables
+$mainFont: 'Roboto', sans-serif;
+$mainColor: #FFF;
+$headingFont: 'Roboto', sans-serif;
+$headingColor: #DDD;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #111;
+$linkColor: rgba(255, 255, 255, 0.65);
+$linkColorHover: rgba(255, 255, 255, 0.9);
+$selectionBackgroundColor: rgba(0, 0, 0, 0.5);
+
+// Layout Variables
+$border-radius: 0.2rem;
+$default-padding: 7px;
+$horizontal-padding: $default-padding*2;
+$box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $horizontal-padding;
+
+// Theme template ------------------------------
+@import "../template/theme";
 // ---------------------------------------------
 
-// Include theme-specific fonts
-// @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,700,100italic,300italic,700italic);
 
-// ROBOTO
+//////////////////////////////////////////
+// CUSTOM FONTS                         //
+//////////////////////////////////////////
+
+// Roboto
 
 @font-face {
   font-family: 'Roboto';
@@ -150,27 +173,10 @@
   font-style: normal;
 }
 
-// Override theme settings (see ../template/settings.scss)
-$mainFont: 'Roboto', sans-serif;
-$mainColor: #FFF;
-$headingFont: 'Roboto', sans-serif;
-$headingColor: #DDD;
-$headingTextShadow: none;
-$headingTextTransform: none;
-$backgroundColor: #111;
-// $linkColor: #C4EE28;
-$linkColor: rgba(255, 255, 255, 0.55);
-$linkColorHover: rgba(255, 255, 255, 0.8);
-$selectionBackgroundColor: rgba(255, 255, 255, 0.3);
+//////////////////////////////////////////
+// PRESENTATION THEME                   //
+//////////////////////////////////////////
 
-$border-radius: 3px;
-$default-padding: 7px;
-$horizontal-padding: $default-padding*2;
-$box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $horizontal-padding;
-
-// Theme template ------------------------------
-@import "../template/theme";
-// ---------------------------------------------
 
 .reveal {
 
@@ -181,7 +187,8 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
   h1 {
     font-weight: 100;
     color: rgba(255, 255, 255, 0.75);
-    margin-bottom: 0.5em;
+    margin-bottom: 1.6rem;
+    font-size: 8rem;
   }
 
   h2, h3, h4 {
@@ -196,20 +203,25 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
 
   h2 {
     text-transform: uppercase;
-    font-size: 1.8em;
+    font-size: 4rem;
     color: rgba(255, 255, 255, 0.8);
+
+    small {
+      text-transform: none;
+    }
   }
 
   h3 {
     background: rgba(255, 255, 255, 0.07);
     color: rgba(255, 255, 255, 0.9);
-    font-size: 1.3em;
+    font-size: 2.8rem;
   }
 
   h4 {
     font-weight: 100;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.07);
     color: #FFF;
+    font-size: 2.4rem;
   }
 
   a, a:hover {
@@ -225,16 +237,36 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
   }
 
   a:before {
-    content: "\f0c1";
+    content: "\f08e";
     font-family: "FontAwesome";
     margin-right: 0.3em;
     font-size: 0.75em;
-}
+  }
 
   p, ol, ul {
     font-weight: 100;
-    font-size: 1.6em;
-    line-height: 1.2em;
+    font-size: 3rem;
+    line-height: 3.6rem;
+  }
+
+  ul {
+    margin-left: 3rem;
+  }
+
+  ul ul, ul ul ul {
+    font-size: 2.2rem;
+    line-height: 2.6rem;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+
+  .fa-li {
+    top: 0.05em;
+    left: -1.1em;
+    width: 1.1em;
+    font-size: 0.9em;
   }
 
   p {
@@ -246,8 +278,7 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     font-family: RobotoSlab;
     font-style: normal;
     font-size: 0.9em;
-    // line-height: 1.5em;
-    color: #CCC;
+    color: rgba(255, 255, 255, 0.7);
   }
 
   i {
@@ -255,6 +286,12 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     font-style: normal;
     color: rgba(255, 255, 255, 0.8);
 
+  }
+
+  section img {
+    box-shadow: none;
+    border: $border-radius*2 solid rgba(255, 255, 255, 0.16);
+    border-radius: $border-radius;
   }
 
   i.bg-center {
@@ -268,10 +305,7 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     font-size: 800px;
   }
 
-  .fa-li {
-    top: 0;
-    font-size: 0.9em;
-  }
+
 
   strong {
     font-weight: 500;
@@ -282,10 +316,7 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     font-size: 0.5em;
   }
 
-  ul li {
-    list-style-type: none;
 
-  }
 
   hr {
     border: none;
@@ -302,13 +333,15 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     font-family: RobotoSlab;
     font-style: normal;
     font-weight: 100;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
     padding: $box-padding;
     margin-bottom: 0.5em;
+    overflow: hidden;
+    border-radius: $border-radius;
+    box-shadow: none;
 
-    ol, ul {
-      font-size: 1em;
+    ol, ul, p {
+      font-size: 2.4rem;
     }
 
     strong {
@@ -319,13 +352,23 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
       display: block;
       font-family: Roboto;
       text-align: right;
-      font-size: 0.7em;
-      height: 1.2em;
-      margin: 1em 0 0 0;
+      font-size: 1.4rem;
+      height: 1.5rem;
+      margin: 1rem 0 0 0;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      color: #CCC;
     }
 
+  }
+
+  blockquote:before {
+    font-family: Georgia, sans;
+    display: block;
+    content: "„";
+    font-size: 500px;
+    position: absolute;
+    top: -150px;
+    left: -36px;
+    color: rgba(255, 255, 255, 0.08);
   }
 
   code {
@@ -338,8 +381,8 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
   }
 
   .hljs {
-    font-size: 1.6em;
-    line-height: 1.2em;
+    font-size:2rem;
+    line-height: 2.2rem;
     padding: 14px;
     border-radius: $border-radius;
     width: 100%;
@@ -359,6 +402,12 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     }
   }
 
+  .align-center {
+
+    text-align: center;
+
+  }
+
   .bibliography {
 
     font-size: 0.7em;
@@ -371,6 +420,12 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
   }
 
 }
+
+
+//////////////////////////////////////////
+// LOGO STYLE                           //
+//////////////////////////////////////////
+
 
 #logo-top {
 
@@ -421,6 +476,12 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
   }
 
 }
+
+
+//////////////////////////////////////////
+// BROWSER THEMING                      //
+//////////////////////////////////////////
+
 
 ::-webkit-scrollbar {
   width: 14px;

@@ -177,12 +177,6 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
 // PRESENTATION THEME                   //
 //////////////////////////////////////////
 
-
-body {
-  font-family: Roboto;
-  font-weight: 100;
-}
-
 .reveal {
 
   h1, h2, h3, h4, h5, h6, p {
@@ -259,18 +253,24 @@ body {
   }
 
   ul ul, ul ul ul {
-    font-size: 2.2rem;
-    line-height: 2.6rem;
+    font-size: 2.4rem;
+    line-height: 2.8rem;
   }
 
   ul li {
     list-style-type: none;
+    padding: 0 0.5rem;
+  }
+
+  li:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: $border-radius;
   }
 
   .fa-li {
     top: 0.05em;
-    left: -1.1em;
-    width: 1.1em;
+    left: -1em;
+    width: 1em;
     font-size: 0.9em;
   }
 
@@ -420,15 +420,23 @@ body {
 
   .bibliography {
 
-    font-size: 0.7em;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
 
-    margin-left: 50px;
+    margin-left: 2rem;
 
     li {
-      margin-bottom: 0.75em;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-left: 0.2rem solid rgba(255, 255, 255, 0.1);
+      padding-left: 0.5rem;
+    }
+
+    .fa-li {
+      left: -3rem;
+      width: 3rem;
     }
   }
-
 }
 
 

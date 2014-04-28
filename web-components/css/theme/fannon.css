@@ -205,10 +205,6 @@ body {
   src: url("../../fonts/RobotoSlab-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../../fonts/RobotoSlab-bold-webfont.woff") format("woff"), url("../../fonts/RobotoSlab-bold-webfont.ttf") format("truetype"), url("../../fonts/RobotoSlab-bold-webfont.svg#RobotoMediumItalic") format("svg");
   font-weight: 700;
   font-style: normal; }
-body {
-  font-family: Roboto;
-  font-weight: 100; }
-
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p {
   text-shadow: none; }
 .reveal h1 {
@@ -257,14 +253,18 @@ body {
 .reveal ul {
   margin-left: 3rem; }
 .reveal ul ul, .reveal ul ul ul {
-  font-size: 2.2rem;
-  line-height: 2.6rem; }
+  font-size: 2.4rem;
+  line-height: 2.8rem; }
 .reveal ul li {
-  list-style-type: none; }
+  list-style-type: none;
+  padding: 0 0.5rem; }
+.reveal li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0.2rem; }
 .reveal .fa-li {
   top: 0.05em;
-  left: -1.1em;
-  width: 1.1em;
+  left: -1em;
+  width: 1em;
   font-size: 0.9em; }
 .reveal p {
   margin-top: 0;
@@ -358,10 +358,17 @@ body {
 .reveal .align-center {
   text-align: center; }
 .reveal .bibliography {
-  font-size: 0.7em;
-  margin-left: 50px; }
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  margin-left: 2rem; }
   .reveal .bibliography li {
-    margin-bottom: 0.75em; }
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-left: 0.2rem solid rgba(255, 255, 255, 0.1);
+    padding-left: 0.5rem; }
+  .reveal .bibliography .fa-li {
+    left: -3rem;
+    width: 3rem; }
 
 #logo-top {
   width: 100%;

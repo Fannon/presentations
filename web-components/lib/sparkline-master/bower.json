@@ -1,0 +1,17 @@
+{
+  "name": "Sparkline",
+  "description": "Displays a tiny graph of points",
+  "version": "0.1.2",
+  "keywords": [
+    "element",
+    "web-components",
+    "x-tag"
+  ],
+  "main": [
+    "src/main.js",
+    "src/main.css"
+  ],
+  "dependencies": {
+    "x-tag-core": "*"
+  }
+}

@@ -1,295 +1,410 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+    <title>reveal.js - The HTML Presentation Framework</title>
 
-		<meta name="description" content="A brief Introduction to Web Components">
-		<meta name="author" content="Simon Heimler">
+    <meta name="description" content="A brief Introduction to Web Components">
+    <meta name="author" content="Simon Heimler">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/fannon.css" id="theme">
-
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/monokai_fannon.css">
-
-		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
-		</script>
-	</head>
-
-	<body>
-
-		<!-- Logo -->
-		<div id="logo-top" class="logo">
-		    <div class="logo-left"></div>
-		    <div class="logo-right"></div>
-		    <div class="logo-1" style="overflow: hidden; left: 5.451724652232474%; width: 18.197542186244444%;"></div>
-		    <div class="logo-2" style="overflow: hidden; left: 17.738023514210347%; width: 35.95025719963371%;"></div>
-		    <div class="logo-3" style="overflow: hidden; left: 32.45847831046833%; width: 53.70577551761715%;"></div>
-		    <div class="logo-4" style="overflow: hidden; left: 72.26044234225029%; width: 27.756931045506352%;"></div>
-		</div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
-		<!-- Reveal Presentation -->
-		<div class="reveal">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/fannon.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/monokai_fannon.css">
 
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Web Components</h1>
-					<h3>Eine kurze Einführung</h3>
-					<p>
-						<small>2014 | Simon Heimler | <a href="http://www.fannon.de">www.fannon.de</a></small>
-					</p>
-					<aside class="notes">
-			        	Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-			    	</aside>
-				</section>
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome.css"/>
 
-				<section>
-
-					<section class="vertical-align">
-						<h1>Web Components?</h1>
-					</section>
-
-					<section>
-						<p>(2014)</p>
-						<p>Eine experimentelle Browser-Technologie</p>
-						<p>Aktuell in aktiver Entwicklung</p>
-						<p><em>Webentwicklung der Zukunft?</em></p>
-					</section>
-
-					<section>
-						<h2>Wozu Web Components?</h2>
-						<p>Ermöglichen es eigene HTML Elemente zu entwickeln</p>
-					</section>
-
-					<section>
-						<h2>Wer steckt dahinter?</h2>
-						<ul>
-							<li>Aktuell: W3C <strong>Draft</strong></li>
-							<li>Google Chrome ist Vorreiter, Firefox zieht nach, Internet Explorer: Wartet ab.</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>Hintergrund</h2>
-						<ul>
-						<li>Browser Hersteller </li>
-							<li>Erlaubt Webentwicklern einen tieferen Zugang zu dem Browser</li>
-							<li>Bisher war dieses Gebiet nur für Brower-Hersteller zugänglich</li>
-						</ul>
-					</section>
+    <script type="text/javascript" src="lib/sparkline-master/demo/x-tag-components.js"></script>
+    <script type="text/javascript" src="lib/sparkline-master/src/main.js"></script>
 
 
-				</section>
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
 
-				<section>
-					<section>
-						<h1>Beispiele</h1>
-					</section>
 
-					<section>
-						<h2>Altbekanntes</h2>
+</head>
+
+<body>
+
+<!-- Logo -->
+<div id="logo-top" class="logo">
+    <div class="logo-left"></div>
+    <div class="logo-right"></div>
+    <div class="logo-1" style="overflow: hidden; left: 5.451724652232474%; width: 18.197542186244444%;"></div>
+    <div class="logo-2" style="overflow: hidden; left: 17.738023514210347%; width: 35.95025719963371%;"></div>
+    <div class="logo-3" style="overflow: hidden; left: 32.45847831046833%; width: 53.70577551761715%;"></div>
+    <div class="logo-4" style="overflow: hidden; left: 72.26044234225029%; width: 27.756931045506352%;"></div>
+</div>
+
+
+<!-- Reveal Presentation -->
+<div class="reveal">
+
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section>
+    <h1>Web Components</h1>
+
+    <h2>Eine kurze Einführung</h2>
+
+    <p>
+        <small>2014 | Simon Heimler | <a href="http://www.fannon.de">www.fannon.de</a></small>
+    </p>
+    <aside class="notes">
+        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the
+        speaker notes window (hit 's' on your keyboard).
+    </aside>
+</section>
+
+<section>
+
+    <section class="vertical-align">
+        <h1>Web Components?</h1>
+    </section>
+
+    <section>
+        <p>(2014)</p>
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-angle-double-right"></i>Eine experimentelle Browser-Technologie</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Aktuell in aktiver Entwicklung</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i><em>Webentwicklung der Zukunft?</em></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Wozu Web Components?</h2>
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-angle-double-right"></i>Eigene (native) HTML Elemente definieren</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Modulare(re) Webentwicklung</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Abstraktion</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Wer steckt dahinter?</h2>
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-angle-double-right"></i>W3C: <strong>Editor's Draft</strong></li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Google Chrome ist Vorreiter, Firefox zieht nach, Internet
+                Explorer: Wartet ab.
+            </li>
+        </ul>
+    </section>
+
+</section>
+
+<section>
+    <section>
+        <h1>Beispiele</h1>
+    </section>
+
+    <section>
+        <h2>Altbekanntes</h2>
+
+        <h3>HTML5 Input Type: Range</h3>
 						<pre><code data-trim contenteditable class="html">
+                            <input type="range" name="points" min="1" max="10" value="7">
+                        </code></pre>
 
-<select>
-	<option value="volvo">Volvo</option>
-	<option value="saab">Saab</option>
-	<option value="mercedes">Mercedes</option>
-	<option value="audi">Audi</option>
-</select>
-						</code></pre>
+        <input type="range" name="points" min="1" max="10" value="7">
+    </section>
 
-						<select>
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="mercedes">Mercedes</option>
-							<option value="audi">Audi</option>
-						</select>
-					</section>
-
-
-					<section>
-						<h2>Neue Elemente "erfinden"</h2>
+    <section>
+        <h2>X-Tag: Sparklines</h2>
 						<pre><code data-trim contenteditable class="html">
-							<qr-code data="Web Components!"></qr-code>
-						</code></pre>
+                            <x-sparkline points="3,4,5,6,5,4,5,6,7,8,7,5,9" height="100" width="300"
+                                         color="#AEC7F7"></x-sparkline>
+                        </code></pre>
+        <br>
+        <x-sparkline points="3,4,5,6,5,4,5,6,7,8,7,5,9" height="100" width="300" color="#AEC7F7"></x-sparkline>
 
-						<p>
-							<img width="200px" height="200px" src="data:image/png;base64,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">
-						</p>
+        <p>
+            <small><a href="https://github.com/x-tag/sparkline">https://github.com/x-tag/sparkline</a></small>
+        </p>
+    </section>
 
-						<p class="small">
-							<a href="https://github.com/educastellano/qr-code">https://github.com/educastellano/qr-code</a>
-						</p>
 
-					</section>
+    <section>
+        <h2>Neue Elemente "erfinden"</h2>
+						<pre><code data-trim contenteditable class="html">
+                            <qr-code data="Web Components!"></qr-code>
+                        </code></pre>
 
-					<section>
-						<h2>Responsive Images?</h2>
+        <p>
+            <img width="200px" height="200px"
+                 src="data:image/png;base64,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">
+        </p>
 
-						<p>Wird seit Jahren von Webentwicklern gewünscht. Browserhersteller können sich nicht einigen.</p>
+        <p class="small">
+            <a href="https://github.com/educastellano/qr-code">https://github.com/educastellano/qr-code</a>
+        </p>
+
+    </section>
+
+    <section>
+        <h2>Responsive Images?</h2>
+
+        <p>Wird seit Jahren von Webentwicklern gewünscht. Browserhersteller können sich nicht einigen.</p>
 
 						<pre><code data-trim contenteditable class="html">
-							<the-image mdpi="image.jpg" xhdpi="image@2X.jpg" width="300" height="200"></the-image>
-						</code></pre>
+                            <the-image mdpi="image.jpg" xhdpi="image@2X.jpg" width="300" height="200"></the-image>
+                        </code></pre>
 
-						<p class="small">
-							<a href="http://the-grid.github.io/the-image/">http://the-grid.github.io/the-image</a>
-						</p>
-					</section>
+        <p class="small">
+            <a href="http://the-grid.github.io/the-image/">http://the-grid.github.io/the-image</a>
+        </p>
+    </section>
 
-				</section>
+</section>
 
-				<section class="align-left">
-					<h2>Übersicht</h2>
-			          <div class="spec-list">
-			            <h3 class="fragment" style="background: #963924;">1. Templates</h3>
-			            <h3 class="fragment" style="background: #8D1F63;">2. Decorators <small>(Noch keine Spezifikation)</small></h3>
-			            <h3 class="fragment" style="background: #4E2377;">3. Shadow DOM</h3>
-			            <h3 class="fragment" style="background: #3A6990;">4. Custom Elements</h3>
-			            <h3 class="fragment" style="background: #1F8B82;">5. Imports</h3>
-			          </div>
-		        </section>
+<section class="align-left">
 
-		        <section data-background="#963924">
-			        <section>
-			        	<h1>Templates</h1>
-			        </section>
-		        	<section>
-		        		<blockquote class="align-left">
-				          	<strong>1. Templates</strong>, which define chunks of markup that are inert but can be activated for use later.
-							<div class="citation">W3C - Introduction to Web Components</div>
-			          </blockquote>
-		        	</section>
-		        </section>
+    <section>
+        <h1>Übersicht</h1>
+    </section>
+    <section>
+        <h2>5 Kernkomponenten</h2>
 
-				<section data-background="#8D1F63">
-			        <section>
-			        	<h1>Decorators</h1>
+        <div class="spec-list">
+            <h3 class="fragment" style="background: #963924;">1. Templates</h3>
 
-			        </section>
-		        	<section>
-		        		<blockquote class="align-left">
-				          	<strong>2. Decorators</strong>, which apply templates based on CSS selectors to affect rich visual and behavioral changes to documents.
-							<div class="citation">W3C - Introduction to Web Components</div>
-			          </blockquote>
+            <h3 class="fragment" style="background: #8D1F63;">2. Decorators
+                <small>(<em>Noch keine Spezifikation</em>)</small>
+            </h3>
+            <h3 class="fragment" style="background: #4E2377;">3. Shadow DOM</h3>
 
-			          <br>
-			          <p>
-			          	Überspringen wir!
-			          </p>
-		        	</section>
-		        </section>
+            <h3 class="fragment" style="background: #3A6990;">4. Custom Elements</h3>
 
-		        <section data-background="#4E2377">
-			        <section>
-			        	<h1>Custom Elements</h1>
-			        </section>
-		        	<section>
-		        		<h2>Erklärung</h2>
-		        	</section>
-		        </section>
+            <h3 class="fragment" style="background: #1F8B82;">5. Imports</h3>
+        </div>
+    </section>
+</section>
 
-		        <section data-background="#3A6990">
-			        <section>
-			        	<h1>Shadow DOM</h1>
-			        </section>
-		        	<section>
-		        		<h2>Erklärung</h2>
-		        	</section>
-		        </section>
+<section data-background="#963924">
+    <section>
+        <h1>Templates</h1>
+    </section>
+    <section>
+        <blockquote class="align-left">
+            <strong>1. Templates</strong>, which define chunks of markup that are inert but can be activated for use
+            later.
+            <div class="citation">W3C - Introduction to Web Components</div>
+        </blockquote>
+    </section>
+</section>
 
-		        <section data-background="#1F8B82">
-			        <section>
-			        	<h1>Imports</h1>
-			        </section>
-		        	<section>
-		        		<h2>Erklärung</h2>
-		        	</section>
-		        </section>
+<section data-background="#8D1F63">
+    <section>
+        <h1>Decorators</h1>
 
-		        <section>
-					<h1>Aussicht</h1>
-				</section>
+    </section>
+    <section>
+        <blockquote class="align-left">
+            <strong>2. Decorators</strong>, which apply templates based on CSS selectors to affect rich visual and
+            behavioral changes to documents.
+            <div class="citation">W3C - Introduction to Web Components</div>
+        </blockquote>
+
+        <br>
+
+        <p>
+            Überspringen wir!
+        </p>
+    </section>
+</section>
+
+<section data-background="#4E2377">
+    <section>
+        <h1>Custom Elements</h1>
+    </section>
+    <section>
+        <h2>Erklärung</h2>
+    </section>
+</section>
+
+<section data-background="#3A6990">
+    <section>
+        <h1>Shadow DOM</h1>
+    </section>
+    <section>
+        <h2>Erklärung</h2>
+    </section>
+</section>
+
+<section data-background="#1F8B82">
+    <section>
+        <h1>Imports</h1>
+    </section>
+    <section>
+        <h2>Erklärung</h2>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h1>Hintergrund</h1>
+    </section>
+    <section>
+        <h2>Problem</h2>
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-angle-double-right"></i>Browser Hersteller sind sehr langsam in der Entwicklung
+                neuer Standards
+            </li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Community ist meist schneller und iterativer (jQuery)</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Die besten Lösungen setzen sich durch</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Lösung</h2>
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-angle-double-right"></i>Browser Hersteller erlauben Entwickleren tieferen Zugang
+                (low level) zum Browser
+            </li>
+            <li><i class="fa-li fa fa-angle-double-right"></i></li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Webentwickler können Features entwickeln bevor sie von den
+                Browser Herstellern unterstützt werden
+            </li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Browser Hersteller können dann etablierte Standards
+                übernehmen und optimieren
+            </li>
+        </ul>
+        <aside class="notes">Shadow DOM: Bisher nur Browser-Herstellern zugänglich!</aside>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h1>Aussicht</h1>
+    </section>
+    <section>
+        <h2>Etablierter Standard</h2>
+
+        <p>Warten auf...</p>
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-spinner fa-spin"></i>Standard definiert</li>
+            <li><i class="fa-li fa fa-spinner fa-spin"></i>W3C Recommendation</li>
+            <li><i class="fa-li fa fa-spinner fa-spin"></i>Browser Support</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Bis dahin...</h2>
+
+        <p>Polyfills!</p>
+    </section>
+    <section>
+        <img src="img/polymer.png" alt="" style="width: 100%; height: auto;">
+    </section>
+    <section>
+        <img src="img/x-tags.png" alt="" style="width: 100%; height: auto;">
+    </section>
+</section>
 
 
-				<section>
-					<h1>Fragen?</h1>
-				</section>
+<section>
+    <h1>Fragen?</h1>
 
-				<section class="bibliography">
-					<h2>Quellenverzeichnis</h2>
-					<ul>
-						<li>Dimitri Glazkov; Dominic Cooney (2013): Introduction to Web Components. W3C. Online verfügbar unter <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">http://www.w3.org/TR/2013/WD-components-intro-20130606/</a>, zuletzt geprüft am 26.04.2014.
-						</li>
-						<li>Rob Dodson: Web Components & The Future of the Web. Online verfügbar unter <a href="https://www.youtube.com/watch?v=Byux3Jfw5e8">https://www.youtube.com/watch?v=Byux3Jfw5e8</a>, zuletzt geprüft am 26.04.2014.
-						</li>
-					</ul>
-				</section>
+    <p>
+        <i class="fa fa-comments-o bg-center"></i>
+    </p>
+</section>
 
-			</div>
+<section>
+    <h2>Quellenverzeichnis</h2>
+    <ul class="fa-ul bibliography">
 
-		</div>
+        <li><i class="fa-li fa fa-file-text-o"></i>Dimitri Glazkov; Dominic Cooney (2013): Introduction to Web
+            Components. W3C. Online verfügbar unter <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">http://www.w3.org/TR/2013/WD-components-intro-20130606/</a>,
+            zuletzt geprüft am 26.04.2014.
+        </li>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
-		<script src="js/presentation.js"></script>
+        <li><i class="fa-li fa fa-file-text-o"></i>Dimitri Glazkov (2013): Custom Elements. W3C. Online verfügbar unter
+            <a href="http://www.w3.org/TR/2013/WD-custom-elements-20131024/">http://www.w3.org/TR/2013/WD-custom-elements-20131024</a>,
+            zuletzt geprüft am 28.04.2014.
+        </li>
 
-		<script>
+        <li><i class="fa-li fa fa-file-text-o"></i>Jens Ihlenfeld (2013): HTML-Elemente selber bauen. Hg. v. golem.de.
+            Online verfügbar unter <a
+                    href="http://www.golem.de/news/web-components-html-elemente-selber-bauen-1305-99318.html">http://www.golem.de/news/web-components-html-elemente-selber-bauen-1305-99318.html</a>,
+            zuletzt aktualisiert am 17.05.2013, zuletzt geprüft am 28.04.2014.
+        </li>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+        <li><i class="fa-li fa fa-youtube-play"></i>Rob Dodson: Web Components & The Future of the Web. Online verfügbar
+            unter <a href="https://www.youtube.com/watch?v=Byux3Jfw5e8">https://www.youtube.com/watch?v=Byux3Jfw5e8</a>,
+            zuletzt geprüft am 26.04.2014.
+        </li>
 
-				width: 1280,
-				height: 720,
+    </ul>
+</section>
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+</div>
 
-				// transitionSpeed: 'normal',
+</div>
 
-				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
-				backgroundTransition: 'slide', // default/none/slide/concave/convex/zoom
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+<script src="js/presentation.js"></script>
 
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'img/bg.jpg',
-				// parallaxBackgroundSize: '1920px 1080px',
+<script>
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
 
-				]
-			});
+        width: 1280,
+        height: 720,
 
-		</script>
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 
-	</body>
+        // transitionSpeed: 'normal',
+
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        backgroundTransition: 'slide', // default/none/slide/concave/convex/zoom
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'img/bg.jpg',
+        // parallaxBackgroundSize: '1920px 1080px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() {
+                return !document.body.classList;
+            } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+                hljs.initHighlightingOnLoad();
+            } },
+            // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() {
+                return !!document.body.classList;
+            } },
+            // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+
+        ]
+    });
+
+</script>
+
+</body>
 </html>

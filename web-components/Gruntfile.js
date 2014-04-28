@@ -121,7 +121,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-zip' );
 
 	// Default task
-	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify'] );
+	grunt.registerTask( 'build', [ 'jshint', 'cssmin', 'uglify'] );
 
 	// Theme task
 	grunt.registerTask( 'themes', [ 'sass' ] );
@@ -130,7 +130,7 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'package', [ 'default', 'zip' ] );
 
 	// Serve presentation locally
-	grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
+	grunt.registerTask( 'default', [ 'connect', 'watch' ] );
 
 	// Run tests
 	grunt.registerTask( 'test', [ 'jshint', 'qunit' ] );

@@ -1,0 +1,36 @@
+{
+	"name": "Sparkline",
+	"tagName": "x-sparkline",
+	"version": "0.1.2",
+	"author": "Arron Schaar",
+	"description": "Displays a sparkline",
+	"demo": "demo/index.html",
+	"categories": [],
+	"compatibility": {
+		"firefox": 5,
+		"chrome": 4,
+		"ie": 9,
+		"opera": 12,
+		"android": 2.1,
+		"ios": 4
+	},
+	"documentation": {
+		"description": "",
+		"attributes": {
+			"height": "Height of sparkline",
+			"width": "Width of sparkline"
+		},
+		"events": {},
+		"methods": {},
+		"getters": {
+			"points": "Gets the array of data points.",
+			"height": "Gets height",
+			"width": "Gets width"
+		},
+		"setters": {
+			"points": "Sets array of data points",
+			"height": "Sets height",
+			"width": "Sets width"
+		}
+	}
+}

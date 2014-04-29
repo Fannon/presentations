@@ -246,6 +246,10 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     font-weight: 100;
     font-size: 3rem;
     line-height: 3.6rem;
+
+    strong {
+      font-weight: 300;
+    }
   }
 
   ul {
@@ -276,7 +280,7 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
 
   p {
     margin-top: 0;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.4em;
   }
 
   q {
@@ -293,12 +297,6 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
 
   }
 
-  section img {
-    box-shadow: none;
-    border: $border-radius*2 solid rgba(255, 255, 255, 0.16);
-    border-radius: $border-radius;
-  }
-
   i.bg-center {
     position: fixed;
     z-index: -999;
@@ -309,6 +307,25 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     margin-left: -400px;
     color: rgba(255, 255, 255, 0.10);
     font-size: 800px;
+  }
+
+  i.bg-bottom {
+    position: fixed;
+    z-index: -999;
+    bottom: 0;
+    left: 50%;
+
+    margin-bottom: -150px;
+    margin-left: -110px;
+    color: rgba(255, 255, 255, 0.10);
+    font-size: 300px;
+  }
+
+
+  section img {
+    box-shadow: none;
+    border: $border-radius*2 solid rgba(255, 255, 255, 0.16);
+    border-radius: $border-radius;
   }
 
   strong {
@@ -337,9 +354,11 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
   blockquote {
 
     width: 90%;
+
     font-family: RobotoSlab;
     font-style: normal;
     font-weight: 100;
+
     background: rgba(255, 255, 255, 0.08);
     padding: $box-padding;
     margin-bottom: 0.5em;
@@ -349,6 +368,7 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
 
     ol, ul, p {
       font-size: 2.4rem;
+      line-height: 2.8rem;
     }
 
     strong {
@@ -368,23 +388,42 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
   }
 
   blockquote:before {
+    position: absolute;
+    top: -150px;
+    left: -36px;
+    z-index: -999;
     font-family: Georgia, sans;
     display: block;
     content: "„";
     font-size: 500px;
-    position: absolute;
-    top: -150px;
-    left: -36px;
     color: rgba(255, 255, 255, 0.08);
+
+  }
+
+  pre {
+    width: 100%;
+    box-shadow: none;
   }
 
   code {
     font-family: Consolas, monospace
   }
 
-  pre {
-    width: 100%;
-    box-shadow: none;
+  figure {
+
+    margin-bottom: 0.8rem;
+
+    img {
+      margin: 0;
+    }
+
+    figcaption {
+      font-family: Roboto;
+      font-weight: 100;
+      font-size: 1.6rem;
+      line-height: 1.6rem;
+      margin-top: -0.2rem;
+    }
   }
 
   .hljs { // Highlight.js
@@ -432,6 +471,11 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
       width: 3rem;
     }
   }
+
+  .slides>section, .slides>section>section {
+    padding: 0.2rem 0;
+  }
+
 }
 
 

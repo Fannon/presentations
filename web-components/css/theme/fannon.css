@@ -250,6 +250,8 @@ body {
   font-weight: 100;
   font-size: 3rem;
   line-height: 3.6rem; }
+  .reveal p strong, .reveal ol strong, .reveal ul strong {
+    font-weight: 300; }
 .reveal ul {
   margin-left: 3rem; }
 .reveal ul ul, .reveal ul ul ul {
@@ -268,7 +270,7 @@ body {
   font-size: 0.9em; }
 .reveal p {
   margin-top: 0;
-  margin-bottom: 0.5em; }
+  margin-bottom: 0.4em; }
 .reveal q {
   font-family: RobotoSlab;
   font-style: normal;
@@ -278,10 +280,6 @@ body {
   font-family: 'FontAwesome';
   font-style: normal;
   color: rgba(255, 255, 255, 0.8); }
-.reveal section img {
-  box-shadow: none;
-  border: 0.4rem solid rgba(255, 255, 255, 0.16);
-  border-radius: 0.2rem; }
 .reveal i.bg-center {
   position: fixed;
   z-index: -999;
@@ -291,6 +289,19 @@ body {
   margin-left: -400px;
   color: rgba(255, 255, 255, 0.1);
   font-size: 800px; }
+.reveal i.bg-bottom {
+  position: fixed;
+  z-index: -999;
+  bottom: 0;
+  left: 50%;
+  margin-bottom: -150px;
+  margin-left: -110px;
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 300px; }
+.reveal section img {
+  box-shadow: none;
+  border: 0.4rem solid rgba(255, 255, 255, 0.16);
+  border-radius: 0.2rem; }
 .reveal strong {
   font-weight: 500; }
 .reveal small {
@@ -317,7 +328,8 @@ body {
   border-radius: 0.2rem;
   box-shadow: none; }
   .reveal blockquote ol, .reveal blockquote ul, .reveal blockquote p {
-    font-size: 2.4rem; }
+    font-size: 2.4rem;
+    line-height: 2.8rem; }
   .reveal blockquote strong {
     font-weight: 300; }
   .reveal blockquote .citation {
@@ -329,19 +341,30 @@ body {
     margin: 1rem 0 0 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1); }
 .reveal blockquote:before {
+  position: absolute;
+  top: -150px;
+  left: -36px;
+  z-index: -999;
   font-family: Georgia, sans;
   display: block;
   content: "„";
   font-size: 500px;
-  position: absolute;
-  top: -150px;
-  left: -36px;
   color: rgba(255, 255, 255, 0.08); }
-.reveal code {
-  font-family: Consolas, monospace; }
 .reveal pre {
   width: 100%;
   box-shadow: none; }
+.reveal code {
+  font-family: Consolas, monospace; }
+.reveal figure {
+  margin-bottom: 0.8rem; }
+  .reveal figure img {
+    margin: 0; }
+  .reveal figure figcaption {
+    font-family: Roboto;
+    font-weight: 100;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    margin-top: -0.2rem; }
 .reveal .hljs {
   font-size: 2rem;
   line-height: 2.2rem;
@@ -369,6 +392,8 @@ body {
   .reveal .bibliography .fa-li {
     left: -3rem;
     width: 3rem; }
+.reveal .slides > section, .reveal .slides > section > section {
+  padding: 0.2rem 0; }
 
 #logo-top {
   width: 100%;

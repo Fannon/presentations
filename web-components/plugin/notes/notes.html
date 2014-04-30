@@ -12,11 +12,18 @@
 				background: #000;
 			}
 
+			hr {
+				clear: both;
+				color: #555;
+				border-color: #555;
+			}
+
 			#notes {
 				font-size: 28px;
 				width: 960px;
 				margin-top: 5px;
-				clear: left;
+				clear: both;
+				padding: 0.5em 1em;
 			}
 
 			#wrap-current-slide {
@@ -47,16 +54,16 @@
 			}
 
 			#wrap-next-slide {
-				width: 640px;
-				height: 360px;
+				width: 320px;
+				height: 180px;
 				float: left;
 				overflow: hidden;
 				border: 1px solid #555;
 			}
 
 			#next-slide {
-				width: 1280px;
-				height: 720px;
+				width: 640px;
+				height: 360px;
 				border: none;
 
 				-webkit-transform-origin: 0 0;
@@ -102,7 +109,7 @@
 			}
 
 			.time {
-				width: 320px;
+				/*width: 320px;*/
 				margin: 5px 8px 0 10px;
 				float: right;
 				text-align: right;
@@ -117,10 +124,10 @@
 			.elapsed,
 			.clock {
 				color: #CCC;
-				font-size: 2em;
+				font-size: 1.8em;
 				text-align: center;
 				display: inline-block;
-				padding: 0.5em;
+				padding: 0.4em;
 				background-color: #222;
 				border-radius: 10px;
 			}
@@ -150,6 +157,7 @@
 			var notesNextSlideURL = getNotesURL( false );
 		</script>
 
+
 		<div id="wrap-current-slide" class="slides">
 			<script>document.write( '<iframe width="1280" height="720" id="current-slide" src="'+ notesCurrentSlideURL +'"></iframe>' );</script>
 		</div>
@@ -169,6 +177,8 @@
 				<span id="hours">00</span><span id="minutes">:00</span><span id="seconds">:00</span>
 			</div>
 		</div>
+
+		<hr>
 
 		<div id="notes"></div>
 

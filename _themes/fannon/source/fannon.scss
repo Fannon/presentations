@@ -17,7 +17,7 @@ $headingFont: 'Roboto', sans-serif;
 $headingColor: #DDD;
 $headingTextShadow: none;
 $headingTextTransform: none;
-$backgroundColor: #111;
+$backgroundColor: #151515;
 $linkColor: rgba(255, 255, 255, 0.65);
 $linkColorHover: rgba(255, 255, 255, 0.9);
 $selectionBackgroundColor: rgba(0, 0, 0, 0.5);
@@ -27,6 +27,8 @@ $border-radius: 0.2rem;
 $default-padding: 7px;
 $horizontal-padding: $default-padding*2;
 $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $horizontal-padding;
+
+$transition-time: 0.35s;
 
 // Theme template ------------------------------
 @import "../template/theme";
@@ -188,6 +190,7 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     color: rgba(255, 255, 255, 0.75);
     margin-bottom: 1.6rem;
     font-size: 8rem;
+    line-height: 7rem;
   }
 
   h2, h3, h4 {
@@ -224,7 +227,6 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
   }
 
   a, a:hover {
-
     display: inline-block;
     padding: 0 0.2em;
     // border-bottom: 1px dotted rgba(255, 255, 255, 0.3) !important;
@@ -233,6 +235,7 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
 
   a:hover {
     background: rgba(255, 255, 255, 0.1);
+    transition: all $transition-time ease-in-out;
   }
 
   a:before {
@@ -240,6 +243,53 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     font-family: "FontAwesome";
     margin-right: 0.3em;
     font-size: 0.75em;
+  }
+
+  .preview-link-overlay {
+
+    color: rgba(0, 0, 0, 0.25);
+
+    header {
+      padding-top: 4px;
+      margin-right: 50px;
+      height: 28px;
+      border-bottom: rgba(255, 255, 255, 0.25);
+
+      a:before {
+        content: none;
+      }
+
+      a.external, a.close {
+
+        font-family: FontAwesome;
+        font-size: 20px;
+
+        height: 28px;
+        width: 28px;
+        padding: 0 8px 0 0;
+
+        .icon {
+          height: 28px;
+          width: 28px;
+          background-image: none;
+        }
+
+      }
+
+      a.external .icon:after {
+        content: "\f14c";
+      }
+
+      a.close .icon:after {
+        content: "\f00d";
+      }
+
+    }
+
+    .viewport {
+      top: 28px;
+    }
+
   }
 
   p, ol, ul {
@@ -269,6 +319,7 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
   li:hover {
     background: rgba(255, 255, 255, 0.08);
     border-radius: $border-radius;
+    transition: all $transition-time ease-in-out;
   }
 
   .fa-li {
@@ -476,6 +527,13 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
     padding: 0.2rem 0;
   }
 
+  .slide-number {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.25rem 0.5rem;
+    border-radius: $border-radius;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
 }
 
 
@@ -539,7 +597,7 @@ $box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $hor
 // BROWSER THEMING                      //
 //////////////////////////////////////////
 
-
+// CHROME
 ::-webkit-scrollbar {
   width: 14px;
   height: 14px;

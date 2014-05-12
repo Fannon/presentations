@@ -220,7 +220,7 @@ body {
   padding: 14px;
   width: 100%;
   border-radius: 0.2rem;
-  margin: 0.5em 0; }
+  margin: 0 0 1rem 0; }
 .reveal h2 {
   text-transform: uppercase;
   font-size: 4rem;
@@ -276,7 +276,7 @@ body {
 .reveal p, .reveal ol, .reveal ul {
   font-weight: 100;
   font-size: 3rem;
-  line-height: 3.6rem; }
+  line-height: 3.4rem; }
   .reveal p strong, .reveal ol strong, .reveal ul strong {
     font-weight: 300; }
 .reveal ul {
@@ -286,7 +286,8 @@ body {
   line-height: 2.8rem; }
 .reveal ul li {
   list-style-type: none;
-  padding: 0 0.5rem; }
+  padding: 0 0.5rem 0;
+  margin-bottom: 0.5rem; }
 .reveal li:hover {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 0.2rem;
@@ -300,10 +301,27 @@ body {
   margin-top: 0;
   margin-bottom: 0.4em; }
 .reveal q {
-  font-family: RobotoSlab;
+  font-family: Consolas, monaco, monospace;
+  font-weight: 300;
   font-style: normal;
   font-size: 0.9em;
-  color: rgba(255, 255, 255, 0.7); }
+  background: rgba(0, 0, 0, 0.08);
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 0.2rem;
+  padding: 0 0.2em; }
+.reveal pre {
+  width: 100%;
+  box-shadow: none; }
+.reveal code {
+  font-family: Consolas, monaco, monospace;
+  font-weight: 400; }
+.reveal .hljs {
+  font-size: 2rem;
+  line-height: 2.2rem;
+  padding: 14px;
+  border-radius: 0.2rem;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75); }
 .reveal i {
   font-family: 'FontAwesome';
   font-style: normal;
@@ -314,9 +332,9 @@ body {
   top: 50%;
   left: 50%;
   margin-top: -40px;
-  margin-left: -400px;
+  margin-left: -320px;
   color: rgba(255, 255, 255, 0.1);
-  font-size: 800px; }
+  font-size: 640px; }
 .reveal i.bg-bottom {
   position: fixed;
   z-index: -999;
@@ -333,7 +351,7 @@ body {
 .reveal strong {
   font-weight: 500; }
 .reveal small {
-  vertical-align: bottom;
+  vertical-align: middle;
   font-size: 1.6rem;
   line-height: 1.8rem; }
 .reveal small * {
@@ -358,7 +376,7 @@ body {
   .reveal blockquote ol, .reveal blockquote ul, .reveal blockquote p {
     font-size: 2.4rem;
     line-height: 2.8rem; }
-  .reveal blockquote strong {
+  .reveal blockquote strong, .reveal blockquote b {
     font-weight: 300; }
   .reveal blockquote .citation {
     display: block;
@@ -378,11 +396,6 @@ body {
   content: "„";
   font-size: 500px;
   color: rgba(255, 255, 255, 0.08); }
-.reveal pre {
-  width: 100%;
-  box-shadow: none; }
-.reveal code {
-  font-family: Consolas, monospace; }
 .reveal figure {
   margin-bottom: 0.8rem; }
   .reveal figure img {
@@ -393,13 +406,6 @@ body {
     font-size: 1.6rem;
     line-height: 1.6rem;
     margin-top: -0.2rem; }
-.reveal .hljs {
-  font-size: 2rem;
-  line-height: 2.2rem;
-  padding: 14px;
-  border-radius: 0.2rem;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.75); }
 .reveal .align-left {
   text-align: left; }
   .reveal .align-left h1, .reveal .align-left h2 {
@@ -413,8 +419,7 @@ body {
   line-height: 1.8rem;
   margin-left: 2rem; }
   .reveal .bibliography li {
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     border-left: 0.2rem solid rgba(255, 255, 255, 0.1);
     padding-left: 0.5rem; }
   .reveal .bibliography .fa-li {

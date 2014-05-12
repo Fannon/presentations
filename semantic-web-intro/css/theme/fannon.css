@@ -212,7 +212,7 @@ body {
   color: rgba(255, 255, 255, 0.75);
   margin-bottom: 1.6rem;
   font-size: 8rem;
-  line-height: 7rem; }
+  line-height: 8rem; }
 .reveal h2, .reveal h3, .reveal h4 {
   font-weight: 300;
   display: block;
@@ -290,10 +290,6 @@ body {
   list-style-type: none;
   padding: 0 0.5rem 0;
   margin-bottom: 0.5rem; }
-.reveal li:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 0.2rem;
-  transition: all 0.35s ease-in-out; }
 .reveal .fa-li {
   top: 0.05em;
   left: -1em;

@@ -59,7 +59,7 @@
         <section>
             <h1>Semantic Web<br>Linked Data</h1>
 
-            <h2>Kurz und pragmatisch</h2>
+            <h2>Kurze Einführung</h2>
 
             <p>
                 <small class="faded">
@@ -197,13 +197,14 @@
             </section>
 
             <section>
-                <h2>Verlinkte Web-Dokumente</h2>
+                <h2>Webseiten</h2>
+                <h4>Verlinkung von <em>Dokumenten</em></h4>
                 <img src="img/Websites.svg" class="clean" width="70%">
             </section>
 
             <section>
                 <h2>Semantic Web</h2>
-                <h3>Verlinkung von <em>Informationen</em></h3>
+                <h4>Verlinkung von <em>Informationen</em></h4>
                 <img src="img/SemWeb_1.svg" class="clean" width="60%">
             </section>
 
@@ -239,22 +240,30 @@
             <section>
                 <h2>Beispiel: Klassisches Web</h2>
                 <pre><code data-trim class="html">
-                    Der Semantic Web Workshop beginnt am 8. Mai um 19:30.
+                    Der Semantic Web Workshop beginnt am 8. Mai um 9:30.
                 </code></pre>
                  <ul class="fa-ul">
                     <li><i class="fa-li fa fa-check-square-o"></i>Menschenlesbar</li>
                     <li><i class="fa-li fa fa-square-o"></i>Maschinenlesbar</li>
                 </ul>
+            </section>
 
+            <section>
+                <h2>Achtung Code!</h2>
+                <img src="img/cat.gif" width="50%">
             </section>
 
             <section>
                 <h2>Beispiel: Semantic Web</h2>
                 <pre><code data-trim class="html">
 <div itemscope itemtype="http://schema.org/Event">
-  <div itemprop="name">Semantic Web Workshop</div>
-  <time itemprop="startDate" datetime="2011-05-08T19:30">8. Mai, 19:30</time>
+    Der <div itemprop="name">Semantic Web Workshop</div> beginnt am
+    <time itemprop="startDate" datetime="2011-05-08T09:30">8. Mai um 9:30.</time>
 </div>
+                </code></pre>
+
+                 <pre><code data-trim class="html">
+                    Der Semantic Web Workshop beginnt am 8. Mai um 9:30.
                 </code></pre>
                 <ul class="fa-ul">
                     <li><i class="fa-li fa fa-check-square-o"></i>Menschenlesbar</li>
@@ -269,20 +278,30 @@
 
             <section>
                 <h2>Große semantische Datenbanken</h2>
-                <h2>DbPedia</h3>
+                <figure class="zoomTarget">
+                    <img src="img/dbpedia.png">
+                    <figcaption>
+                        <small><a href="http://dbpedia.org/About">dbpedia.org/About</a></small>
+                    </figcaption>
+                </figure>
             </section>
 
             <section>
-                <h2>Global Knowledge Graph</h2>
-                <h3>Verknüfung vieler semantischer Datenbanken</h3>
+                <h2>Linking Open Data cloud</h2>
+                <figure class="zoomTarget">
+                    <img src="img/lod-cloud_colored.png">
+                    <figcaption>
+                        <small><a href="http://lod-cloud.net/">lod-cloud.net/</a></small>
+                    </figcaption>
+                </figure>
             </section>
 
-            <section>
+            <!-- <section>
                 <h2>Digital Brain</h2>
                 <h3>Google Deep Thought</h3>
                 <h3>IBM Deep Blue</h2>
                 <h3>Semantische Suchmaschinen / Agenten</h3>
-            </section>
+            </section> -->
 
             <section>
                 <h1>Komplex?</h1>
@@ -311,28 +330,33 @@
 
             <section>
                 <h1>SEO</h1>
-                <h3>Maschinenlesbare Webseiten</h3>
             </section>
 
             <section>
-                <h2>Kommunikation</h2>
-                <h3>Vokabular und Konzept</h3>
+
+                <h2>Maschinenlesbare Webseiten</h2>
+                <h3>Vokabular und Konzept:</h3>
                 <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Google, Yahoo, etc.: <a href="http://schema.org">schema.org</a></li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Facebook: OpenGraph</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Google, Yahoo, MS, etc.: <a href="http://schema.org">schema.org</a></li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Facebook: <a href="https://developers.facebook.com/docs/opengraph">OpenGraph</a></li>
                 </ul>
             </section>
 
             <section>
+                <figure class="zoomTarget">
+                    <img src="img/schema-org.png" width="100%">
+                    <figcaption>
+                        <small><a href="http://schema.org/Event">schema.org/Event</a></small>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section>
                 <h1>Daten-Annotation</h1>
-                <h3>Standardkonform</h3>
-                <h3>Selbstbeschreibende Daten</h3>
-                <h3>APIs</h3>
             </section>
 
             <section>
                 <h1>Daten-Aggregation</h1>
-                <h3>Standardkonform</h3>
             </section>
 
             <section>
@@ -340,13 +364,7 @@
             </section>
 
             <section>
-                <h1>Intelligente Wissensverwaltung</h1>
-            </section>
-
-            <section>
                 <h1>Künstliche Intelligenz</h1>
-                <h3>Intelligente Wissensagenten</h3>
-                <h3>Expertensysteme</h3>
             </section>
 
             <section>
@@ -406,8 +424,10 @@
 
             <section>
                 <h2>SPARQL</h2>
-                <h3>Graphenbasierte Query-Language</h3>
-                <h3>Datenbank hat standardkonformen RESTful Webservice</h3>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Graphenbasierte Query-Language</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Standardkonformer RESTful Webservice</li>
+                </ul>
             </section>
 
 
@@ -460,46 +480,21 @@
 
 
         <section>
-            <h2>Quellenverzeichnis</h2>
+            <h2>Empfehlungen</h2>
             <ul class="fa-ul bibliography">
 
                 <li>
-                    <i class="fa-li fa fa-file-text-o"></i>
-                    Dimitri Glazkov; Dominic Cooney (2013): Introduction to Web Components. W3C. Online verfügbar unter
-                    <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">http://www.w3.org/TR/2013/WD-components-intro-20130606/</a>,
-                    zuletzt geprüft am 26.04.2014.
-                </li>
-
-                <li>
-                    <i class="fa-li fa fa-file-text-o"></i>
-                    Dimitri Glazkov (2013): Custom Elements. W3C. Online verfügbar unter
-                    <a href="http://www.w3.org/TR/2013/WD-custom-elements-20131024/">http://www.w3.org/TR/2013/WD-custom-elements-20131024</a>,
-                    zuletzt geprüft am 28.04.2014.
-                </li>
-
-                <li><i class="fa-li fa fa-file-text-o"></i>
-                    Dimitri Glazkov; Hajime Morita (2014): HTML Imports. W3C. Online verfügbar unter <a href="http://www.w3.org/TR/2014/WD-html-imports-20140311/">http://www.w3.org/TR/2014/WD-html-imports-20140311/</a>, zuletzt geprüft am 28.04.2014.
-                </li>
-
-
-                <li>
-                    <i class="fa-li fa fa-file-text-o"></i>
-                    Jens Ihlenfeld (2013): HTML-Elemente selber bauen. Hg. v. golem.de. Online verfügbar unter
-                    <a href="http://www.golem.de/news/web-components-html-elemente-selber-bauen-1305-99318.html">http://www.golem.de/news/web-components-html-elemente-selber-bauen-1305-99318.html</a>,
-                    zuletzt aktualisiert am 17.05.2013, zuletzt geprüft am 28.04.2014.
+                    <i class="fa-li fa fa-youtube-play"></i>
+                    Tim Berners-Lee - The next Web (2009)
+                    <a href="http://www.ted.com/talks/tim_berners_lee_on_the_next_web">http://www.ted.com/talks/tim_berners_lee_on_the_next_web</a>
                 </li>
 
                 <li>
                     <i class="fa-li fa fa-youtube-play"></i>
-                    Rob Dodson: Web Components & The Future of the Web. Online verfügbar
-                    unter <a href="https://www.youtube.com/watch?v=Byux3Jfw5e8">https://www.youtube.com/watch?v=Byux3Jfw5e8</a>,
-                    zuletzt geprüft am 26.04.2014.
+                    Manuel Sporny - What is Linked Data? (2013)
+                    <a href="http://www.youtube.com/watch?v=4x_xzT5eF5Q">http://www.youtube.com/watch?v=4x_xzT5eF5Q</a>
                 </li>
-                <li>
-                    <i class="fa-li fa fa-youtube-play"></i>
-                    Eric Bidelman (2013): Web Components: A Tectonic Shift for Web Development. Google I/O 2013. Online verfügbar unter <a href="https://www.youtube.com/watch?v=fqULJBBEVQE">https://www.youtube.com/watch?v=fqULJBBEVQE</a>, zuletzt geprüft am 01.05.2014.
 
-                </li>
 
             </ul>
         </section>
@@ -536,7 +531,8 @@
         history: true,
         center: true,
         slideNumber: true,
-        previewLinks: true,
+
+        // previewLinks: true,
 
 
         width: 1280,

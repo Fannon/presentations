@@ -59,7 +59,7 @@
         <section>
             <h1>Semantic Web<br>Linked Data</h1>
 
-            <h2>Eine pragmatische Einführung</h2>
+            <h2>Kurz und pragmatisch</h2>
 
             <p>
                 <small class="faded">
@@ -75,9 +75,12 @@
             </aside>
         </section>
 
+
         <section class="align-left">
             <h2>Übersicht</h2>
             <div class="spec-list">
+                <h3 class="fragment">0. Einführung</h3>
+
                 <h3 class="fragment">1. Was ist das Semantic Web?</h3>
 
                 <h3 class="fragment">2. Anwendungsgebiete</h3>
@@ -87,6 +90,81 @@
                 <h3 class="fragment">4. Ausblick</h3>
             </div>
         </section>
+
+        <section>
+            <section>
+                <h1>Einführung</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+            </section>
+
+            <section>
+                <h2>Das "alte" Web</h2>
+                <img src="img/bank.png" alt="" width="70%">
+            </section>
+
+            <section>
+                <h1>Warum versteht uns die Maschine nicht?</h1>
+            </section>
+
+            <section>
+                <h1>Kommunikation</h1>
+            </section>
+
+            <section class="align-left">
+                <h2>Damit Kommunikation gelingt...</h2>
+                <h3 class="fragment" style="background: #7AA92A;">Gemeinsame Basis (Schriftzeichen)</h3>
+                <h3 class="fragment" style="background: #7AA92A;">Gemeinsames Vokabular</h3>
+                <h3 class="fragment" style="background: #7AA92A;">Gemeinsames Konzept der Dinge (Kultur)</h3>
+            </section>
+
+            <section class="align-left">
+                <h2>Das Web für eine Maschine:</h2>
+                <h3 class="fragment" style="background: #7AA92A;">Gemeinsame Basis (Syntax / Datenformat)</h3>
+                <h3 class="fragment" style="background: #9C1010;">Gemeinsames Vokabular (Semantik)</h3>
+                <h3 class="fragment" style="background: #9C1010;">Gemeinsames Konzept der Dinge (Ontologie)</h3>
+
+                <p class="fragment"><i class="fa fa-angle-double-right"></i> Das Web ist für Menschen gemacht, nicht für Maschinen</p>
+            </section>
+
+            <section>
+                <h1>Intelligentes Web?</h1>
+                <h3>Beginnt Realität zu werden</h3>
+            </section>
+
+            <section>
+                <figure class="zoomTarget">
+                    <img src="img/wolfram1.png" alt="" width="70%">
+                    <figcaption>
+                        <small><a href="http://www.wolframalpha.com/input/?i=apples+vs+oranges">wolframalpha.com/input/?i=apples+vs+oranges</a></small>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section>
+                <figure class="zoomTarget">
+                    <img src="img/wolfram2.png" alt="" width="70%">
+                    <figcaption>
+                        <small><a href="http://www.wolframalpha.com/input/?i=apples+vs+oranges">wolframalpha.com/input/?i=apples+vs+oranges</a></small>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section>
+                <figure class="zoomTarget">
+                    <img src="img/google.png" alt="" width="90%">
+                    <figcaption>
+                        <small><a href="https://www.google.de/search?q=marie+curie">google.de/search?q=marie+curie</a></small>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section>
+                <h1>Wie?</h1>
+            </section>
+
+        </section>
+
+
         <section >
 
             <section>
@@ -104,6 +182,49 @@
             </section>
 
             <section>
+                <h2 class="nobg">[Backspace]</h2>
+                <h2>Grund für den Erfolg des WWW?</h2>
+                <h3>Welches Konzept?</h3>
+            </section>
+
+            <section>
+                <h1>Links</h1>
+            </section>
+
+            <section>
+                <h2>Einzelne Dokumente</h2>
+                <img src="img/Dokumente.svg" class="clean" width="90%">
+            </section>
+
+            <section>
+                <h2>Verlinkte Web-Dokumente</h2>
+                <img src="img/Websites.svg" class="clean" width="70%">
+            </section>
+
+            <section>
+                <h2>Semantic Web</h2>
+                <h3>Verlinkung von <em>Informationen</em></h3>
+                <img src="img/SemWeb_1.svg" class="clean" width="60%">
+            </section>
+
+            <section>
+                <img src="img/SemWeb_2.svg" class="clean" width="100%">
+            </section>
+
+            <section>
+                <img src="img/SemWeb_3.svg" class="clean" width="100%">
+            </section>
+
+            <section>
+                <img src="img/SemWeb_4.svg" class="clean" width="100%">
+            </section>
+
+             <section data-background="img/tim_berners.jpg">
+                <br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <h3 class="subtitle">Tim Berners Lee (Erfinder des WWW)</h3>
+            </section>
+
+            <section>
                 <blockquote>The Semantic Web is an extension of the current web in which information is given
                     well-defined meaning, <b>better enabling computers and people to work in cooperation</b>.
                     <div class="citation">Tim Berners-Lee, 2001</div>
@@ -118,7 +239,7 @@
             <section>
                 <h2>Beispiel: Klassisches Web</h2>
                 <pre><code data-trim class="html">
-                    <input type="range" name="points" min="1" max="10" value="7">
+                    Der Semantic Web Workshop beginnt am 8. Mai um 19:30.
                 </code></pre>
                  <ul class="fa-ul">
                     <li><i class="fa-li fa fa-check-square-o"></i>Menschenlesbar</li>
@@ -130,7 +251,10 @@
             <section>
                 <h2>Beispiel: Semantic Web</h2>
                 <pre><code data-trim class="html">
-                    <input type="range" name="points" min="1" max="10" value="7">
+<div itemscope itemtype="http://schema.org/Event">
+  <div itemprop="name">Semantic Web Workshop</div>
+  <time itemprop="startDate" datetime="2011-05-08T19:30">8. Mai, 19:30</time>
+</div>
                 </code></pre>
                 <ul class="fa-ul">
                     <li><i class="fa-li fa fa-check-square-o"></i>Menschenlesbar</li>
@@ -139,42 +263,30 @@
             </section>
 
             <section>
-                <h2>Komplexität<span class="faded">*</span></a></h2>
-                <table width="100%">
-                    <thead>
-                            <td>Einfach</td>
-                            <td>Komplex</td>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>SEO</td>
-                            <td>KI</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <hr>
-
-                <p class="align-left"><small class="faded">* Nach Bauchgfühl</small></p>
-
+                <h2>Im kleinen</h2>
+                <p>Visitenkarte im hCard Format</p>
             </section>
 
             <section>
-                <h2>Linked (Open) Data</h2>
-                <ol>
-                    <li>
-                        <span style="text-align: center;">Use URIs to denote things.</span>
-                    </li>
-                    <li>
-                        <span style="text-align: center;">Use HTTP URIs so that these things can be referred to and looked up ("dereferenced") by people and user agents.</span>
-                    </li>
-                    <li>
-                        <span style="text-align: center;">Provide useful information about the thing when its URI is dereferenced, leveraging standards such as RDF, SPARQL.</span>
-                    </li>
-                    <li>
-                        <span style="text-align: center;">Include links to other related things (using their URIs) when publishing data on the Web.</span>
-                    </li>
-                </ol>
+                <h2>Große semantische Datenbanken</h2>
+                <h2>DbPedia</h3>
+            </section>
+
+            <section>
+                <h2>Global Knowledge Graph</h2>
+                <h3>Verknüfung vieler semantischer Datenbanken</h3>
+            </section>
+
+            <section>
+                <h2>Digital Brain</h2>
+                <h3>Google Deep Thought</h3>
+                <h3>IBM Deep Blue</h2>
+                <h3>Semantische Suchmaschinen / Agenten</h3>
+            </section>
+
+            <section>
+                <h1>Komplex?</h1>
+                <h3>Hängt stark vom Anwendungsgebiet ab!</h3>
             </section>
 
         </section>
@@ -187,61 +299,58 @@
             </section>
 
             <section>
-                <h2>Definition</h2>
-                <blockquote>The Semantic Web is an extension of the current web in which information is given
-                    well-defined meaning, <b>better enabling computers and people to work in cooperation</b>.
-                    <div class="citation">Tim Berners-Lee, 2001</div>
-                </blockquote>
+                <h2>Branchen</h2>
+                <p>Bisher hauptsächlich:</p>
                 <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Erweiterung des aktuellen Webs</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Informationen mit Bedeutung angereichert</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Mensch-Computer Kooperation</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Wissenschaft (Human Brain Project)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Bildung (DbPedia)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Regierung (openGov)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Big Corporations (Google)</li>
                 </ul>
             </section>
 
-            <section data-id="f81dc8665a49e9c4bfd154c6921ed8c9" data-background-color="rgba( 22, 152, 213, 0.6 )" class="">
-                <h2>SEO: Maschinenlesbare Webseiten</h2>
-                <ul>
-                    <li>Simpelster aber auch häufigster Anwendungsfall</li>
-                    <li>Aktuell "raten" Maschinen was auf Webseiten tatsächlich gemeint ist</li>
-                    <li>Ziel von Semantic Web / LinkedData&nbsp;</li>
-                    <ul>
-                        <li>Mensch-Computer-Kooperation</li>
-                        <li>Maschinenlesbares HTML</li>
-                        <li>Dazu notwendig: Konzept von der Welt (Schema)</li>
-                    </ul>
-                    <li>Suchmaschinen können Inhalte besser verstehen und in Kontext bringen</li>
+            <section>
+                <h1>SEO</h1>
+                <h3>Maschinenlesbare Webseiten</h3>
+            </section>
+
+            <section>
+                <h2>Kommunikation</h2>
+                <h3>Vokabular und Konzept</h3>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Google, Yahoo, etc.: <a href="http://schema.org">schema.org</a></li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Facebook: OpenGraph</li>
                 </ul>
-                <p>
-                </p>
             </section>
 
-            <section data-id="df1fec43cfe19934f2bd90d96cde1378" data-background-color="rgba( 22, 152, 213, 0.6 )" class="">
-                <h2>Datenaggregation &amp; Integration</h2>
-
-                <div>
-                    <ul>
-                        <li>DbPedia</li>
-                        <li>
-                            <br>
-                        </li>
-                    </ul>
-                </div>
+            <section>
+                <h1>Daten-Annotation</h1>
+                <h3>Standardkonform</h3>
+                <h3>Selbstbeschreibende Daten</h3>
+                <h3>APIs</h3>
             </section>
 
-            <section data-id="50ba1a5bb544ee444356d0693760e560" data-background-color="rgba( 22, 152, 213, 0.6 )" class="">
-                <h2>Flexibles Datenmodell</h2>
+            <section>
+                <h1>Daten-Aggregation</h1>
+                <h3>Standardkonform</h3>
             </section>
 
-            <section data-id="bce05cc81770777a83216481d1abc0aa" class="stack">
-                <section data-id="32aa71596387b3ee63dc1dfffe552612" data-background-color="rgba( 22, 152, 213, 0.6 )"
-                         class="">
-                    <h2>''Künstliche Intelligenz''</h2>
-                </section>
-                <section data-id="1c1a3a9f710dd4c273addb378d2f2321" data-background-color="rgba( 22, 152, 213, 0.6 )"
-                         class="">
-                    <h2>Title</h2>
-                </section>
+            <section>
+                <h1>Daten-Kombination</h1>
+            </section>
+
+            <section>
+                <h1>Intelligente Wissensverwaltung</h1>
+            </section>
+
+            <section>
+                <h1>Künstliche Intelligenz</h1>
+                <h3>Intelligente Wissensagenten</h3>
+                <h3>Expertensysteme</h3>
+            </section>
+
+            <section>
+                <h1>...</h1>
             </section>
 
         </section>
@@ -254,17 +363,64 @@
             </section>
 
             <section>
-                <h2>Definition</h2>
-                <blockquote>The Semantic Web is an extension of the current web in which information is given
-                    well-defined meaning, <b>better enabling computers and people to work in cooperation</b>.
-                    <div class="citation">Tim Berners-Lee, 2001</div>
-                </blockquote>
+                <h2>Semantic Web Stack</h2>
+                 <figure class="zoomTarget">
+                    <img src="img/Semantic_Web_Stack.png" style="">
+                </figure>
+
+            </section>
+
+            <section>
+                <h2>RDF</h2>
+                <h3>Datenspeicherung</h3>
+
+                <img src="img/SemWeb_1.svg" class="clean" width="60%">
+                <table class="centered">
+                    <thead>
+                        <th>Subjekt</th>
+                        <th>Prädikat</th>
+                        <th>Objekt</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>http://facebook.com/A</td>
+                            <td>http://schema.org/knows</td>
+                            <td>http://facebook.com/B</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </section>
+
+            <section>
+                <h2>RDF</h2>
+                <h3>Ein Konzept, viele Dialekte:</h3>
+
                 <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Erweiterung des aktuellen Webs</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Informationen mit Bedeutung angereichert</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Mensch-Computer Kooperation</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Turtle (Text)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>RDFa (HTML)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Microdata (HTML)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>JSON-LD (JSON)</li>
                 </ul>
             </section>
+
+            <section>
+                <h2>SPARQL</h2>
+                <h3>Graphenbasierte Query-Language</h3>
+                <h3>Datenbank hat standardkonformen RESTful Webservice</h3>
+            </section>
+
+
+            <section>
+                <h2>4 Linked Data Regeln</h2>
+                <ul class="fa-ul smaller">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Use URIs to denote things.</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Use HTTP URIs so that these things can be referred to and looked up ("dereferenced") by people and user agents.</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Provide useful information about the thing when its URI is dereferenced, leveraging standards such as RDF, SPARQL.</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Include links to other related things (using their URIs) when publishing data on the Web.</li>
+                </ul>
+            </section>
+
 
         </section>
 
@@ -276,15 +432,22 @@
             </section>
 
             <section>
-                <h2>Definition</h2>
-                <blockquote>The Semantic Web is an extension of the current web in which information is given
-                    well-defined meaning, <b>better enabling computers and people to work in cooperation</b>.
-                    <div class="citation">Tim Berners-Lee, 2001</div>
-                </blockquote>
+                <h2>Heute</h2>
                 <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Erweiterung des aktuellen Webs</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Informationen mit Bedeutung angereichert</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Mensch-Computer Kooperation</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Bisher eher unbekannt</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Einige große Firmen und Persönlichkeiten stehen dahinter</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Noch ist es kaum beim Endnutzer angekommen</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Es gibt schon große Datenbanken / Anwendungen</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Zukunft</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Sollte noch einfacher und konkreter werden</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Einige Probleme sind noch zu lösen (z.B. Trust)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Muss von der "normalen" Web-Community noch angenommen werden</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>SEO als Vorreiter?</li>
                 </ul>
             </section>
 
@@ -397,9 +560,9 @@
                 hljs.initHighlightingOnLoad();
             } },
 
-            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 
-            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 
             { src: 'plugin/notes/notes.js', async: true, condition: function() {
                 return !!document.body.classList;

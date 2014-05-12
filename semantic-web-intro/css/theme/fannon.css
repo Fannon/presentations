@@ -230,12 +230,14 @@ body {
 .reveal h3 {
   background: rgba(255, 255, 255, 0.07);
   color: rgba(255, 255, 255, 0.9);
-  font-size: 2.8rem; }
+  font-size: 3rem; }
 .reveal h4 {
   font-weight: 100;
   background: rgba(255, 255, 255, 0.07);
   color: #FFF;
   font-size: 2.4rem; }
+.reveal .subtitle {
+  background: rgba(0, 0, 0, 0.8); }
 .reveal a, .reveal a:hover {
   display: inline-block;
   padding: 0 0.2em;
@@ -348,14 +350,38 @@ body {
   box-shadow: none;
   border: 0.4rem solid rgba(255, 255, 255, 0.16);
   border-radius: 0.2rem; }
+.reveal section img.clean {
+  border: none;
+  background: none; }
+.reveal .nobg {
+  background: none; }
 .reveal strong {
   font-weight: 500; }
+.reveal .smaller {
+  font-size: 2.4rem;
+  line-height: 2.6rem; }
 .reveal small {
   vertical-align: middle;
   font-size: 1.6rem;
   line-height: 1.8rem; }
 .reveal small * {
   vertical-align: bottom; }
+.reveal table {
+  width: 100%;
+  font-family: Roboto;
+  font-weight: 100; }
+  .reveal table td, .reveal table th {
+    background: rgba(0, 0, 0, 0.08);
+    border: 0.1rem solid rgba(255, 255, 255, 0.08);
+    padding: 0.2rem 0.4rem; }
+  .reveal table th {
+    background: rgba(255, 255, 255, 0.08);
+    font-weight: 400;
+    padding: 0.4rem; }
+.reveal table.centered td,
+.reveal table.centered th {
+  text-align: center;
+  vertical-align: middle; }
 .reveal hr {
   border: none;
   height: 0.1em;

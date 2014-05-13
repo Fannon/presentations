@@ -344,7 +344,7 @@ body {
   font-size: 300px; }
 .reveal section img {
   box-shadow: none;
-  border: 0.4rem solid rgba(255, 255, 255, 0.16);
+  border: 0.3rem solid rgba(255, 255, 255, 0.08);
   border-radius: 0.2rem; }
 .reveal section img.clean {
   border: none;

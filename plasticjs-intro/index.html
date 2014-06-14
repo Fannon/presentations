@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>plastic.js introduction</title>
+
+    <meta name="description" content="A brief Introduction to plastic.js">
+    <meta name="author" content="Simon Heimler">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- build:css css/app.min.css -->
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/fannon_white.css" id="theme">
+    <link rel="stylesheet" href="css/theme/fannon_syntax.css">
+    <link rel="stylesheet" href="lib/nv.d3.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome.css"/>
+    <!-- endbuild -->
+
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+
+
+</head>
+
+<body>
+
+<!-- Logo -->
+<div id="logo-top" class="logo">
+    <div class="logo-left"></div>
+    <div class="logo-right"></div>
+    <div class="logo-1"></div>
+    <div class="logo-2"></div>
+    <div class="logo-3"></div>
+    <div class="logo-4"></div>
+</div>
+
+
+<!-- Reveal Presentation -->
+<div class="reveal">
+
+
+<!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+        <section>
+            <h1>plastic.js</h1>
+
+            <h3>Introduction & current state</h3>
+
+            <p>
+                <small class="faded">
+                    Simon Heimler (June 2014)<br>
+                    <a href="http://www.fannon.de">www.fannon.de</a>
+                </small>
+            </p>
+        </section>
+
+        <section class="align-left">
+            <h2>Overview</h2>
+            <div class="spec-list">
+                <h3 class="fragment">plastic.js</h3>
+                <h3 class="fragment">Examples</h3>
+                <h3 class="fragment">Current state</h3>
+                <h3 class="fragment">Roadmap</h3>
+            </div>
+        </section>
+
+        <section>
+            <section>
+                <h1>About plastic.js</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+            </section>
+
+            <section>
+                <h2>Data Display Framework</h2>
+                <p class="fragment">
+                    <strong>Data Display</strong><br>
+                    Data representation in general (including tables etc.)
+                </p>
+                <p class="fragment">
+                    <strong>Framework</strong><br>
+                    Not another library, but a framework to rule them all <br>
+                    <i class="fa fa-smile-o"></i>
+                </p>
+            </section>
+
+            <section>
+                <h2>Current Situation</h2>
+                <ul class="fa-ul">
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>A lot of Visualisation Libraries out there</li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Each works differently</li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Some are tied to a very specific envirionment</li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Nearly all of them require JavaScript Knowledge</li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Data comes in a variety of ways<br> ... which complicates everything</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>plastic.js Specs</h2>
+                <ul class="fa-ul">
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Providing a platform (framework) for existing libraries</li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Easy and consistent usage <small>(without programming knowledge)</small></li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Extensible (Data Modules, Display Modules)</li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Modular (loosely coupled) Architecture</li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Platform neutral (pure HTML5)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>plastic.js Usage</h2>
+                <ul class="fa-ul">
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Include plastic.js JavaScript and CSS (as usual)</li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Write an HTML embed code</li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Data and Options are provided by HTML tags and their attributes (WebComponents Style)</li>
+                </ul>
+            </section>
+
+        </section>
+
+        <section>
+            <section>
+                <h1>Examples</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+            </section>
+
+            <section>
+                <h3>Simple Table from JSON</h3>
+                <pre><code data-trim class="html">
+&lt;plastic id=&quot;table-json-file&quot; style=&quot;height: 400px; width: 100%;&quot;&gt;
+    &lt;script class=&quot;plastic-data&quot; type=&quot;application/json&quot; data-url=&quot;data/simple-default.json&quot; data-format=&quot;simple-default&quot;&gt;&lt;/script&gt;
+    &lt;script class=&quot;plastic-display&quot; data-display-module=&quot;simple-table&quot; type=&quot;application/json&quot;&gt;&lt;/script&gt;
+&lt;/plastic&gt;
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Simple Table from JSON</h3>
+                <plastic id="table-json-file" style="height: 400px; width: 100%;">
+                    <script class="plastic-data" type="application/json" data-url="data/simple-default.json" data-format="simple-default"></script>
+                    <script class="plastic-display" data-display-module="simple-table" type="application/json"></script>
+                </plastic>
+            </section>
+
+            <section>
+                <h3>Simple Bars from SPARQL Endpoint</h3>
+                                <pre><code data-trim class="html">
+&lt;div class=&quot;plastic-js&quot; style=&quot;height: 400px&quot;&gt;
+    &lt;script class=&quot;plastic-query&quot; type=&quot;application/sparql-query&quot; data-query-url=&quot;http://dbpedia.org/sparql&quot;&gt;--&gt;
+        PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+        PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+        PREFIX type: &lt;http://dbpedia.org/class/yago/&gt;
+        PREFIX prop: &lt;http://dbpedia.org/property/&gt;
+        SELECT ?country_name ?population
+        WHERE {
+        country a type:LandlockedCountries ;
+        rdfs:label ?country_name ;
+        prop:populationEstimate ?population .
+        FILTER (?population &gt; 15000000 &amp;&amp; langMatches(lang(?country_name), &quot;en&quot;)) .
+         ORDER BY DESC(?population)
+    &lt;/script&gt;
+    &lt;script class=&quot;plastic-display&quot; data-display-module=&quot;discrete-bar-chart&quot; type=&quot;application/json&quot;&gt;
+        {
+            &quot;tableHead&quot;: true
+        }
+    &lt;/script&gt;
+&lt;/div&gt;
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Simple Bars - Result</h2>
+                <div class="plastic-js" style="height: 400px">
+                    <script class="plastic-data" type="application/json" data-url="data/countries.json" data-format="sparql-json"></script>
+                    <script class="plastic-display" data-display-module="discrete-bar-chart" type="application/json">
+                        {
+                            "tableHead": true
+                        }
+                    </script>
+
+                </div>
+            </section>
+
+            <section>
+                <h3>Module Sequence Flow</h3>
+                <img src="img/Modules.png" alt="">
+            </section>
+
+        </section>
+
+        <section>
+            <section>
+                <h1>Current State</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+            </section>
+
+            <section>
+                <h2>In early development</h2>
+                <ul class="fa-ul">
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Working Architecture</li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Several data formats supported</li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Able to query SPARQL Endpoints and semantic Wikis</li>
+                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>A few simple display modules (tables, bars, pies)</li>
+                </ul>
+            </section>
+
+        </section>
+
+        <section>
+            <section>
+                <h1>Roadmap</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+            </section>
+
+            <section>
+            <h2>Roadmap</h2>
+            <ol>
+                <li class="fragment"></i>Provide a few more display modules</li>
+                <li class="fragment"></i>Release open alpha version</li>
+                <li class="fragment"></i>Get Community feedback (and support?)</li>
+                <li class="fragment"></i>Open future</li>
+            </ol>
+            </section>
+
+        </section>
+
+        <section>
+            <h1>Questions?</h1>
+            <i class="fa fa-comments-o bg-center"></i>
+        </section>
+
+        <section>
+            <p>
+                OpenSource at GitHub:<br>
+                <a href="https://github.com/Fannon/plastic.js">www.github.com/Fannon/plastic.js</a>
+            </p>
+            <p>
+                Presentation online at:<br>
+                <a href="http://fannon.de/p/plasticjs-intro/#/">www.fannon.de/p/plasticjs-intro</a>
+            </p>
+        </section>
+    </div>
+
+
+</div>
+
+<!-- build:js js/app.min.js -->
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script src="lib/jquery-2.1.0.min.js"></script>
+
+<script src="js/presentation.js"></script>
+
+
+<!-- 3rd Party Dependencies -->
+    <script src="lib/d3.js"></script>
+    <script src="lib/nv.d3.min.js"></script>
+    <script src="lib/lazyload.js"></script>
+    <script src="lib/jjv.js"></script>
+
+    <!-- App JavaScript -->
+    <script src="lib/plasticjs/main.js"></script>
+    <script src="lib/plasticjs/options.js"></script>
+
+    <!-- Core Functions -->
+    <script src="lib/plasticjs/core/Element.js"></script>
+    <script src="lib/plasticjs/core/ElementAttributes.js"></script>
+    <script src="lib/plasticjs/core/msg.js"></script>
+
+    <!-- Helper Modules -->
+    <script src="lib/plasticjs/helper/Events.js"></script>
+    <script src="lib/plasticjs/helper/schemaValidation.js"></script>
+
+    <!-- Module Management -->
+    <script src="lib/plasticjs/modules/Module.js"></script>
+    <script src="lib/plasticjs/modules/dependencyManager.js"></script>
+    <script src="lib/plasticjs/modules/moduleManager.js"></script>
+
+    <!-- Data Parser Modules -->
+    <script src="lib/plasticjs/modules/data/SparqlJson.js"></script>
+    <script src="lib/plasticjs/modules/data/AskJson.js"></script>
+    <script src="lib/plasticjs/modules/data/Default.js"></script>
+    <script src="lib/plasticjs/modules/data/SimpleDefault.js"></script>
+
+    <!-- Display Modules -->
+    <script src="lib/plasticjs/modules/display/SimpleTable.js"></script>
+    <script src="lib/plasticjs/modules/display/DiscreteBarChart.js"></script>
+
+    <!-- Query Parser Modules -->
+    <script src="lib/plasticjs/modules/query/Ask.js"></script>
+    <script src="lib/plasticjs/modules/query/Sparql.js"></script>
+
+
+
+<!-- endbuild -->
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: true,
+
+        // previewLinks: true,
+
+
+        width: 1280,
+        height: 720,
+
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        backgroundTransition: 'slide', // default/none/slide/concave/convex/zoom
+        transitionSpeed: 'normal',
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'img/bg.jpg',
+        // parallaxBackgroundSize: '1920px 1080px',
+
+
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() {
+                return !document.body.classList;
+            } },
+
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+                hljs.initHighlightingOnLoad();
+            } },
+
+            // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+            // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+            { src: 'plugin/notes/notes.js', async: true, condition: function() {
+                return !!document.body.classList;
+            } },
+
+            // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+
+        ]
+    });
+
+</script>
+
+</body>
+</html>

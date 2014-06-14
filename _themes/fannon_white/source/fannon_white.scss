@@ -1,0 +1,692 @@
+/**
+ * Fannon Theme
+ * 2014 Simon Heimler (https://github.com/Fannon/presentations)
+ */
+
+//////////////////////////////////////////
+//  Imports and Variables               //
+//////////////////////////////////////////
+
+@import "../template/mixins";
+@import "../template/settings";
+
+// Default Variables
+$mainFont: 'Roboto', sans-serif;
+$mainColor: #000;
+$headingFont: 'Roboto', sans-serif;
+$headingColor: #555;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #F7F7F7;
+$linkColor: #6ba106;
+$linkColorHover: rgba(0, 0, 0, 0.9);
+$selectionBackgroundColor: rgba(0, 0, 0, 0.5);
+
+// Layout Variables
+$border-radius: 0.2rem;
+$default-padding: 7px;
+$horizontal-padding: $default-padding*2;
+$box-padding: $default-padding + 3px $horizontal-padding $default-padding*2 $horizontal-padding;
+
+$transition-time: 0.35s;
+
+$default-font: Roboto;
+$cite-font: RobotoSans;
+$code-font: Consolas, monaco, monospace;
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+//////////////////////////////////////////
+// CUSTOM FONTS                         //
+//////////////////////////////////////////
+
+// Source Code Pro
+
+//@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400);
+
+// Roboto
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-Thin-webfont.eot');
+  src: url('../../fonts/Roboto-Thin-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/Roboto-Thin-webfont.woff') format('woff'),
+  url('../../fonts/Roboto-Thin-webfont.ttf') format('truetype'),
+  url('../../fonts/Roboto-Thin-webfont.svg#RobotoThin') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-ThinItalic-webfont.eot');
+  src: url('../../fonts/Roboto-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/Roboto-ThinItalic-webfont.woff') format('woff'),
+  url('../../fonts/Roboto-ThinItalic-webfont.ttf') format('truetype'),
+  url('../../fonts/Roboto-ThinItalic-webfont.svg#RobotoThinItalic') format('svg');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-Light-webfont.eot');
+  src: url('../../fonts/Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/Roboto-Light-webfont.woff') format('woff'),
+  url('../../fonts/Roboto-Light-webfont.ttf') format('truetype'),
+  url('../../fonts/Roboto-Light-webfont.svg#RobotoLight') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-LightItalic-webfont.eot');
+  src: url('../../fonts/Roboto-LightItalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/Roboto-LightItalic-webfont.woff') format('woff'),
+  url('../../fonts/Roboto-LightItalic-webfont.ttf') format('truetype'),
+  url('../../fonts/Roboto-LightItalic-webfont.svg#RobotoLightItalic') format('svg');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-Medium-webfont.eot');
+  src: url('../../fonts/Roboto-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/Roboto-Medium-webfont.woff') format('woff'),
+  url('../../fonts/Roboto-Medium-webfont.ttf') format('truetype'),
+  url('../../fonts/Roboto-Medium-webfont.svg#RobotoBold') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-MediumItalic-webfont.eot');
+  src: url('../../fonts/Roboto-MediumItalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/Roboto-MediumItalic-webfont.woff') format('woff'),
+  url('../../fonts/Roboto-MediumItalic-webfont.ttf') format('truetype'),
+  url('../../fonts/Roboto-MediumItalic-webfont.svg#RobotoBoldItalic') format('svg');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-Bold-webfont.eot');
+  src: url('../../fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/Roboto-Bold-webfont.woff') format('woff'),
+  url('../../fonts/Roboto-Bold-webfont.ttf') format('truetype'),
+  url('../../fonts/Roboto-Bold-webfont.svg#RobotoBold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../fonts/Roboto-BoldItalic-webfont.eot');
+  src: url('../../fonts/Roboto-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/Roboto-BoldItalic-webfont.woff') format('woff'),
+  url('../../fonts/Roboto-BoldItalic-webfont.ttf') format('truetype'),
+  url('../../fonts/Roboto-BoldItalic-webfont.svg#RobotoBoldItalic') format('svg');
+  font-weight: 700;
+  font-style: italic;
+}
+
+//  ROBOTO SLAB
+
+@font-face {
+  font-family: 'RobotoSlab';
+  src: url('../../fonts/RobotoSlab-Regular-webfont.eot');
+  src: url('../../fonts/RobotoSlab-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/RobotoSlab-Regular-webfont.woff') format('woff'),
+  url('../../fonts/RobotoSlab-Regular-webfont.ttf') format('truetype'),
+  url('../../fonts/RobotoSlab-Regular-webfont.svg#RobotoMediumItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoSlab';
+  src: url('../../fonts/RobotoSlab-Thin-webfont.eot');
+  src: url('../../fonts/RobotoSlab-Thin-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/RobotoSlab-Thin-webfont.woff') format('woff'),
+  url('../../fonts/RobotoSlab-Thin-webfont.ttf') format('truetype'),
+  url('../../fonts/RobotoSlab-Thin-webfont.svg#RobotoMediumItalic') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoSlab';
+  src: url('../../fonts/RobotoSlab-Regular-webfont.eot');
+  src: url('../../fonts/RobotoSlab-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/RobotoSlab-Regular-webfont.woff') format('woff'),
+  url('../../fonts/RobotoSlab-Regular-webfont.ttf') format('truetype'),
+  url('../../fonts/RobotoSlab-Regular-webfont.svg#RobotoMediumItalic') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoSlab';
+  src: url('../../fonts/RobotoSlab-bold-webfont.eot');
+  src: url('../../fonts/RobotoSlab-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/RobotoSlab-bold-webfont.woff') format('woff'),
+  url('../../fonts/RobotoSlab-bold-webfont.ttf') format('truetype'),
+  url('../../fonts/RobotoSlab-bold-webfont.svg#RobotoMediumItalic') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+//////////////////////////////////////////
+// PRESENTATION THEME                   //
+//////////////////////////////////////////
+
+.reveal {
+
+  h1, h2, h3, h4, h5, h6, p {
+    text-shadow: none;
+  }
+
+  h1 {
+    font-weight: 100;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.6rem;
+    font-size: 8rem;
+    line-height: 8rem;
+  }
+
+  h2, h3, h4 {
+    font-weight: 300;
+    display: block;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 14px;
+    width: 100%;
+    border-radius: $border-radius;
+    margin: 0 0 1rem 0;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.8);
+
+    small {
+      text-transform: none;
+    }
+  }
+
+  h3 {
+    background: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 3rem;
+  }
+
+  h4 {
+    font-weight: 100;
+    background: rgba(0, 0, 0, 0.07);
+    color: #FFF;
+    font-size: 2.4rem;
+  }
+
+  .subtitle {
+    background: rgba(0, 0, 0, 0.8);
+
+  }
+
+  a, a:hover {
+    color: #A0D349;
+    display: inline-block;
+    padding: 0 0.2em;
+    // border-bottom: 1px dotted rgba(255, 255, 255, 0.3) !important;
+    border-radius: $border-radius;
+  }
+
+  a:hover {
+    color: #4D9596;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all $transition-time ease-in-out;
+  }
+
+  a:before {
+    content: "\f08e";
+    font-family: "FontAwesome";
+    margin-right: 0.3em;
+    font-size: 0.75em;
+  }
+
+  .preview-link-overlay {
+
+    color: rgba(255, 255, 255, 0.25);
+
+    header {
+      padding-top: 4px;
+      margin-right: 50px;
+      height: 28px;
+      border-bottom: rgba(0, 0, 0, 0.25);
+
+      a:before {
+        content: none;
+      }
+
+      a.external, a.close {
+
+        font-family: FontAwesome;
+        font-size: 20px;
+
+        height: 28px;
+        width: 28px;
+        padding: 0 8px 0 0;
+
+        .icon {
+          height: 28px;
+          width: 28px;
+          background-image: none;
+        }
+
+      }
+
+      a.external .icon:after {
+        content: "\f14c";
+      }
+
+      a.close .icon:after {
+        content: "\f00d";
+      }
+
+    }
+
+    .viewport {
+      top: 28px;
+    }
+
+  }
+
+  p, ol, ul {
+    font-weight: 300;
+    font-size: 3rem;
+    line-height: 3.4rem;
+
+    strong {
+      font-weight: 400;
+    }
+  }
+
+  ul {
+    margin-left: 3rem;
+  }
+
+  ul ul, ul ul ul {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
+
+  ul li {
+    list-style-type: none;
+    padding: 0 0.5rem 0;
+    margin-bottom: 0.5rem;
+  }
+
+  // li:hover {
+  //   background: rgba(255, 255, 255, 0.08);
+  //   border-radius: $border-radius;
+  //   transition: all $transition-time ease-in-out;
+  // }
+
+  .fa-li {
+    top: 0.05em;
+    left: -1em;
+    width: 1em;
+    font-size: 0.9em;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0.4em;
+  }
+
+  q {
+    font-family: $code-font;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 0.9em;
+    background: rgba(0, 0, 0, 0.08);
+    color: rgba(255, 255, 255, 0.75);
+    border-radius: $border-radius;
+    padding: 0 0.2em;
+  }
+
+  pre {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  code {
+    font-family: $code-font;
+    font-weight: 400;
+    overflow: scroll;
+  }
+
+  .hljs { // Highlight.js
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    padding: 14px;
+    border-radius: $border-radius;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.75);
+  }
+
+  i {
+    font-family: 'FontAwesome';
+    font-style: normal;
+    color: rgba(0, 0, 0, 0.8);
+
+  }
+
+  i.bg-center {
+    position: fixed;
+    z-index: -999;
+    top: 50%;
+    left: 50%;
+
+    margin-top: -40px;
+    margin-left: -320px;
+    color: rgba(0, 0, 0, 0.10);
+    font-size: 640px;
+  }
+
+  i.bg-bottom {
+    position: fixed;
+    z-index: -999;
+    bottom: 0;
+    left: 50%;
+
+    margin-bottom: -150px;
+    margin-left: -110px;
+    color: rgba(0, 0, 0, 0.10);
+    font-size: 300px;
+  }
+
+  section img {
+    box-shadow: none;
+    border: $border-radius*1.5 solid rgba(0, 0, 0, 0.08);
+    border-radius: $border-radius;
+  }
+
+  section img.clean {
+    border: none;
+    background: none;
+  }
+
+  .nobg {
+    background: none;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  .smaller {
+    font-size: 2.4rem;
+    line-height: 2.6rem;
+  }
+
+  small {
+    vertical-align: middle;
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
+
+  small * {
+    vertical-align: bottom;
+  }
+
+  table {
+    width: 100%;
+    font-family: Roboto;
+    font-weight: 100;
+    font-size: 1.6rem;
+
+    tr {
+    }
+
+    td, th {
+      background: rgba(0, 0, 0, 0.08);
+
+      border: 0.1rem solid rgba(0, 0, 0, 0.08);
+      padding: 0.2rem 0.4rem;
+    }
+
+    th {
+      background: rgba(0, 0, 0, 0.08);
+      font-weight: 400;
+      padding: 0.4rem;
+    }
+  }
+
+  table.centered td,
+  table.centered th {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+
+  hr {
+    border: none;
+    // border-top: 1px solid
+    height: 0.1em;
+    background: rgba(0, 0, 0, 0.3);
+    margin: 0.7em;
+    overflow: hidden;
+  }
+
+  blockquote {
+
+    width: 90%;
+
+    font-family: RobotoSlab;
+    font-style: normal;
+    font-weight: 100;
+
+    background: rgba(0, 0, 0, 0.08);
+    padding: $box-padding;
+    margin-bottom: 0.5em;
+    overflow: hidden;
+    border-radius: $border-radius;
+    box-shadow: none;
+
+    ol, ul, p {
+      font-size: 2.4rem;
+      line-height: 2.8rem;
+    }
+
+    strong, b {
+      font-weight: 300;
+    }
+
+    .citation {
+      display: block;
+      font-family: Roboto;
+      text-align: right;
+      font-size: 1.4rem;
+      height: 1.5rem;
+      margin: 1rem 0 0 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+  }
+
+  blockquote:before {
+    position: absolute;
+    top: -150px;
+    left: -36px;
+    z-index: -999;
+    font-family: Georgia, sans;
+    display: block;
+    content: "„";
+    font-size: 500px;
+    color: rgba(255, 255, 255, 0.08);
+
+  }
+
+
+  figure {
+
+    margin-bottom: 0.8rem;
+
+    img {
+      margin: 0;
+    }
+
+    figcaption {
+      font-family: Roboto;
+      font-weight: 100;
+      font-size: 1.6rem;
+      line-height: 1.6rem;
+      margin-top: -0.2rem;
+    }
+  }
+
+  .align-left {
+
+    text-align: left;
+
+    h1, h2 {
+      text-align: center;
+    }
+  }
+
+  .align-center {
+    text-align: center;
+  }
+
+  .faded {
+    opacity: 0.75;
+  }
+
+  .bibliography {
+
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+
+    margin-left: 2rem;
+
+    li {
+      margin-bottom: 0.4rem;
+      border-left: 0.2rem solid rgba(255, 255, 255, 0.1);
+      padding-left: 0.5rem;
+    }
+
+    .fa-li {
+      left: -3rem;
+      width: 3rem;
+    }
+  }
+
+  .slides>section, .slides>section>section {
+    padding: 0.2rem 0;
+  }
+
+  .slide-number {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.25rem 0.5rem;
+    border-radius: $border-radius;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+}
+
+
+//////////////////////////////////////////
+// LOGO STYLE                           //
+//////////////////////////////////////////
+
+
+#logo-top {
+
+  width: 100%;
+  height: 5px;
+  background: #171717;
+  z-index: 999;
+  color: #FFF;
+
+  .logo-left, .logo-right, .logo-1, .logo-2, .logo-3, .logo-4 {
+    position: absolute;
+    height: inherit;
+    opacity: 0.7;
+  }
+  .logo-left {
+    left: 0;
+    width: 50%;
+    background: #670097;
+    opacity: 1;
+  }
+
+  .logo-right {
+    left: 50%;
+    width: 50%;
+    background: #C4EE29;
+    opacity: 1;
+  }
+
+  .logo-1 {
+    left: 5%;
+    width: 25%;
+    background: #43179E;
+  }
+  .logo-2 {
+    left: 15%;
+    width: 35%;
+    background: #38378B;
+  }
+  .logo-3 {
+    left: 40%;
+    width: 50%;
+    background: #1B6FC6;
+  }
+  .logo-4 {
+    left: 75%;
+    width: 25%;
+    background: #C4EE29;
+  }
+
+}
+
+
+//////////////////////////////////////////
+// BROWSER THEMING                      //
+//////////////////////////////////////////
+
+// CHROME
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar:hover {
+  height: 14px;
+  background-color: #CCC;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+  height: 1px;
+  width: 1px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #000;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: rgba(255, 255, 255, 0.3);
+}

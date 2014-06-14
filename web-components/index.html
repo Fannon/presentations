@@ -42,10 +42,10 @@
 <div id="logo-top" class="logo">
     <div class="logo-left"></div>
     <div class="logo-right"></div>
-    <div class="logo-1" style="overflow: hidden; left: 5.451724652232474%; width: 18.197542186244444%;"></div>
-    <div class="logo-2" style="overflow: hidden; left: 17.738023514210347%; width: 35.95025719963371%;"></div>
-    <div class="logo-3" style="overflow: hidden; left: 32.45847831046833%; width: 53.70577551761715%;"></div>
-    <div class="logo-4" style="overflow: hidden; left: 72.26044234225029%; width: 27.756931045506352%;"></div>
+    <div class="logo-1"></div>
+    <div class="logo-2"></div>
+    <div class="logo-3"></div>
+    <div class="logo-4"></div>
 </div>
 
 
@@ -96,13 +96,18 @@
     <section>
         <h1>Web Components?</h1>
         <i class="fa fa-angle-double-down bg-bottom"></i>
+        <aside class="notes">
+        Kurze Erklärung WC<br>
+        Beispiele<br>
+        Vertiefung<br>
+    </aside>
     </section>
 
     <section>
         <p>(2014)</p>
         <ul class="fa-ul">
             <li><i class="fa-li fa fa-angle-double-right"></i>Eine experimentelle Browser-Technologie</li>
-            <li><i class="fa-li fa fa-angle-double-right"></i>Fokus: Web Anwendungen im Browser</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Fokus: Web Anwendungen</li>
             <li><i class="fa-li fa fa-angle-double-right"></i>Aktuell in aktiver Entwicklung</li>
         </ul>
     </section>
@@ -112,7 +117,7 @@
         <ul class="fa-ul">
             <li><i class="fa-li fa fa-angle-double-right"></i>Eigene (native) HTML Elemente definieren</li>
             <li><i class="fa-li fa fa-angle-double-right"></i>Modulare Entwicklung</li>
-            <li><i class="fa-li fa fa-angle-double-right"></i>Abstraktion</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Abstraktion (versteckt Komplexität)</li>
         </ul>
     </section>
 
@@ -216,7 +221,7 @@
 
 
         <div class="spec-list">
-            <h3 class="fragment" style="background: #963924;">1. Templates</h3>
+            <h3 class="fragment" style="background: #9D2E19;">1. Templates</h3>
 
             <h3 class="fragment" style="background: #8D1F63;">2. Decorators
                 <small>(<em>Noch keine Spezifikation</em>)</small>
@@ -233,7 +238,7 @@
 
 
 
-<section data-background="#963924">
+<section data-background="#9D2E19">
 
     <section>
         <h1>Templates</h1>
@@ -348,7 +353,7 @@
 
 
 
-<section data-background="#3A6990">
+<section data-background="#326590">
     <section>
         <h1>Shadow DOM</h1>
         <i class="fa fa-angle-double-down bg-bottom"></i>
@@ -376,6 +381,7 @@
     <section>
     	<ul class="fa-ul">
             <li><i class="fa-li fa fa-angle-double-right"></i>Element hat eigenen JavaScript und CSS Scope!</li>
+            <li><i class="fa-li fa fa-angle-double-right"></i>Neue CSS Selektoren: <q>element::shadow h1</q></li>
             <li><i class="fa-li fa fa-angle-double-right"></i>Kann Black-Box sein, muss aber nicht</li>
             <li><i class="fa-li fa fa-angle-double-right"></i>Komplexeres Thema</li>
         </ul>
@@ -384,7 +390,7 @@
 
 
 
-<section data-background="#1F8B82">
+<section data-background="#1A7D75">
 
     <section>
         <h1>Imports</h1>
@@ -445,7 +451,6 @@
             <li><i class="fa-li fa fa-angle-double-right"></i>Browser Hersteller erlauben Entwickleren tieferen Zugang
                 (low level) zum Browser
             </li>
-            <li><i class="fa-li fa fa-angle-double-right"></i></li>
             <li><i class="fa-li fa fa-angle-double-right"></i>Webentwickler können Features entwickeln bevor sie von den
                 Browser Herstellern unterstützt werden
             </li>
@@ -471,9 +476,9 @@
 
         <p>Warten auf...</p>
         <ul class="fa-ul">
-            <li><i class="fa-li fa fa-spinner fa-spin"></i>Feste Standard Definition</li>
-            <li><i class="fa-li fa fa-spinner fa-spin"></i>W3C Recommendation</li>
-            <li><i class="fa-li fa fa-spinner fa-spin"></i>Browser Support</li>
+            <li class="fragment"><i class="fa-li fa fa-spinner fa-spin"></i>Feste Standard Definition</li>
+            <li class="fragment"><i class="fa-li fa fa-spinner fa-spin"></i>W3C Recommendation</li>
+            <li class="fragment"><i class="fa-li fa fa-spinner fa-spin"></i>Browser Support</li>
         </ul>
     </section>
 
@@ -488,9 +493,9 @@
         <h2>Bis dahin...</h2>
 
         <ul class="fa-ul">
-            <li><i class="fa-li fa fa-angle-double-right"></i>Abwarten.
+            <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Abwarten.
             </li>
-            <li><i class="fa-li fa fa-angle-double-right"></i>Bis dahin: Polyfills?</li>
+            <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Bis dahin: Polyfills?</li>
         </ul>
     </section>
 
@@ -551,10 +556,15 @@
         </li>
 
         <li>
-        	<i class="fa-li fa fa-youtube-play"></i>
-        	Rob Dodson: Web Components & The Future of the Web. Online verfügbar
+            <i class="fa-li fa fa-youtube-play"></i>
+            Rob Dodson: Web Components & The Future of the Web. Online verfügbar
             unter <a href="https://www.youtube.com/watch?v=Byux3Jfw5e8">https://www.youtube.com/watch?v=Byux3Jfw5e8</a>,
             zuletzt geprüft am 26.04.2014.
+        </li>
+        <li>
+        	<i class="fa-li fa fa-youtube-play"></i>
+        	Eric Bidelman (2013): Web Components: A Tectonic Shift for Web Development. Google I/O 2013. Online verfügbar unter <a href="https://www.youtube.com/watch?v=fqULJBBEVQE">https://www.youtube.com/watch?v=fqULJBBEVQE</a>, zuletzt geprüft am 01.05.2014.
+
         </li>
 
     </ul>
@@ -602,7 +612,7 @@
 
         transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
         backgroundTransition: 'slide', // default/none/slide/concave/convex/zoom
-        transitionSpeed: 'normal',
+        transitionSpeed: 'fast',
 
         // Parallax scrolling
         // parallaxBackgroundImage: 'img/bg.jpg',

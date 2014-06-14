@@ -59,7 +59,7 @@ module.exports = function(grunt) {
 		},
 
 		zip: {
-			'reveal-js-presentation.zip': [
+			'download.zip': [
 				'index.html',
 				'css/**',
 				'js/**',
@@ -100,6 +100,7 @@ module.exports = function(grunt) {
                     dest: 'css/theme/'
                 }]
             },
+
             plugins: {
                 files: [{
                     expand: true,

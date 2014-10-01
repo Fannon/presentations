@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Complex Data Model Generation with mobo</title>
+
+    <meta name="description" content="A brief Introduction to Web Components">
+    <meta name="author" content="Simon Heimler">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- build:css css/app.min.css -->
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/fannon.css" id="theme">
+    <link rel="stylesheet" href="css/theme/fannon_syntax.css">
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome.css"/>
+    <!-- endbuild -->
+
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+
+
+</head>
+
+<body>
+
+<!-- Logo -->
+<div id="logo-top" class="logo">
+    <div class="logo-left"></div>
+    <div class="logo-right"></div>
+    <div class="logo-1"></div>
+    <div class="logo-2"></div>
+    <div class="logo-3"></div>
+    <div class="logo-4"></div>
+</div>
+
+<!-- Footer -->
+<footer>2014 · Simon Heimler · <a href="http://www.fannon.de" target="_blank">www.fannon.de</a></footer>
+
+
+<!-- Reveal Presentation -->
+<div class="reveal">
+
+
+<!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+        <section>
+            <a href="https://github.com/Fannon/mobo" class="noIcon" target="_blank"><img src="img/logo.svg" alt="mobo logo" width="550px" style="border: none;"></a>
+
+            <p>Complex Data Model Generation with <a href="https://github.com/Fannon/mobo">mobo</a></p>
+
+            <p>
+                <small class="faded">
+                    Simon Heimler (<a href="http://www.fannon.de">www.fannon.de</a>)<br>
+                    University of Applied Sciences Augsburg, Germany<br>Computer Bauer GmbH<br>
+                </small>
+            </p>
+
+            <aside class="notes">
+                Hello! My name is Simon Heimler and I'm from the University of Applied Sciences in Augsburg, Germany.<br>
+                In this session I would like to introduce you to a project called mobo.<br>
+                As you might guess from the program title its project that helps with complex data model generation.<br>
+            </aside>
+        </section>
+
+        <section>
+            <section>
+                <h1>Appetizer first</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+
+                <aside class="notes">
+                    Before we're heading into the technical details, i'll give you a little appetizer first:
+                </aside>
+            </section>
+
+            <section>
+
+                <video id="mobo_demo" class="bgvid" width="1280" height="720" controls>
+                    <source src="img/mobo_demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+            </section>
+
+        </section>
+
+
+        <section class="align-left">
+            <h2>Outline</h2>
+            <div class="spec-list">
+                <h3 class="fragment">Using JSON Schema...</h3>
+                <h3 class="fragment">...for an object oriented...</h3>
+                <h3 class="fragment">...model development...</h3>
+                <h3 class="fragment">...workflow...</h3>
+                <h3 class="fragment">...in Semantic MediaWiki.</h3>
+
+                <h3 class="fragment">Conclusion & Demo</h3>
+            </div>
+
+            <aside class="notes">
+                I have thought about a more detailed title for this presentation and come up with one that even serves as the outline for the presentation:
+            </aside>
+        </section>
+
+        <section>
+            <section>
+                <h1>USING JSON Schema</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+
+                <aside class="notes">
+                    Lets start with the base technology behind this project: JSON Schema.<br>
+                    Who of you is familiar with JSON Schema?
+                </aside>
+            </section>
+
+            <section>
+                <h2>JSON Schema</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Describes existing data formats / objects</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Easy to read/write for both humands and machines</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>IETF published draft</li>
+                    <li><i class="fa-li fa fa-lightbulb-o yellow"></i>Similar to XML Schema, but based on JSON</small></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Example File</h2>
+                <pre><code data-trim class="json">
+{
+    "firstName": "Simon",
+    "lastName": "Heimler",
+    "age": 28
+}
+                </code></pre>
+
+                <aside class="notes">
+                    Lets begin with a very simple data example.
+                    This is a JSON File or JavaScript Object describing some facts about me.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Example JSON Schema</h2>
+                <pre><code data-trim class="json tiny code-with-header">
+{
+    "title": "Person",
+    "type": "object",
+    "properties": {
+        "firstName": {
+            "type": "string"
+        },
+        "lastName": {
+            "type": "string"
+        },
+        "age": {
+            "description": "Age in years",
+            "type": "integer",
+            "minimum": 0
+        }
+    },
+    "required": ["firstName", "lastName"]
+}
+                </code></pre>
+
+                <aside class="notes">
+                    JSON Schema is using the same data format JSON to meta describe the object.
+                    You see that we are talking about a person here, that has the properties firstName, lastName and age. But there's more: FirstName and lastName are required and age should be at minimum 0.
+                    This is a very simple example, it is possible to describe much more complex object of course.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Use cases</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>
+                        Front- and Backend validation<br>All major languages supported!
+                        <small>[<a href="http://geraintluff.github.io/tv4/">tv4</a>, <a href="https://github.com/geraintluff/jsv4-php">jsv4-php</a>]</small>
+                    </li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>
+                        Documentation generation
+                        <small>[<a href="https://github.com/lbovet/docson">docson</a>]</small>
+                    </li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>
+                        Form / UI generation
+                        <small>[<a href="https://github.com/jdorn/json-editor">json-editor</a>]</small>
+                    </li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>
+                        Random content generation
+                        <small>[<a href="http://schematic-ipsum.herokuapp.com/">Schematic Ipsum</a>]</small>
+                    </small></li>
+                    <li><i class="fa-li fa fa-angle-double-right green"></i>
+                        <span class="green">Data model generation</span>
+                        <small>[<a href="https://github.com/Fannon/mobo">mobo</a>]</small>
+                    </small></li>
+                </ul>
+
+                <aside class="notes">
+                    So what is JSON Schema good for? There are a few Use Cases:<br><br>
+                    ...<br><br>
+                    As far as I know mobo is the first project to use JSON Schema for data model generation.
+                </aside>
+            </section>
+
+            <section>
+                <h2>json-schema.org</h2>
+                <figure class="zoomTarget">
+                    <img src="img/json-schema.org.png" alt="" width="70%">
+                    <figcaption>
+                        <small><a href="http://json-schema.org/" target="_blank">http://json-schema.org/</a></small>
+                    </figcaption>
+                </figure>
+
+                <aside class="notes">
+                    JSON Schema has its own website with documentation and a list of libraries that make use of it. So if you're interested in this, have a look.
+                </aside>
+            </section>
+
+        </section>
+
+        <section>
+
+            <section>
+                <h1>object-oriented</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+
+                <aside class="notes">
+                    mobo is object oriented.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Object orientation</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>More complex SMW models tend to have much redundancy</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>This can lead to inconsistency - fast</li>
+                    <li><i class="fa-li fa fa-plus-square-o green"></i>Inheritance can keep the model DRY <small>(Dont Repeat Yourself)</small></li>
+                    <li><i class="fa-li fa fa-plus-square-o green"></i>The OO paradigma is simple and well understood</li>
+                </ul>
+
+                <aside class="notes">
+                    Let me give you a few reasons why using object orientation could be a good idea:<br><br>
+                    Redundany - at least this was my experience!
+                </aside>
+            </section>
+
+            <section>
+                <h2>Object-oriented JSON Schema</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>JSON Schema uses <code>"$ref"</code> to include and reuse schemas</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>BUT: There is no inheritance behaviour defined!</li>
+                </ul>
+
+                <aside class="notes">
+                    Sadly, JSON Schema does not support inheritance in a standardized manner.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Own implementation</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Implemented custom, more explicit <code>"$extend"</code> attribute which does proper inheritance</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Through <code>"$extend"</code> the relationship between the objects are defined, too</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>This leads to a (graph) database model that fits SMW well</li>
+                </ul>
+                <aside class="notes">
+                    But thats not a big problem. JSON Schema is built to be easily extensible. So I implemented my own, custom
+                </aside>
+            </section>
+
+            <section>
+                <h2>SMW Specifics</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Uses Fields, Models and Forms that roughly equivalent SMWs Attributes, Templates and Forms</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Additional schema attributes that reflect SMW/SF settings</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Form settings can be defined as low as in Fields and are inherited / overwritten on the way up</li>
+                </ul>
+                <aside class="notes">
+                    There are also a lot of specific needs for the model to work for Semantic MediaWiki.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Concept</h2>
+
+                <figure class="zoomTarget">
+                    <img src="img/oo.png" width="100%">
+                    <figcaption>
+                        <small>Object-oriented modeling concept</small>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section>
+                <h3>/model/_Shape.json</h3>
+                <pre><code data-trim class="tiny json code-with-header">
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "title": "Shape",
+    "description": "Generic Shape",
+    "type": "object",
+
+    "properties": {
+        "x": {
+            "type": "integer"
+        },
+        "y": {
+            "type": "integer"
+        }
+    },
+    "required": ["x", "y"],
+
+    "abstract": true
+}
+
+                </code></pre>
+
+            </section>
+
+            <section>
+                <h3>/model/Circle.json</h3>
+                <pre><code data-trim class="tiny json code-with-header">
+{
+    "$extend": "/model/_Shape.json",
+
+    "title": "Circle",
+    "type": "object",
+
+    "properties": {
+        "radius": { "$extend": "/field/radius.json" },
+    },
+    "required": ["x", "y", "radius"],
+
+    "abstract": false
+}
+
+                </code></pre>
+
+            </section>
+
+            <section>
+                <h3>/field/radius.json</h3>
+                <pre><code data-trim class="tiny json code-with-header">
+{
+    "title": "radius",
+    "description": "The radius of a shape",
+
+    "type": "number",
+    "minimum": 0,
+
+    "smw_form": {
+        "input type": "text with autocomplete"
+    }
+}
+                </code></pre>
+
+            </section>
+
+        </section>
+
+
+        <section>
+
+            <section>
+                <h1>model development</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+                <aside class="notes">
+                    So how does model development look like with mobo?
+                </aside>
+            </section>
+
+            <section>
+                <figure class="zoomTarget">
+                    <img src="img/st.png">
+                </figure>
+                <h5>The model is a collection of folders and JSON files on your filesystem. <br>Use your favorite text editor!</h5>
+            </section>
+
+            <section>
+                <figure class="zoomTarget">
+                    <img src="img/webgui.png" height="600px">
+                    <!-- <iframe src="/examples/index.html" frameborder="0" width="100%" height="600px"></iframe> -->
+                </figure>
+                <h5>Web based GUI for browsing/viewing the model state</h5>
+            </section>
+
+            <section>
+                <figure class="zoomTarget">
+                    <img src="img/webgui2.png" height="600px">
+                </figure>
+                <h5>... and wikitext results</h5>
+            </section>
+
+            <section>
+                <figure class="zoomTarget">
+                    <!-- <img src="img/graphselect.png" width="70%"> -->
+                    <iframe src="examples/graph.html" frameborder="0" width="100%" height="600px"></iframe>
+                </figure>
+                <h5>Interactive model graph explorer</h5>
+            </section>
+
+        </section>
+
+
+        <section>
+
+            <section>
+                <h1>workflow</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+
+                <aside class="notes">
+                    Lets talk about the workflow of using mobo
+                </aside>
+            </section>
+
+            <section>
+                <h2>GETTING STARTED</h2>
+                <ul class="fa-ul fullsize">
+                    <li><i class="fa-li fa fa-terminal green"></i>
+                        <code>npm install mobo -g</code><br>
+                        <div class="faded">Installs mobo as a global NPM (Node.js) package</div>
+                    </li>
+                    <li><i class="fa-li fa fa-terminal green"></i>
+                        <code>mkdir new_project && cd new_project</code><br>
+                        <div class="faded">Creates a new directory and enters it</div>
+                    </li>
+                    <li><i class="fa-li fa fa-terminal green"></i>
+                        <code>mobo --init</code><br>
+                        <div class="faded">Initializes a new (barebone) project</div>
+
+                    </li>
+                    <li><i class="fa-li fa fa-terminal green"></i>
+                        <code>nano settings.json</code><br>
+                        <div class="faded">Adjust settings.json (login data!)</div>
+                    </li>
+                </ul>
+                <aside class="notes">
+                    First: Lets get started !
+                </aside>
+            </section>
+
+            <section>
+                <h2>Using mobo</h2>
+                <ul class="fa-ul fullsize">
+                    <li><i class="fa-li fa fa-terminal green" style="color: #9FD249"></i>
+                        <code>mobo</code><br>
+                    </li>
+                </ul>
+                <figure class="zoomTarget">
+                    <img src="img/cli1.png" height="70%">
+                </figure>
+
+                <ul class="fa-ul smaller">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Webapp is served at <a href="http://localhost:8000/">localhost:8000</a></li>
+
+                </ul>
+
+            </section>
+
+            <section>
+                <h2>Interactive Workflow</h2>
+                <ol>
+                    <li>A file of the development model is changed / added</li>
+                    <li class="fragment">mobo detects the change and re-generates the model</li>
+                    <li class="fragment">Model is validated. Errors and warnings will be displayed</li>
+                    <li class="fragment">The result is compared to last upload state and only the changed sites will be uploaded via a Bot account</li>
+
+                </ol>
+            </section>
+
+            <section>
+                <figure class="zoomTarget">
+                    <img src="img/cli2.png" height="100%">
+                </figure>
+            </section>
+
+        </section>
+
+        <section>
+
+            <section>
+                <h1>Semantic MediaWiki</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+
+                <aside class="notes">
+                    So how does this all relate to Semantic MediaWiki?
+                </aside>
+            </section>
+
+            <section>
+                <h2>Target Installation</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Semantic MediaWiki and Semantic Forms are required</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>HeaderTabs Extension is supported</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Visual Editor TemplateData Extension is supported; <br>will be used for template documentation</li>
+                </ul>
+            </section>
+
+            <section>
+                <figure class="zoomTarget">
+                    <img src="img/edit.png" height="550px">
+                </figure>
+                <h5>Form with HeaderTabs</h5>
+
+                <aside class="notes">
+                    This is an example form that was completely generated by mobo.
+                    The form uses HeaderTabs.
+                </aside>
+            </section>
+
+            <section>
+                <figure class="zoomTarget">
+                    <img src="img/view.png" width="70%">
+                </figure>
+                <h5>Site with HeaderTabs</h5>
+                <aside class="notes">
+                    This is the site resulting from the form entry. In this tab a Router was added.
+                </aside>
+            </section>
+
+            <section>
+                <figure class="zoomTarget">
+                    <img src="img/docs.png" width="70%">
+                </figure>
+                <h5>Documentation and usage snippet is auto generated</h5>
+                <aside class="notes">
+                    mobo also generates documentation and snippets how templates or queries are to be used.
+                </aside>
+            </section>
+
+            <section>
+                <figure class="zoomTarget">
+                    <img src="img/report.png" width="70%">
+                </figure>
+                <h5>A report is generated and uploaded</h5>
+                <aside class="notes">
+                    After each upload mobo creates and uploads a report to the wiki.
+                </aside>
+            </section>
+
+
+        </section>
+
+        <section>
+
+            <section>
+                <h1>Conclusion</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+
+                <aside class="notes">
+                    So lets head over to my personal conclusion.
+                </aside>
+            </section>
+
+            <section>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-plus-square-o green"></i>Very useful toolset for my own model development process</li>
+                    <li><i class="fa-li fa fa-plus-square-o green"></i>Great at keeping the model consistent, possible to update dozends of wiki sites in a minute.</li>
+                    <li><i class="fa-li fa fa-plus-square-o green"></i>Works well with prototyping / iterative development process.</li>
+                    <li><i class="fa-li fa fa-square-o yellow"></i>SMW/SF doesn't support some features that would come cheap (HTML5 front-end validation!)</li>
+                </ul>
+            </section>
+
+            <section>
+                <ul class="fa-ul">
+                   <li><i class="fa-li fa fa-square-o yellow"></i>Completely independent from SMW/SF</li>
+                   <li><i class="fa-li fa fa-minus-square-o red"></i>Adds to the learning curve of SMW</li>
+                   <li><i class="fa-li fa fa-minus-square-o red"></i>Model needs to have a certain complexity to make using the toolset viable</li>
+                   <li><i class="fa-li fa fa-minus-square-o red"></i>No GUI for editing</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Project state</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Working Prototype</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Currently tailored to the specific needs of a specific project,<br>
+                    but this might change.</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Open Source at <a href="https://github.com/Fannon/mobo">github.com/Fannon/mobo</a></li>
+                </ul>
+            </section>
+
+        </section>
+
+
+        <section data-background="#9D2E19">
+            <section>
+                <h1>DEMO</h1>
+                <i class="fa fa-cogs bg-center"></i>
+
+                <aside class="notes">
+
+                </aside>
+            </section>
+
+            <section>
+
+                <video id="mobo_demo_full" class="bgvid" width="1280" height="720" controls>
+                    <source src="img/mobo_demo_full.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+            </section>
+
+        </section>
+
+
+         <section data-background="#3A6990">
+            <h1>Questions?</h1>
+            <i class="fa fa-comments-o bg-center"></i>
+
+            <aside class="notes">
+                We've got some time left. So if there are questions, feel free to ask them now!
+            </aside>
+        </section>
+
+
+        <section data-background="#4E2377">
+            <h1>Thanks for listening!</h1>
+            <p>If you've got feedback or questions, just talk to me!</p>
+            <p>
+                <a href="http://fannon.de/p/jsonmodel/#/">www.fannon.de/p/jsonmodel</a>
+            </p>
+            <aside class="notes">
+                Thanks for listening to my session!
+                If you've got some more feedback or questions, just talk to me later.
+            </aside>
+        </section>
+
+        <section>
+            <section>
+            <p>Excursus</p>
+                <h1>WHY NO OWLs?</h1>
+            </section>
+
+            <section>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-plus-square-o green"></i>OWL is more flexible and powerful</li>
+                    <li><i class="fa-li fa fa-plus-square-o green"></i>OWL supports reasoning / inference</li>
+                    <li><i class="fa-li fa fa-minus-square-o red"></i>OWL is <strong>much</strong> more difficult than JSON Schema</li>
+                    <li><i class="fa-li fa fa-minus-square-o red"></i>Simple things like hard validation are difficult with OWL. <br>It requires another complex layer on top of a already complex system. (e.g. <a href="http://clarkparsia.com/pellet/icv/">Pellet Integrity Constraints</a>)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>My personal philosophy</h2>
+                <p>The foundations should be as easy and barebone as possible while beeing still highly flexible / modular</p>
+                <p>More complex features should come on top of that</p>
+            </section>
+
+        </section>
+
+        <section>
+
+            <section>
+                <p>Excursus</p>
+                <h1>How about<br>Page Schemas?</h1>
+            </section>
+
+            <section>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-plus-square-o green"></i>Schema editor in the browser</li>
+                    <li><i class="fa-li fa fa-plus-square-o green"></i>Easy to understand / use</li>
+                    <li><i class="fa-li fa fa-plus-square-o green"></i>Requires no additonal technologies</li>
+                    <li><i class="fa-li fa fa-square-o yellow"></i>Tightly integrated in SMW</li>
+                    <li><i class="fa-li fa fa-minus-square-o red"></i>Supports no inheritance</li>
+                    <li><i class="fa-li fa fa-minus-square-o red"></i>No Validation</li>
+                    <li><i class="fa-li fa fa-minus-square-o red"></i>Slower Workflow</li>
+                </ul>
+            </section>
+
+        </section>
+
+    </div>
+
+
+</div>
+
+<!-- build:js js/app.min.js -->
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<!-- <script src="lib/jquery-2.1.0.min.js"></script> -->
+
+<script src="js/presentation.js"></script>
+<!-- endbuild -->
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: true,
+
+        // previewLinks: true,
+
+
+        width: 1280,
+        height: 720,
+
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        backgroundTransition: 'slide', // default/none/slide/concave/convex/zoom
+        transitionSpeed: 'normal',
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'img/bg.jpg',
+        // parallaxBackgroundSize: '1920px 1080px',
+
+
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() {
+                return !document.body.classList;
+            } },
+
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+                hljs.initHighlightingOnLoad();
+            } },
+
+            // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+            // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+            { src: 'plugin/notes/notes.js', async: true, condition: function() {
+                return !!document.body.classList;
+            } },
+
+            // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+
+        ]
+    });
+
+</script>
+
+</body>
+</html>

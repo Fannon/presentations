@@ -334,7 +334,7 @@ body {
   left: 50%;
   margin-top: -40px;
   margin-left: -320px;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 0, 0, 0.1);
   font-size: 640px; }
 .reveal i.bg-bottom {
   position: fixed;
@@ -343,11 +343,11 @@ body {
   left: 50%;
   margin-bottom: -150px;
   margin-left: -110px;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 0, 0, 0.1);
   font-size: 300px; }
 .reveal section img {
   box-shadow: none;
-  border: 0.3rem solid rgba(255, 255, 255, 0.08);
+  border: 0.3rem solid rgba(0, 0, 0, 0.08);
   border-radius: 0.2rem; }
 .reveal section img.clean {
   border: none;

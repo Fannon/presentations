@@ -18,7 +18,7 @@ $headingColor: #555;
 $headingTextShadow: none;
 $headingTextTransform: none;
 $backgroundColor: #F7F7F7;
-$linkColor: #6ba106;
+$linkColor: rgba(0, 0, 0, 0.3);
 $linkColorHover: rgba(0, 0, 0, 0.9);
 $selectionBackgroundColor: rgba(0, 0, 0, 0.5);
 
@@ -195,7 +195,7 @@ $code-font: Consolas, monaco, monospace;
 
   h1 {
     font-weight: 100;
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.85);
     margin-bottom: 1.6rem;
     font-size: 8rem;
     line-height: 8rem;
@@ -378,8 +378,23 @@ $code-font: Consolas, monaco, monospace;
     padding: 14px;
     border-radius: $border-radius;
     width: 100%;
-    background: rgba(255, 255, 255, 0.75);
+    // color: #CCC;
+    // background: rgba(255, 255, 255, 0.75);
   }
+
+  .tiny {
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+  }
+
+  .code-with-header {
+    min-height: 560px;
+  }
+
+  .code-full-height {
+    min-height: 640px;
+  }
+
 
   i {
     font-family: 'FontAwesome';
@@ -449,7 +464,7 @@ $code-font: Consolas, monaco, monospace;
   table {
     width: 100%;
     font-family: Roboto;
-    font-weight: 100;
+    font-weight: 300;
     font-size: 1.6rem;
 
     tr {
@@ -655,38 +670,4 @@ $code-font: Consolas, monaco, monospace;
     background: #C4EE29;
   }
 
-}
-
-
-//////////////////////////////////////////
-// BROWSER THEMING                      //
-//////////////////////////////////////////
-
-// CHROME
-::-webkit-scrollbar {
-  width: 14px;
-  height: 14px;
-}
-
-::-webkit-scrollbar:hover {
-  height: 14px;
-  background-color: #CCC;
-}
-
-::-webkit-scrollbar-button:start:decrement,
-::-webkit-scrollbar-button:end:increment {
-  height: 1px;
-  width: 1px;
-}
-
-::-webkit-scrollbar-track-piece {
-  background-color: #000;
-}
-
-::-webkit-scrollbar-thumb:vertical {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-::-webkit-scrollbar-thumb:horizontal {
-  background: rgba(255, 255, 255, 0.3);
 }

@@ -17,7 +17,7 @@
 	<!-- build:css css/app.min.css -->
     <link rel="stylesheet" href="css/reveal.min.css">
     <link rel="stylesheet" href="css/theme/fannon_white.css" id="theme">
-    <link rel="stylesheet" href="css/theme/fannon_syntax.css">
+    <link rel="stylesheet" href="css/github.css">
     <link rel="stylesheet" href="lib/nv.d3.min.css">
     <link rel="stylesheet" type="text/css" href="lib/font-awesome.css"/>
     <!-- endbuild -->
@@ -33,7 +33,6 @@
             document.getElementsByTagName('head')[0].appendChild(link);
         }
     </script>
-
 
 </head>
 
@@ -58,13 +57,13 @@
     <div class="slides">
 
         <section>
-            <h1>plastic.js</h1>
+            <img id="logo" src="img/logo.svg" alt="" style="border: none; width: 70%">
 
-            <h3>Introduction & current state</h3>
+            <h3><a href="http://plasticjs.org/" target="_blank">www.plasticjs.org</a></h3>
 
             <p>
                 <small class="faded">
-                    Simon Heimler (June 2014)<br>
+                    Simon Heimler<br>
                     <a href="http://www.fannon.de">www.fannon.de</a>
                 </small>
             </p>
@@ -94,7 +93,7 @@
                 </p>
                 <p class="fragment">
                     <strong>Framework</strong><br>
-                    Not another library, but a framework to rule them all <br>
+                    Not another library, but a framework to bind them all <br>
                     <i class="fa fa-smile-o"></i>
                 </p>
             </section>
@@ -142,57 +141,102 @@
                 <h3>Simple Table from JSON</h3>
                 <pre><code data-trim class="html">
 &lt;plastic id=&quot;table-json-file&quot; style=&quot;height: 400px; width: 100%;&quot;&gt;
-    &lt;script class=&quot;plastic-data&quot; type=&quot;application/json&quot; data-url=&quot;data/simple-default.json&quot; data-format=&quot;simple-default&quot;&gt;&lt;/script&gt;
-    &lt;script class=&quot;plastic-display&quot; data-display-module=&quot;simple-table&quot; type=&quot;application/json&quot;&gt;&lt;/script&gt;
+    &lt;script class=&quot;plastic-data&quot; type=&quot;application/json&quot;
+            data-url=&quot;data/simple-default.json&quot; data-format=&quot;simple-default&quot;&gt; &lt;/script&gt;
+    &lt;script class=&quot;plastic-display&quot; data-display-module=&quot;simple-table&quot;
+            type=&quot;application/json&quot;&gt;&lt;/script&gt;
 &lt;/plastic&gt;
                 </code></pre>
             </section>
 
             <section>
                 <h3>Simple Table from JSON</h3>
-                <plastic id="table-json-file" style="height: 400px; width: 100%;">
+                <plastic id="table-json-file" style="height: 400px; width: 800px;">
                     <script class="plastic-data" type="application/json" data-url="data/simple-default.json" data-format="simple-default"></script>
                     <script class="plastic-display" data-display-module="simple-table" type="application/json"></script>
+                    <script class="plastic-options" type="application/json">
+                        {
+                            "benchmark": false,
+                            "showInfoBox": false
+                        }
+                    </script>
                 </plastic>
             </section>
 
             <section>
                 <h3>Simple Bars from SPARQL Endpoint</h3>
-                                <pre><code data-trim class="html">
+                                <pre><code data-trim class="html tiny code-with-header">
 &lt;div class=&quot;plastic-js&quot; style=&quot;height: 400px&quot;&gt;
-    &lt;script class=&quot;plastic-query&quot; type=&quot;application/sparql-query&quot; data-query-url=&quot;http://dbpedia.org/sparql&quot;&gt;--&gt;
+    &lt;script class=&quot;plastic-query&quot; type=&quot;application/sparql-query&quot; data-query-url=&quot;http://dbpedia.org/sparql&quot;&gt;
         PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-        PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
         PREFIX type: &lt;http://dbpedia.org/class/yago/&gt;
         PREFIX prop: &lt;http://dbpedia.org/property/&gt;
+
         SELECT ?country_name ?population
         WHERE {
-        country a type:LandlockedCountries ;
-        rdfs:label ?country_name ;
-        prop:populationEstimate ?population .
-        FILTER (?population &gt; 15000000 &amp;&amp; langMatches(lang(?country_name), &quot;en&quot;)) .
-         ORDER BY DESC(?population)
+            ?country a type:LandlockedCountries .
+            ?country rdfs:label ?country_name .
+            ?country prop:populationEstimate ?population .
+
+            FILTER (?population &gt; 12000000 &amp;&amp; langMatches(lang(?country_name), &quot;en&quot;)) .
+        }
+        ORDER BY DESC(?population)
+    &lt;/script&gt;
+    &lt;script class=&quot;plastic-options&quot; type=&quot;application/json&quot;&gt;
+        {
+            &quot;benchmark&quot;: true
+        }
     &lt;/script&gt;
     &lt;script class=&quot;plastic-display&quot; data-display-module=&quot;discrete-bar-chart&quot; type=&quot;application/json&quot;&gt;
         {
-            &quot;tableHead&quot;: true
+            &quot;staggerLabels&quot;: false,
+            &quot;tooltips&quot;: true,
+            &quot;showValues&quot;: true
         }
     &lt;/script&gt;
 &lt;/div&gt;
+
                 </code></pre>
             </section>
 
             <section>
                 <h2>Simple Bars - Result</h2>
                 <div class="plastic-js" style="height: 400px">
-                    <script class="plastic-data" type="application/json" data-url="data/countries.json" data-format="sparql-json"></script>
-                    <script class="plastic-display" data-display-module="discrete-bar-chart" type="application/json">
-                        {
-                            "tableHead": true
-                        }
-                    </script>
 
-                </div>
+                <script class="plastic-data" type="application/json" data-url="data/countries.json" data-format="sparql-json"></script>
+
+    <!-- <script class="plastic-query" type="application/sparql-query" data-query-url="http://dbpedia.org/sparql">
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX type: <http://dbpedia.org/class/yago/>
+        PREFIX prop: <http://dbpedia.org/property/>
+
+        SELECT ?country_name ?population
+        WHERE {
+            ?country a type:LandlockedCountries .
+            ?country rdfs:label ?country_name .
+            ?country prop:populationEstimate ?population .
+
+            FILTER (?population > 12000000 && langMatches(lang(?country_name), "en")) .
+        }
+        ORDER BY DESC(?population)
+    </script> -->
+
+    <script class="plastic-options" type="application/json">
+        {
+            "benchmark": true
+        }
+    </script>
+
+    <script class="plastic-display" data-display-module="discrete-bar-chart" type="application/json">
+        {
+            "staggerLabels": false,
+            "tooltips": true,
+            "showValues": true
+        }
+    </script>
+
+</div>
+
             </section>
 
             <section>
@@ -270,41 +314,9 @@
 <!-- 3rd Party Dependencies -->
     <script src="lib/d3.js"></script>
     <script src="lib/nv.d3.min.js"></script>
-    <script src="lib/lazyload.js"></script>
-    <script src="lib/jjv.js"></script>
 
     <!-- App JavaScript -->
-    <script src="lib/plasticjs/main.js"></script>
-    <script src="lib/plasticjs/options.js"></script>
-
-    <!-- Core Functions -->
-    <script src="lib/plasticjs/core/Element.js"></script>
-    <script src="lib/plasticjs/core/ElementAttributes.js"></script>
-    <script src="lib/plasticjs/core/msg.js"></script>
-
-    <!-- Helper Modules -->
-    <script src="lib/plasticjs/helper/Events.js"></script>
-    <script src="lib/plasticjs/helper/schemaValidation.js"></script>
-
-    <!-- Module Management -->
-    <script src="lib/plasticjs/modules/Module.js"></script>
-    <script src="lib/plasticjs/modules/dependencyManager.js"></script>
-    <script src="lib/plasticjs/modules/moduleManager.js"></script>
-
-    <!-- Data Parser Modules -->
-    <script src="lib/plasticjs/modules/data/SparqlJson.js"></script>
-    <script src="lib/plasticjs/modules/data/AskJson.js"></script>
-    <script src="lib/plasticjs/modules/data/Default.js"></script>
-    <script src="lib/plasticjs/modules/data/SimpleDefault.js"></script>
-
-    <!-- Display Modules -->
-    <script src="lib/plasticjs/modules/display/SimpleTable.js"></script>
-    <script src="lib/plasticjs/modules/display/DiscreteBarChart.js"></script>
-
-    <!-- Query Parser Modules -->
-    <script src="lib/plasticjs/modules/query/Ask.js"></script>
-    <script src="lib/plasticjs/modules/query/Sparql.js"></script>
-
+    <script src="lib/plasticjs/plastic.js"></script>
 
 
 <!-- endbuild -->

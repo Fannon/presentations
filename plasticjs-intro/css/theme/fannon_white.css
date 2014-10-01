@@ -1,4 +1,4 @@
-@charset "CP850";
+@charset "UTF-8";
 /**
  * Fannon Theme
  * 2014 Simon Heimler (https://github.com/Fannon/presentations)
@@ -7,18 +7,18 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #f7f7f7;
-  background-color: #f7f7f7; }
+  background: #F7F7F7;
+  background-color: #F7F7F7; }
 
 .reveal {
   font-family: "Roboto", sans-serif;
   font-size: 36px;
   font-weight: normal;
   letter-spacing: -0.02em;
-  color: black; }
+  color: #000; }
 
 ::selection {
-  color: white;
+  color: #fff;
   background: rgba(0, 0, 0, 0.5);
   text-shadow: none; }
 
@@ -32,7 +32,7 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #555555;
+  color: #555;
   font-family: "Roboto", sans-serif;
   line-height: 0.9em;
   letter-spacing: 0.02em;
@@ -46,7 +46,7 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #6ba106;
+  color: rgba(0, 0, 0, 0.3);
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -61,7 +61,7 @@ body {
 
 .reveal .roll span:after {
   color: #fff;
-  background: #3a5703; }
+  background: rgba(0, 0, 0, 0.3); }
 
 /*********************************************
  * IMAGES
@@ -69,7 +69,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid black;
+  border: 4px solid #000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;
@@ -79,7 +79,7 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #6ba106;
+  border-color: rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
@@ -87,19 +87,19 @@ body {
  *********************************************/
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
-  border-right-color: #6ba106; }
+  border-right-color: rgba(0, 0, 0, 0.3); }
 
 .reveal .controls div.navigate-right,
 .reveal .controls div.navigate-right.enabled {
-  border-left-color: #6ba106; }
+  border-left-color: rgba(0, 0, 0, 0.3); }
 
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #6ba106; }
+  border-bottom-color: rgba(0, 0, 0, 0.3); }
 
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
-  border-top-color: #6ba106; }
+  border-top-color: rgba(0, 0, 0, 0.3); }
 
 .reveal .controls div.navigate-left.enabled:hover {
   border-right-color: rgba(0, 0, 0, 0.9); }
@@ -120,7 +120,7 @@ body {
   background: rgba(0, 0, 0, 0.2); }
 
 .reveal .progress span {
-  background: #6ba106;
+  background: rgba(0, 0, 0, 0.3);
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -131,7 +131,7 @@ body {
  * SLIDE NUMBER
  *********************************************/
 .reveal .slide-number {
-  color: #6ba106; }
+  color: rgba(0, 0, 0, 0.3); }
 
 @font-face {
   font-family: 'Roboto';
@@ -209,7 +209,7 @@ body {
   text-shadow: none; }
 .reveal h1 {
   font-weight: 100;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.85);
   margin-bottom: 1.6rem;
   font-size: 8rem;
   line-height: 8rem; }
@@ -321,8 +321,14 @@ body {
   line-height: 2.2rem;
   padding: 14px;
   border-radius: 0.2rem;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.75); }
+  width: 100%; }
+.reveal .tiny {
+  font-size: 1.6rem;
+  line-height: 1.8rem; }
+.reveal .code-with-header {
+  min-height: 560px; }
+.reveal .code-full-height {
+  min-height: 640px; }
 .reveal i {
   font-family: 'FontAwesome';
   font-style: normal;
@@ -368,7 +374,7 @@ body {
 .reveal table {
   width: 100%;
   font-family: Roboto;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 1.6rem; }
   .reveal table td, .reveal table th {
     background: rgba(0, 0, 0, 0.08);
@@ -419,7 +425,7 @@ body {
   z-index: -999;
   font-family: Georgia, sans;
   display: block;
-  content: "„";
+  content: "ÔÇ×";
   font-size: 500px;
   color: rgba(255, 255, 255, 0.08); }
 .reveal figure {
@@ -496,24 +502,4 @@ body {
     width: 25%;
     background: #C4EE29; }
 
-::-webkit-scrollbar {
-  width: 14px;
-  height: 14px; }
-
-::-webkit-scrollbar:hover {
-  height: 14px;
-  background-color: #CCC; }
-
-::-webkit-scrollbar-button:start:decrement,
-::-webkit-scrollbar-button:end:increment {
-  height: 1px;
-  width: 1px; }
-
-::-webkit-scrollbar-track-piece {
-  background-color: #000; }
-
-::-webkit-scrollbar-thumb:vertical {
-  background: rgba(255, 255, 255, 0.3); }
-
-::-webkit-scrollbar-thumb:horizontal {
-  background: rgba(255, 255, 255, 0.3); }
+/*# sourceMappingURL=fannon_white.css.map */

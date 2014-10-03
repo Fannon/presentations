@@ -236,10 +236,10 @@ body {
   background: rgba(255, 255, 255, 0.07);
   color: #FFF;
   font-size: 2.4rem;
-  line-height: 2.6rem; }
+  line-height: 1.25em; }
 .reveal h5 {
   font-size: 1.8rem;
-  line-height: 2.3rem;
+  line-height: 1.25em;
   background: rgba(0, 0, 0, 0.5);
   padding: 8px; }
 .reveal .subtitle {
@@ -333,14 +333,14 @@ body {
   font-weight: 400; }
 .reveal .hljs {
   font-size: 2rem;
-  line-height: 2.2rem;
+  line-height: 1.25em;
   padding: 14px;
   border-radius: 0.2rem;
   width: 100%;
   background: rgba(0, 0, 0, 0.75); }
 .reveal .tiny {
   font-size: 1.6rem;
-  line-height: 1.8rem; }
+  line-height: 1.25em; }
 .reveal .code-with-header {
   min-height: 560px; }
 .reveal .code-full-height {
@@ -388,11 +388,11 @@ body {
   font-weight: 500; }
 .reveal .smaller {
   font-size: 2.4rem;
-  line-height: 2.6rem; }
+  line-height: 1.25em; }
 .reveal small {
   vertical-align: middle;
   font-size: 1.6rem;
-  line-height: 1.8rem; }
+  line-height: 1.25em; }
 .reveal small * {
   vertical-align: bottom; }
 .reveal table {

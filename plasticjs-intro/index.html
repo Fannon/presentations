@@ -63,13 +63,17 @@
 
             <p>
                 <small class="faded">
-                    Simon Heimler<br>
-                    <a href="http://www.fannon.de">www.fannon.de</a>
+                    Simon Heimler (<a href="http://www.fannon.de">www.fannon.de</a>)
                 </small>
             </p>
         </section>
 
-        <section class="align-left">
+        <section>
+            <h2>Preface</h2>
+            <p>Currently a working Prototype / Proof of concept.</p>
+        </section>
+
+        <!-- <section class="align-left">
             <h2>Overview</h2>
             <div class="spec-list">
                 <h3 class="fragment">plastic.js</h3>
@@ -77,7 +81,7 @@
                 <h3 class="fragment">Current state</h3>
                 <h3 class="fragment">Roadmap</h3>
             </div>
-        </section>
+        </section> -->
 
         <section>
             <section>
@@ -87,45 +91,54 @@
 
             <section>
                 <h2>Data Display Framework</h2>
-                <p class="fragment">
+                <p>
                     <strong>Data Display</strong><br>
                     Data representation in general (including tables etc.)
                 </p>
-                <p class="fragment">
+                <p>
                     <strong>Framework</strong><br>
-                    Not another library, but a framework to bind them all <br>
-                    <i class="fa fa-smile-o"></i>
+                    Not another library, but a framework to bind them all
                 </p>
             </section>
 
             <section>
                 <h2>Current Situation</h2>
                 <ul class="fa-ul">
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>A lot of Visualisation Libraries out there</li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Each works differently</li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Some are tied to a very specific envirionment</li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Nearly all of them require JavaScript Knowledge</li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Data comes in a variety of ways<br> ... which complicates everything</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>A lot of Visualisation Libraries out there</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Each works differently</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Some are tied to a very specific envirionment</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Nearly all of them require JavaScript knowledge</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Data comes in a variety of ways<br> ... which complicates everything</li>
                 </ul>
             </section>
 
             <section>
-                <h2>plastic.js Specs</h2>
+                <h2>plastic.js Specs (1/2)</h2>
                 <ul class="fa-ul">
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Providing a platform (framework) for existing libraries</li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Easy and consistent usage <small>(without programming knowledge)</small></li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Extensible (Data Modules, Display Modules)</li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Modular (loosely coupled) Architecture</li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Platform neutral (pure HTML5)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Open Source</strong>: <a href="https://github.com/Fannon/plastic.js">github.com/Fannon/plastic.js</a></li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Platform neutral</strong>: Pure HTML5</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Framework</strong>: Providing a platform for existing libraries</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Easy to use</strong>: No programming skills required</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Extensible</strong>: Data Modules, Query Modules, Display Modules</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>plastic.js Specs (2/2)</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Modular</strong>: Loosely coupled architecture</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Async</strong>: Runs asyncronally and possibly multithreaded</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Dependency Management</strong>: "Smart" lazy loading</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Schemas</strong>: Makes use of schemas, does duck-typing if that failes</li>
                 </ul>
             </section>
 
             <section>
                 <h2>plastic.js Usage</h2>
                 <ul class="fa-ul">
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Include plastic.js JavaScript and CSS (as usual)</li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Write an HTML embed code</li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Data and Options are provided by HTML tags and their attributes (WebComponents Style)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Include plastic.js JavaScript and CSS (as usual)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Write a HTML embed code</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Data and Options are provided through HTML tags and their attributes (WebComponents Style)</li>
                 </ul>
             </section>
 
@@ -247,6 +260,23 @@
         </section>
 
         <section>
+             <section>
+                <h1>SMW</h1>
+                <i class="fa fa-angle-double-down bg-bottom"></i>
+            </section>
+
+            <section>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>CMS independend. A simple wrapper extension could integrate it.</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Performance: Data is loaded asynchronally / multithreaded and rendered when its done. Site loading is not slowed.</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>SPARQL / ASK / CVS / JSON data (even from different sources) can share the same Visualisation modules</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>SMW Data can be queried / visualized on ANY page</li>
+                </ul>
+            </section>
+
+        </section>
+
+        <section>
             <section>
                 <h1>Current State</h1>
                 <i class="fa fa-angle-double-down bg-bottom"></i>
@@ -255,29 +285,11 @@
             <section>
                 <h2>In early development</h2>
                 <ul class="fa-ul">
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Working Architecture</li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Several data formats supported</li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>Able to query SPARQL Endpoints and semantic Wikis</li>
-                    <li class="fragment"><i class="fa-li fa fa-angle-double-right"></i>A few simple display modules (tables, bars, pies)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Working Architecture</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Several data formats supported</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Able to query SPARQL Endpoints and semantic Wikis</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>A few simple display modules (tables, bars, pies)</li>
                 </ul>
-            </section>
-
-        </section>
-
-        <section>
-            <section>
-                <h1>Roadmap</h1>
-                <i class="fa fa-angle-double-down bg-bottom"></i>
-            </section>
-
-            <section>
-            <h2>Roadmap</h2>
-            <ol>
-                <li class="fragment"></i>Provide a few more display modules</li>
-                <li class="fragment"></i>Release open alpha version</li>
-                <li class="fragment"></i>Get Community feedback (and support?)</li>
-                <li class="fragment"></i>Open future</li>
-            </ol>
             </section>
 
         </section>

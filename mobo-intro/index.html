@@ -67,7 +67,7 @@
             <p>
                 <small class="faded">
                     Simon Heimler (<a href="http://www.fannon.de">www.fannon.de</a>)<br>
-                    University of Applied Sciences Augsburg, Germany<br>Computer Bauer GmbH<br>
+                    University of Applied Sciences Augsburg, Germany<br>Computer Bauer GmbH, Munich, Germany<br>
                 </small>
             </p>
 
@@ -78,13 +78,23 @@
             </aside>
         </section>
 
+
+        <section>
+            <h2>Preface</h2>
+            <ul class="fa-ul">
+                <li><i class="fa-li fa fa-angle-double-right"></i>Prototype in action</li>
+                <li><i class="fa-li fa fa-angle-double-right"></i>Uses a very different approach than current solutions.</li>
+                <li><i class="fa-li fa fa-angle-double-right"></i>Open Source and open to discussion!</li>
+            </ul>
+        </section>
+
         <section>
             <section>
                 <h1>Appetizer first</h1>
                 <i class="fa fa-angle-double-down bg-bottom"></i>
 
                 <aside class="notes">
-                    Before we're heading into the technical details, i'll give you a little appetizer first:
+                    But before we're heading into the technical details, i'll give you a little appetizer first:
                 </aside>
             </section>
 
@@ -94,6 +104,15 @@
                     <source src="img/mobo_demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+
+                <aside class="tiny notes">
+                    Lets begin with a typical Semantic Form. I realize that I've implemented an attribute wrong.<br>
+                    So how come mobo into play? Lets head over to my text editor and search for a field "loginName"<br>
+                    As you see its a simple data file. Lets change the form field. While we're at it we could also provide an default value for this field.<br>
+                    The moment I hit save mobo will realize the change in the background. [STOP]<br>
+                    As you see mobo recalculates the data model and realizes that 25 wiki sites have to be changed and uploaded. It does that in a few secons total.
+                    Lets head back to our browser. Now the field is updated.
+                </aside>
 
             </section>
 
@@ -109,12 +128,13 @@
                 <h3 class="fragment">...workflow...</h3>
                 <h3 class="fragment">...in Semantic MediaWiki.</h3>
 
-                <h3 class="fragment">Conclusion & Demo</h3>
+                <h3 class="fragment">Conclusion & Live-Demo</h3>
             </div>
 
             <aside class="notes">
                 I have thought about a more detailed title for this presentation and come up with one that even serves as the outline for the presentation:
             </aside>
+
         </section>
 
         <section>
@@ -123,19 +143,27 @@
                 <i class="fa fa-angle-double-down bg-bottom"></i>
 
                 <aside class="notes">
-                    Lets start with the base technology behind this project: JSON Schema.<br>
-                    Who of you is familiar with JSON Schema?
+                    Lets start with the base technology behind this project: JSON Schema.<br><br>
+
+                    Who of you is familiar with JSON Schema?<br><br>
+
+                    Only a few? Lets change that!
                 </aside>
             </section>
 
             <section>
                 <h2>JSON Schema</h2>
                 <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Describes existing data formats / objects</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Data format for describing data formats / objects</li>
                     <li><i class="fa-li fa fa-angle-double-right"></i>Easy to read/write for both humands and machines</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>IETF published draft</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Published draft at IETF <small>(Internet Engineering Task Force)</small></li>
                     <li><i class="fa-li fa fa-lightbulb-o yellow"></i>Similar to XML Schema, but based on JSON</small></li>
                 </ul>
+
+                <aside class="notes">
+                    What is JSON Schema about?
+
+                </aside>
             </section>
 
             <section>
@@ -144,7 +172,7 @@
 {
     "firstName": "Simon",
     "lastName": "Heimler",
-    "age": 28
+    "age": 27
 }
                 </code></pre>
 
@@ -178,9 +206,9 @@
                 </code></pre>
 
                 <aside class="notes">
-                    JSON Schema is using the same data format JSON to meta describe the object.
-                    You see that we are talking about a person here, that has the properties firstName, lastName and age. But there's more: FirstName and lastName are required and age should be at minimum 0.
-                    This is a very simple example, it is possible to describe much more complex object of course.
+                    JSON Schema is using the same data format JSON to meta describe the object.<br>
+                    You see that we are talking about a person here, that has the properties firstName, lastName and age. But there's more: FirstName and lastName are required and age should be at minimum 0.<br>
+                    This is a very simple example. Of course it's possible to describe much more complex data structures.
                 </aside>
             </section>
 
@@ -211,7 +239,7 @@
 
                 <aside class="notes">
                     So what is JSON Schema good for? There are a few Use Cases:<br><br>
-                    ...<br><br>
+                    The most obvious one is to use it for validation...<br><br>
                     As far as I know mobo is the first project to use JSON Schema for data model generation.
                 </aside>
             </section>
@@ -239,7 +267,7 @@
                 <i class="fa fa-angle-double-down bg-bottom"></i>
 
                 <aside class="notes">
-                    mobo is object oriented.
+                    mobo makes use of object orientation.
                 </aside>
             </section>
 
@@ -278,7 +306,7 @@
                     <li><i class="fa-li fa fa-angle-double-right"></i>This leads to a (graph) database model that fits SMW well</li>
                 </ul>
                 <aside class="notes">
-                    But thats not a big problem. JSON Schema is built to be easily extensible. So I implemented my own, custom
+                    But thats not a big problem. JSON Schema is built to be easily extensible. So I implemented my own, custom $extend attribute...
                 </aside>
             </section>
 
@@ -290,7 +318,7 @@
                     <li><i class="fa-li fa fa-angle-double-right"></i>Form settings can be defined as low as in Fields and are inherited / overwritten on the way up</li>
                 </ul>
                 <aside class="notes">
-                    There are also a lot of specific needs for the model to work for Semantic MediaWiki.
+                    Of course there are some specific needs of SMW.
                 </aside>
             </section>
 
@@ -303,6 +331,13 @@
                         <small>Object-oriented modeling concept</small>
                     </figcaption>
                 </figure>
+
+                <aside class="tiny notes">
+                    To make this more visual, lets take a look at this diagram. <br>
+                    Lets begin on the right hand side: There's a Circle Form that implements a Circle Model and a Quality Model.<br>
+                    The Circle Model inherits from the abstract _Shape Model, which has the attributes x and y. The Circle also implements a new attribute radius.<br>
+                    Everything is inherited and overwritten from left to right.
+                </aside>
             </section>
 
             <section>
@@ -327,14 +362,17 @@
 
     "abstract": true
 }
-
                 </code></pre>
+
+                <aside class="notes">
+                    This is the abstract Shape model. It has both x and y coordinates which are defined as integers. b
+                </aside>
 
             </section>
 
             <section>
                 <h3>/model/Circle.json</h3>
-                <pre><code data-trim class="tiny json code-with-header">
+                <pre><code data-trim class="tiny json">
 {
     "$extend": "/model/_Shape.json",
 
@@ -348,14 +386,17 @@
 
     "abstract": false
 }
-
                 </code></pre>
+
+                <aside class="notes">
+                    Now lets take a look at the Circle Model. It extends from _Shape and inheritc all properties. Some are overwritten, like the title for example. It inherits the properties from Shape and adds the radius. The radius attribute is inherited too.
+                </aside>
 
             </section>
 
             <section>
                 <h3>/field/radius.json</h3>
-                <pre><code data-trim class="tiny json code-with-header">
+                <pre><code data-trim class="tiny json">
 {
     "title": "radius",
     "description": "The radius of a shape",
@@ -369,6 +410,10 @@
 }
                 </code></pre>
 
+                <aside class="notes">
+                    This is the radius field. As you can see the Semantic Forms Display Type is defined as low as in the attribute itself.
+                </aside>
+
             </section>
 
         </section>
@@ -380,7 +425,7 @@
                 <h1>model development</h1>
                 <i class="fa fa-angle-double-down bg-bottom"></i>
                 <aside class="notes">
-                    So how does model development look like with mobo?
+                    So how does model development look like with mobo? There are a few tools involved.
                 </aside>
             </section>
 
@@ -388,7 +433,16 @@
                 <figure class="zoomTarget">
                     <img src="img/st.png">
                 </figure>
-                <h5>The model is a collection of folders and JSON files on your filesystem. <br>Use your favorite text editor!</h5>
+                <h5>The model is a collection of folders and JSON files on your filesystem.<br>
+                Use your favorite text editor and VCS!</h5>
+            </section>
+
+            <section>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-lightbulb-o yellow"></i>It is possible to split the model into several modular, reusable sub-projects.</li>
+                    <li><i class="fa-li fa fa-lightbulb-o yellow"></i>With VCS its possible to go back and forward in the development state in seconds.</li>
+                    <li><i class="fa-li fa fa-lightbulb-o yellow"></i>With VCS the model can be developed and synced between many persons.</li>
+                </ul>
             </section>
 
             <section>
@@ -396,14 +450,14 @@
                     <img src="img/webgui.png" height="600px">
                     <!-- <iframe src="/examples/index.html" frameborder="0" width="100%" height="600px"></iframe> -->
                 </figure>
-                <h5>Web based GUI for browsing/viewing the model state</h5>
+                <h5>Web based GUI for browsing/viewing the final, inherited model state</h5>
             </section>
 
             <section>
                 <figure class="zoomTarget">
                     <img src="img/webgui2.png" height="600px">
                 </figure>
-                <h5>... and wikitext results</h5>
+                <h5>... and the wikitext results</h5>
             </section>
 
             <section>
@@ -412,6 +466,11 @@
                     <iframe src="examples/graph.html" frameborder="0" width="100%" height="600px"></iframe>
                 </figure>
                 <h5>Interactive model graph explorer</h5>
+
+                <aside class="notes">
+                    Sometimes its useful to have a visual representation of your model so you can spot problems from bird's-eye view. This is an interactive model explorer that lets you click through your model.<br>
+                    This graph is also auto generated, but requires some custom layouting through Gephi, a Graph Analysis Tool.
+                </aside>
             </section>
 
         </section>
@@ -424,7 +483,7 @@
                 <i class="fa fa-angle-double-down bg-bottom"></i>
 
                 <aside class="notes">
-                    Lets talk about the workflow of using mobo
+                    How does the typical workflow of using mobo look like?
                 </aside>
             </section>
 
@@ -467,8 +526,11 @@
 
                 <ul class="fa-ul smaller">
                     <li><i class="fa-li fa fa-angle-double-right"></i>Webapp is served at <a href="http://localhost:8000/">localhost:8000</a></li>
-
                 </ul>
+
+                <aside class="notes">
+                    Enter mobo in your project directory and its executed in the interactive mode. The Webapp is served at the localhost.
+                </aside>
 
             </section>
 
@@ -479,14 +541,22 @@
                     <li class="fragment">mobo detects the change and re-generates the model</li>
                     <li class="fragment">Model is validated. Errors and warnings will be displayed</li>
                     <li class="fragment">The result is compared to last upload state and only the changed sites will be uploaded via a Bot account</li>
-
                 </ol>
+
             </section>
 
             <section>
                 <figure class="zoomTarget">
                     <img src="img/cli2.png" height="100%">
                 </figure>
+
+                <aside class="tiny notes">
+                    This is how the output of mobo can look like. <br>
+                    The yellow lines are warnings about inconsistency in the model.<br>
+                    After that mobo lists all sites that are changed through the last update.<br>
+                    At last all uploads are listed.<br>
+                    As you can see, this process - including upload - completes in seconds.
+                </aside>
             </section>
 
         </section>
@@ -563,7 +633,7 @@
                 <i class="fa fa-angle-double-down bg-bottom"></i>
 
                 <aside class="notes">
-                    So lets head over to my personal conclusion.
+                    Conclusion.
                 </aside>
             </section>
 
@@ -604,7 +674,7 @@
                 <i class="fa fa-cogs bg-center"></i>
 
                 <aside class="notes">
-
+                    Now I'll give you a little live demo. Feel free to ask questions now!
                 </aside>
             </section>
 
@@ -625,7 +695,7 @@
             <i class="fa fa-comments-o bg-center"></i>
 
             <aside class="notes">
-                We've got some time left. So if there are questions, feel free to ask them now!
+                We still got some time left. So if there are any more questions, feel free to ask them now!
             </aside>
         </section>
 

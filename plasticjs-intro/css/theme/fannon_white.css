@@ -1,4 +1,4 @@
-@charset "CP850";
+@charset "UTF-8";
 /**
  * Fannon Theme
  * 2014 Simon Heimler (https://github.com/Fannon/presentations)
@@ -7,18 +7,18 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #f7f7f7;
-  background-color: #f7f7f7; }
+  background: #FAFAFA;
+  background-color: #FAFAFA; }
 
 .reveal {
   font-family: "Roboto", sans-serif;
   font-size: 36px;
   font-weight: normal;
   letter-spacing: -0.02em;
-  color: black; }
+  color: #000; }
 
 ::selection {
-  color: white;
+  color: #fff;
   background: rgba(0, 0, 0, 0.5);
   text-shadow: none; }
 
@@ -32,7 +32,7 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #555555;
+  color: #555;
   font-family: "Roboto", sans-serif;
   line-height: 0.9em;
   letter-spacing: 0.02em;
@@ -69,7 +69,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid black;
+  border: 4px solid #000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;
@@ -212,7 +212,7 @@ body {
   color: rgba(0, 0, 0, 0.85);
   margin-bottom: 1.6rem;
   font-size: 8rem;
-  line-height: 8rem; }
+  line-height: 1.05em; }
 .reveal h2, .reveal h3, .reveal h4 {
   font-weight: 300;
   display: block;
@@ -280,14 +280,14 @@ body {
 .reveal p, .reveal ol, .reveal ul {
   font-weight: 300;
   font-size: 3rem;
-  line-height: 3.4rem; }
+  line-height: 1.2em; }
   .reveal p strong, .reveal ol strong, .reveal ul strong {
     font-weight: 400; }
 .reveal ul {
   margin-left: 3rem; }
 .reveal ul ul, .reveal ul ul ul {
   font-size: 2.4rem;
-  line-height: 2.8rem; }
+  line-height: 1.2em; }
 .reveal ul li {
   list-style-type: none;
   padding: 0 0.5rem 0;
@@ -318,17 +318,23 @@ body {
   overflow: scroll; }
 .reveal .hljs {
   font-size: 1.6rem;
-  line-height: 2.2rem;
+  line-height: 1.25em;
   padding: 14px;
   border-radius: 0.2rem;
   width: 100%; }
 .reveal .tiny {
   font-size: 1.6rem;
-  line-height: 1.8rem; }
+  line-height: 1.2em; }
 .reveal .code-with-header {
   min-height: 560px; }
 .reveal .code-full-height {
   min-height: 640px; }
+.reveal .green {
+  color: #9FD249; }
+.reveal .yellow {
+  color: #DFDD13; }
+.reveal .red {
+  color: #D24949; }
 .reveal i {
   font-family: 'FontAwesome';
   font-style: normal;
@@ -364,11 +370,11 @@ body {
   font-weight: 500; }
 .reveal .smaller {
   font-size: 2.4rem;
-  line-height: 2.6rem; }
+  line-height: 1.2em; }
 .reveal small {
   vertical-align: middle;
   font-size: 1.8rem;
-  line-height: 2rem; }
+  line-height: 1.2em; }
 .reveal small * {
   vertical-align: bottom; }
 .reveal table {
@@ -404,15 +410,15 @@ body {
   margin-bottom: 0.5em;
   overflow: hidden;
   border-radius: 0.2rem;
-  box-shadow: none; }
-  .reveal blockquote ol, .reveal blockquote ul, .reveal blockquote p {
-    font-size: 2.4rem;
-    line-height: 2.8rem; }
+  box-shadow: none;
+  font-size: 2.8rem;
+  line-height: 1.2em; }
   .reveal blockquote strong, .reveal blockquote b {
     font-weight: 300; }
   .reveal blockquote .citation {
     display: block;
     font-family: Roboto;
+    color: rgba(0, 0, 0, 0.7);
     text-align: right;
     font-size: 1.4rem;
     height: 1.5rem;
@@ -425,7 +431,7 @@ body {
   z-index: -999;
   font-family: Georgia, sans;
   display: block;
-  content: "„";
+  content: "ÔÇ×";
   font-size: 500px;
   color: rgba(255, 255, 255, 0.08); }
 .reveal figure {
@@ -436,7 +442,7 @@ body {
     font-family: Roboto;
     font-weight: 100;
     font-size: 1.6rem;
-    line-height: 1.6rem;
+    line-height: 1.2em;
     margin-top: -0.2rem; }
 .reveal .align-left {
   text-align: left; }
@@ -448,7 +454,7 @@ body {
   opacity: 0.75; }
 .reveal .bibliography {
   font-size: 1.6rem;
-  line-height: 1.8rem;
+  line-height: 1.2em;
   margin-left: 2rem; }
   .reveal .bibliography li {
     margin-bottom: 0.4rem;
@@ -501,3 +507,21 @@ body {
     left: 75%;
     width: 25%;
     background: #C4EE29; }
+
+footer {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  font-family: Roboto;
+  font-weight: 100;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px 8px;
+  border-radius: 0 3px 0 0;
+  z-index: 9999; }
+  footer a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none; }
+
+/*# sourceMappingURL=fannon_white.css.map */

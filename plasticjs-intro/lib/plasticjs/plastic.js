@@ -1,6 +1,15 @@
-/*! plastic - v0.0.4 - 2014-07-04
+/*! plastic - v0.1.0 - 2014-11-14
 * https://github.com/Fannon/plasticjs
 * Copyright (c) 2014 Simon Heimler; Licensed MIT */
+/* jshint -W079 */ /* Ignores Redefinition of plastic */
+
+/**
+ * plastic.js Namespace
+ *
+ * @namespace
+ */
+var plastic = {};
+
 (function (global, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -1766,79 +1775,120 @@ LazyLoad = (function (doc) {
   };
 })(this.document);
 
-/* jshint -W079 */ /* Ignores Redefinition of plastic */
+plastic.options = {
+
+    /**
+     * Debug Mode
+     *
+     * This enables logging of some informations to the console
+     * This also ignores Exception handiling. If an error occurs it will crash hard and precice.
+     *
+     * @type {boolean}
+     */
+    debug: false,
+
+    /**
+     * If true, plastic.js will keep a log object
+     * It is stored in plastic.msg._logs and can be JSON Dumped via plastic.msg.dumpLog();
+     *
+     * @type {boolean}
+     */
+    log: true,
+
+    /**
+     * Logs Benchmark Infos to the console
+     *
+     * @type {boolean}
+     */
+    benchmark: false,
+
+    /**
+     * Width of Canvas, if not given
+     * @type {string}
+     */
+    width: '100%',
+
+    /**
+     * Height of Canvas, if not given
+     * @type {string}
+     */
+    height: 'auto',
+
+    /**
+     * Default AJAX Timeout (in ms)
+     * @type {number}
+     */
+    timeout: 12000,
+
+    /**
+     * If true, an additional info box is shown below the plastic element
+     * This displays additional infos like execution time
+     * @type {boolean}
+     */
+    showInfoBox: false
+};
+
+plastic.version = '0.2.0';
 
 /**
- * plastic.js Namespace
+ * Array which holds all the plastic.js Elements
+ *
+ * @type Array
+ */
+plastic.elements = [];
+
+/**
+ * Module Namespace
+ *
+ * This includes module and depencency handling and of course all available modules
  *
  * @namespace
  */
-var plastic = {
+plastic.modules = {
 
     /**
-     * Version Number
-     * @type String
-     */
-    version: '0.0.5',
-
-    /**
-     * Array which holds all the plastic.js Elements
-     *
-     * @type Array
-     */
-    elements: [],
-
-    /**
-     * Module Namespace
-     *
-     * This includes module and depencency handling and of course all available modules
-     *
-     *
-     * @namespace
-     */
-    modules: {
-
-        /**
-         * Query Parser Modules Namespace
-         * @namespace
-         * @ignore
-         */
-        query: {},
-
-        /**
-         * API Parser Modules Namespace
-         * @namespace
-         * @ignore
-         */
-        api: {},
-
-        /**
-         * Data Parser Modules Namespace
-         * @namespace
-         * @ignore
-         */
-        data: {},
-
-        /**
-         * Display Modules Namespace
-         * @namespace
-         * @ignore
-         */
-        display: {}
-
-    },
-
-    /**
-     * Namespace for helper functions
+     * Query Parser Modules Namespace
      * @namespace
      * @ignore
      */
-    helper: {},
+    query: {},
 
+    /**
+     * API Parser Modules Namespace
+     * @namespace
+     * @ignore
+     */
+    api: {},
 
-    errors: []
+    /**
+     * Data Parser Modules Namespace
+     * @namespace
+     * @ignore
+     */
+    data: {},
+
+    /**
+     * Display Modules Namespace
+     * @namespace
+     * @ignore
+     */
+    display: {}
 
 };
+
+/**
+ * Namespace for helper functions
+ * @namespace
+ * @ignore
+ */
+plastic.helper = {};
+
+/**
+ * History of all plastic.js errors
+ *
+ * @type {Array}
+ */
+plastic.errors = [];
 
 /**
  * Executes plastic.js
@@ -1848,10 +1898,9 @@ var plastic = {
 plastic.execute = function() {
     "use strict";
 
-    if (this.options.debug) {
+    if (plastic.options.debug) {
         plastic.msg.log('[MAIN] plastic.js version v' + plastic.version + ' INIT');
     }
-
 
     /**
      * Global plastic events
@@ -1910,64 +1959,6 @@ plastic.execute = function() {
 
     });
 
-};
-
-// Execute plastic.js on DOM Ready
-$(document).ready(function() {
-    plastic.execute();
-});
-
-plastic.options = {
-
-    /**
-     * Debug Mode
-     *
-     * This enables logging of some informations to the console
-     * This also ignores Exception handiling. If an error occurs it will crash hard and precice.
-     *
-     * @type {boolean}
-     */
-    debug: false,
-
-    /**
-     * If true, plastic.js will keep a log object
-     * It is stored in plastic.msg._logs and can be JSON Dumped via plastic.msg.dumpLog();
-     *
-     * @type {boolean}
-     */
-    log: true,
-
-    /**
-     * Logs Benchmark Infos to the console
-     *
-     * @type {boolean}
-     */
-    benchmark: false,
-
-    /**
-     * Width of Canvas, if not given
-     * @type {string}
-     */
-    width: '100%',
-
-    /**
-     * Height of Canvas, if not given
-     * @type {string}
-     */
-    height: 'auto',
-
-    /**
-     * Default AJAX Timeout (in ms)
-     * @type {number}
-     */
-    timeout: 12000,
-
-    /**
-     * If true, an additional info box is shown below the plastic element
-     * This displays additional infos like execution time
-     * @type {boolean}
-     */
-    showInfoBox: false
 };
 
 plastic.Element = function($el) {
@@ -2154,7 +2145,7 @@ plastic.Element.prototype = {
         //////////////////////////////////////////
 
         if (this.attr.query) { // OPTIONAL
-            this.queryModule = new plastic.modules.Module(this, 'query', this.attr.query.module);
+            this.queryModule = new plastic.modules.Module(this, 'query', this.attr.query.dataType);
         }
 
 
@@ -2164,42 +2155,52 @@ plastic.Element.prototype = {
 
         if (this.attr.data && this.attr.data.url) {
 
+            var textFormats = ['csv', 'tsv', 'text/comma-separated-values'];
+            var dataType = 'json';
+            var dataModuleType = this.attr.data.dataFormat || this.attr.data.dataType;
+
+
+            // If an external URL is given, try jsonp
+            if (this.attr.data.url.indexOf("://") > -1) {
+                dataType = 'jsonp';
+            }
+
+            if (textFormats.indexOf(dataModuleType) > -1) {
+                dataType = 'text';
+            }
+
             if (this.options.debug) {
                 plastic.msg.log('[#' + this.id + '] Data-URL: ' + this.attr.data.url);
             }
 
-            // TODO: Catch Timeout Error
+            var req = $.ajax({
+                url: this.attr.data.url,
+                dataType: dataType,
+                timeout: this.options.timeout
+            });
 
-            /** jQuery AJAX Request Object */
-            try {
-                $.ajax({
-                    url: this.attr.data.url,
-                    dataType: 'json',
-                    timeout: this.options.timeout,
-                    success: function(data) {
-                        "use strict";
+            req.done(function(data) {
 
-                        if (data !== null && typeof data === 'object') {
-                            self.attr.data.raw = data;
-                        } else {
-                            self.attr.data.raw = $.parseJSON(data);
-                        }
+                self.events.pub('data-sucess');
 
-                        self.benchmarkDataLoaded = (new Date()).getTime();
-                        self.attr.raw = data;
-                        self.updateProgress();
+                if (dataType === 'text') {
+                    self.attr.data.raw = String(data);
+                } else if (data !== null && typeof data === 'object') {
+                    self.attr.data.raw = data;
+                } else {
+                    self.attr.data.raw = $.parseJSON(data);
+                }
+            });
 
-                        self.events.pub('data-sucess');
-                    },
-                    error: function() {
-                        plastic.msg.error('Could not get Data from URL <a href="' + self.attr.data.url + '">' + self.attr.data.url + '</a>', "error", self.$el );
-                        self.cancelProgress();
-                    }
-                });
-            } catch(e) {
-                plastic.msg.error(e, self.$el);
-                throw new Error('Data Request failed');
-            }
+            req.fail(function(error) {
+                self.cancelProgress(error);
+                plastic.msg.error(error, self.$el);
+            });
+
+            req.always(function() {
+                self.updateProgress();
+                self.benchmarkDataLoaded = (new Date()).getTime();
+            });
 
         } else {
             // Data is already there, continue:
@@ -2235,14 +2236,16 @@ plastic.Element.prototype = {
     createDisplayContainer: function($el) {
         "use strict";
 
-        $el.append('<div class="plastic-js-display"></div>');
-        var displayEl = $el.find('.plastic-js-display');
+        $el.append('<div class="plastic-js-output"></div>');
+        var displayEl = $el.find('.plastic-js-output');
 
         if ($el.height() > 0) {
             displayEl.height($el.height());
         } else {
             displayEl.height('auto');
         }
+
+        displayEl.html('<div class="loading"></div><div class="spinner"></div></div>');
 
     },
 
@@ -2276,9 +2279,10 @@ plastic.Element.prototype = {
     /**
      * Cancels the processing of the element and displays the info to the user
      */
-    cancelProgress: function() {
+    cancelProgress: function(error) {
         "use strict";
-        plastic.msg.error('plastic.js processing aborted.', this.$el);
+        plastic.msg.error('plastic.js processing aborted - ' + error.message, this.$el);
+
         // Clear all Element Events
         this.events = new plastic.helper.Events();
     },
@@ -2290,7 +2294,8 @@ plastic.Element.prototype = {
         "use strict";
 
         // Instanciate new Data Module
-        this.dataModule = new plastic.modules.Module(this, 'data', this.attr.data.module);
+        var moduleType = this.attr.data.dataFormat || this.attr.data.dataType;
+        this.dataModule = new plastic.modules.Module(this, 'data', moduleType);
 
         if (!this.attr.data.description) {
             this.attr.data.description = plastic.helper.duckTyping(this.attr.data.processed);
@@ -2350,7 +2355,7 @@ plastic.Element.prototype = {
      */
     mergeOptions: function() {
         "use strict";
-        this.options = $.extend(true, {}, plastic.options, this.attr.options);
+        this.options = $.extend(true, {}, plastic.options, this.attr.options.options);
     },
 
     /**
@@ -2477,9 +2482,9 @@ plastic.ElementAttributes = function(pEl) {
 
     /**
      * Element Style Attributes
-     * @type {Object|boolean}
+     * @type {Object}
      */
-    this.style = false;
+    this.style = {};
 
     /**
      * Element Options Attributes
@@ -2505,11 +2510,25 @@ plastic.ElementAttributes = function(pEl) {
      */
     this.data = false;
 
-    // Parse all Attributes of the current plastic.element
-    this.parse();
+    /**
+     * Element Data Description
+     *
+     * @type {{}}
+     */
+    this.description = {};
 
-    // Validate the final Attributes Object
-    this.validate();
+
+    try {
+        // Parse all Attributes of the current plastic.element
+        this.parse();
+
+        // Validate the final Attributes Object
+        this.validate();
+
+    } catch (e) {
+        console.log('plastic.js accident');
+        console.error(e);
+    }
 
 };
 
@@ -2526,17 +2545,6 @@ plastic.ElementAttributes.prototype = {
         "type": "object",
 
         "properties": {
-            "style": {
-                "type": "object",
-                "properties": {
-                    "width": {
-                        "type": "number"
-                    },
-                    "height": {
-                        "type": "number"
-                    }
-                }
-            },
             "options": {
                 "type": "object"
             },
@@ -2552,15 +2560,15 @@ plastic.ElementAttributes.prototype = {
                 "type": ["object", "boolean"],
                 "properties": {
                     "text": {"type": "string"},
-                    "module": {"type": "string"},
+                    "dataType": {"type": ["string", "boolean"]},
                     "url": {"type": "string"}
                 },
-                "required": ["module", "text", "url"]
+                "required": ["dataType", "text", "url"]
             },
             "data": {
                 "type": ["object", "boolean"],
                 "properties": {
-                    "module": {"type": "string"},
+                    "module": {"type": ["object", "boolean"]},
                     "raw": {"type": ["object", "array", "string"]},
                     "processed": {
                         "type": "array",
@@ -2616,12 +2624,17 @@ plastic.ElementAttributes.prototype = {
     parse: function() {
         "use strict";
 
-        this.getStyle();
-        this.getOptions();
-        this.getQuery();
-        this.getData();
-        this.getDataDescription();
-        this.getDisplay();
+        // Calculate height and width
+        this.style = this.getStyle();
+
+        // If the plastic tag has a type or data-type attribute, it is assumed to use the JSON API
+        if (this.$el.attr('type') || this.$el.attr('data-type')) {
+            this.parseJSONAPI();
+
+        // If not, asume the HTML API
+        } else {
+            this.parseHTMLAPI();
+        }
 
         if (this.pEl.options.debug) {
             plastic.msg.dir(this.getAttrObj());
@@ -2630,190 +2643,119 @@ plastic.ElementAttributes.prototype = {
     },
 
     /**
-     * Gets all Style Attributes
+     * Parses a plastic.js tag that uses HTML as its API
+     */
+    parseHTMLAPI: function() {
+        "use strict";
+
+        this.query       = this.getDataFromElement('plastic-query', false, true);
+        this.data        = this.getDataFromElement('plastic-data', false, false);
+        this.description = this.getDataFromElement('plastic-description', false, false);
+        this.options     = this.getDataFromElement('plastic-options', false, false) || {}; // Or empty object
+        this.display     = this.getDataFromElement('plastic-display', true, false);
+    },
+
+    /**
+     * Parses a plastic.js tag that uses pure JSON as API
+     */
+    parseJSONAPI: function() {
+        "use strict";
+
+        var jsonString = this.$el.text();
+        var data = {};
+
+        // Remove the JSON text from the element
+        this.$el.text('');
+
+        try {
+            data = JSON.parse(jsonString);
+        } catch (e) {
+            console.error(e);
+        }
+
+        this.query               = data.query;
+        this.data                = data.data;
+        this.description.options = data.description;
+        this.options.options     = data.options || {}; // Or empty object
+        this.display.module      = data.display.module;
+        this.display.options     = data.display;
+
+        delete this.display.options.module;
+
+    },
+
+    /**
+     * Gets width and height of the element
      * They are calculated directly from the DOM Element style
      */
     getStyle: function() {
         "use strict";
-
-        /** Element CSS Style (Contains Width and Height) */
-        this.style = {};
-
-        this.style.height = this.$el.height();
-        this.style.width = this.$el.width();
+        return {
+            height: this.$el.height(),
+            width: this.$el.width()
+        };
     },
 
     /**
-     * Gets all Option Attributes
+     * Gets all attributes and data from a plastic sub-element
+     *
+     * @param {String}  className       class name of element
+     * @param {Boolean} required        if element is required
+     * @param {Boolean} isPlainText     if content of element is plain text instead of JSON
+     * @returns {*}
      */
-    getOptions: function() {
+    getDataFromElement: function(className, required, isPlainText) {
         "use strict";
 
-        /** Element Options */
-        var options = {}; // mandatory!
-
-        var optionsObject = this.$el.find(".plastic-options");
-
-        if (optionsObject.length > 0) {
-
-            var optionsString = optionsObject[0].text;
-
-            if (optionsString && optionsString !== '') {
-
-                try {
-
-                    // If JSON is escaped, unescape it
-                    optionsString = optionsString.replace(/&quot;/g, '"');
-
-                    options = $.parseJSON(optionsString);
-                    this.options = options;
-
-                } catch(e) {
-                    console.dir(e);
-                    plastic.msg.error('Invalid JSON in the Options Object!', this.$el);
-                    throw new Error(e);
-                }
-
-            } else {
-                plastic.msg.error('Empty Obptions Element!', this.$el);
-                throw new Error('Empty Obptions Element!');
-            }
-
-        }
-    },
-
-    /**
-     * Gets all Option Attributes
-     */
-    getDisplay: function() {
-        "use strict";
-
-        /** Element Options */
-        var options = {}; // mandatory!
-
-        var displayObject = this.$el.find(".plastic-display");
-
-        if (displayObject.length > 0) {
-
-            this.display.module = displayObject.attr('data-display-module');
-
-            var optionsString = displayObject[0].text;
-
-            if (optionsString && optionsString !== '') {
-
-                try {
-
-                    // If JSON is escaped, unescape it
-                    optionsString = optionsString.replace(/&quot;/g, '"');
-
-                    options = $.parseJSON(optionsString);
-                    this.display.options = options;
-
-                } catch(e) {
-                    console.dir(e);
-                    plastic.msg.error('Invalid JSON in the Options Object!', this.$el);
-                    throw new Error(e);
-                }
-
-            } else {
-                this.display.options = {};
-            }
-
-        } else {
-            plastic.msg.error('No Display Module set!', this.$el);
-            throw new Error('No Display Module set!');
-        }
-
-    },
-
-    /**
-     * Gets all Query Attributes and stores them into this.query
-     */
-    getQuery: function() {
-        "use strict";
-        var queryElement = this.$el.find(".plastic-query");
-
-        if (queryElement.length > 0)  {
-
-            /** Element Query Data */
-            var query = {};
-
-            query.url = queryElement.attr('data-query-url');
-            query.module = queryElement.attr('type');
-
-            var queryString = queryElement[0].text;
-
-            if (queryString && queryString !== '') {
-                query.text = queryString;
-
-                // SUCCESS
-                this.query = query;
-
-            } else {
-                plastic.msg.error('Empty Query Element!', this.$el);
-                throw new Error('Empty Query Element!');
-            }
-
-        }
-    },
-
-    /**
-     * Gets all Schema Attributes
-     */
-    getDataDescription: function() {
-        "use strict";
-        // Get Data-URL
-        var schemaElement = this.$el.find(".plastic-schema");
-
-        if (schemaElement.length > 0)  {
-
-            var schemaString = schemaElement[0].text;
-
-            if (schemaString && schemaString !== '') {
-                // If JSON is escaped, unescape it
-                schemaString = schemaString.replace(/&quot;/g, '"');
-                this.data.description =  $.parseJSON(schemaString);
-            } else {
-                plastic.msg.error('Data Description Element provided, but empty!', this.$el);
-            }
-
-        }
-    },
-
-    /**
-     * Gets all Data Attributes
-     */
-    getData: function() {
-        "use strict";
-
-        /** Element Data */
+        /** Element data */
         var data = {};
 
-        // Get Data-URL
-        var dataElement = this.$el.find(".plastic-data");
+        var tag = this.$el.find('.' + className) || false;
 
-        if (dataElement.length > 0) {
+        // If that tag exists
+        if (tag[0]) {
 
-            data.url = dataElement.attr('data-url');
-            data.module = dataElement.attr('data-format');
+            // Get the module type if available
+            data.module = tag.attr('data-module') || false;
+            data.dataType = tag.attr('type') || tag.attr('data-type') || false;
+            data.dataFormat = tag.attr('data-format') || false;
+            data.url = tag.attr('data-url') || false;
+            data.text = tag[0].text || tag[0].innerHTML || false;
+            data.allAttr = {};
 
-            // If no Data URL given, read Data Object
-            if (!data.url) {
+            $(tag[0].attributes).each(function() {
+                data.allAttr[this.nodeName] = this.value;
+            });
 
-                var dataString = dataElement[0].text;
+            // If tag content is JSON: Parse it and put it into options
+            if (!isPlainText) {
 
-                if (dataString && dataString !== '') {
-                    // If JSON is escaped, unescape it
-                    dataString = dataString.replace(/&quot;/g, '"');
-                    data.raw = $.parseJSON(dataString);
+                if (data.text && data.text !== '') {
+
+                    try {
+                        // If JSON is escaped, unescape it
+                        data.options = data.text.replace(/&quot;/g, '"');
+                        data.options = $.parseJSON(data.options);
+
+                    } catch(e) {
+                        console.dir(e);
+                        plastic.msg.error('Invalid JSON in the Options Object!', this.$el);
+                        throw new Error(e);
+                    }
+
                 } else {
-                    plastic.msg.error('Empty Data Element!', this.$el);
+                    data.options = {}; // If no options are given, return an empty object
                 }
             }
 
-            // SUCCESS
-            this.data = data;
+            return data;
 
+        } else {
+            if (required) {
+                plastic.msg.error('No Display Module set!', this.$el);
+                throw new Error('No Display Module set!');
+            }
+            return false;
         }
     },
 
@@ -2956,6 +2898,7 @@ plastic.msg = {
         if (el && el.find) {
             var msgBox = el.find('.plastic-js-messages');
             msgBox.append('<div class="plastic-js-msg plastic-js-msg-error"><strong>' + type.toUpperCase() + ':</strong> ' + msg + '</div>');
+            $('.plastic-js-messages').show();
         }
 
     },
@@ -3012,6 +2955,48 @@ plastic.msg = {
 };
 
 
+
+plastic.helper.duckTyping = function(data) {
+    "use strict";
+
+    var dataDescription = {};
+
+    // Regular Expressions
+    var emailRegexp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
+    for (var attrName in data[0]) {
+
+        var attrValue = data[0][attrName][0];
+
+        if ($.isNumeric(attrValue)) {
+
+            dataDescription[attrName] = {
+                type: "number"
+            };
+
+        } else {
+
+            dataDescription[attrName] = {
+                type: "string"
+            };
+
+            if (attrValue.indexOf("http://") > -1) {
+                dataDescription[attrName].format = "url";
+            } else if (emailRegexp.test(attrValue) || attrValue.indexOf("mailto:") > -1) {
+                dataDescription[attrName].format = "email";
+            } else if (attrValue.indexOf("tel:") > -1) {
+                dataDescription[attrName].format = "phone";
+            }
+
+
+        }
+
+    }
+
+    return dataDescription;
+
+};
 
 plastic.helper.Events = function() {
     "use strict";
@@ -3153,49 +3138,8 @@ plastic.helper.Events.prototype = {
     }
 };
 
-plastic.helper.duckTyping = function(data) {
-    "use strict";
-
-    var dataDescription = {};
-
-    var emailRegexp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    for (var attrName in data[0]) {
-
-        var attrValue = data[0][attrName][0];
-
-        if ($.isNumeric(attrValue)) {
-
-            dataDescription[attrName] = {
-                type: "number"
-            };
-
-        } else {
-
-            dataDescription[attrName] = {
-                type: "string"
-            };
-
-            if (attrValue.indexOf("http://") > -1) {
-                dataDescription[attrName].format = "url";
-            } else if (emailRegexp.test(attrValue) || attrValue.indexOf("mailto:") > -1) {
-                dataDescription[attrName].format = "email";
-            } else if (attrValue.indexOf("tel:") > -1) {
-                dataDescription[attrName].format = "phone";
-            }
-
-
-        }
-
-    }
-
-    return dataDescription;
-
-};
-
-
 /**
- * Helper Function which acts as a facade wrapper around the Schema Validation Library
+ * Helper Function which acts as a facade wrapper around a JSON Schema validation library
  *
  * The Validation Objects should follow the JSON-Schema Standard: (http://json-schema.org/)
  * Currently it uses tv4 (https://github.com/geraintluff/tv4)
@@ -3280,7 +3224,8 @@ plastic.modules.Module = function(pEl, type, name) {
 
     // Specific case handling for each module-type
     if (type === 'display') {
-        var $el = $(pEl.$el.find('.plastic-js-display')[0]);
+        var $el = $(pEl.$el.find('.plastic-js-output')[0]);
+        $el.html('');
         this.module = new Module($el, pEl.attr);
         this.execute();
 
@@ -3382,7 +3327,6 @@ plastic.modules.Module.prototype = {
             }
 
         } catch (e) {
-//            console.error(e);
             plastic.msg.error(e, this.pEl);
             // TODO: Stop Display Processing
             // TODO: Message to the User
@@ -3416,15 +3360,31 @@ plastic.modules.dependencyManager = {
      */
     registry: {
         "d3": {
+            "title": 'D3.js',
+            "website": 'http://d3js.org/',
+            "version": '3.4.6',
             "js": ["//cdnjs.cloudflare.com/ajax/libs/d3/3.4.6/d3.min.js"],
             "test": "d3"
         },
+        "c3": {
+            "title": 'C3.js',
+            "website": 'http://c3js.org/',
+            "version": '0.1.29',
+            "js": ["//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.min.js"],
+            "test": "c3"
+        },
         "nvd3": {
+            "title": 'NVD3',
+            "website": 'http://nvd3.org/',
+            "version": '1.1.15-beta',
             "js": ["//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js"],
             "css": ["//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css"],
             "test": "nv"
         },
         "dataTable": {
+            "title": 'DataTables',
+            "website": 'http://www.datatables.net/',
+            "version": '1.10.0',
             "js": ["//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"],
             "css": ["//cdn.datatables.net/1.10.0/css/jquery.dataTables.css"],
             "test": "$(document).DataTable"
@@ -3598,13 +3558,17 @@ plastic.modules.moduleManager = {
         query: {}
     },
 
+    /**
+     * Parameters Schema
+     * TODO: Remove this?
+     */
     parametersSchema: {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
 
         "properties": {
             "moduleType": {"type": "string"},
-            "apiName": {"type": "string"},
+            "apiName": {"type": ["string", "array"]},
             "className": {"type": "string"},
             "dependencies": {"type": "array"}
         },
@@ -3624,7 +3588,15 @@ plastic.modules.moduleManager = {
         plastic.helper.schemaValidation(this.parametersSchema, paramsObj);
 
         try {
-            this.modules[paramsObj.moduleType][paramsObj.apiName] = paramsObj;
+
+            if ($.isArray(paramsObj.apiName)) {
+                for (var i = 0; i < paramsObj.apiName.length; i++) {
+                    this.modules[paramsObj.moduleType][paramsObj.apiName[i]] = paramsObj;
+                }
+            } else {
+                this.modules[paramsObj.moduleType][paramsObj.apiName] = paramsObj;
+            }
+
         } catch(e) {
             console.log(e);
             console.error('Wrong usage of Module Registry!');
@@ -3801,6 +3773,113 @@ plastic.modules.data.AskJson.prototype = {
 // Register Module and define dependencies:
 plastic.modules.moduleManager.register({
     moduleType: 'data',
+    apiName: ['csv', 'tsv', 'text/comma-separated-values'],
+    className: 'CSV',
+    dependencies: []
+});
+
+/**
+ * Parses tabular data from an ASK Semantic MediaWiki API
+ *
+ * @constructor
+ */
+plastic.modules.data.CSV = function(dataObj) {
+
+    /**
+     * Incoming Raw Data
+     * @type {{}}
+     */
+    this.dataObj = dataObj;
+
+    /**
+     * Raw Data Schema for validation
+     *
+     * No schema since CSV is no JSON format
+     *
+     * @type {{}}
+     */
+    this.rawDataSchema = {};
+
+};
+
+plastic.modules.data.CSV.prototype = {
+
+    /**
+     * Custom Validation
+     *
+     * @returns {boolean}
+     */
+    validate: function() {
+        "use strict";
+        return false;
+    },
+
+    /**
+     * Since the data is already in the correct format, it has just to be returned
+     *
+     * @returns {Object}
+     */
+    execute: function() {
+
+        var separator = ';';
+
+        if (this.dataObj.module === 'tsv') {
+            separator = '\t';
+        }
+
+        this.dataObj.processed = this.parseCSV(this.dataObj.raw, separator, false);
+
+        return this.dataObj;
+    },
+
+    /**
+     * Parses CSV String to Array
+     *
+     * http://www.greywyvern.com/?post=258
+     *
+     * @param csv
+     * @param seperator
+     * @param linebreak
+     * @returns {Array|*}
+     */
+    parseCSV: function(csv, seperator, linebreak) {
+
+        var processedData = [];
+        var headers = [];
+
+        var csvLines = csv.split(linebreak || '\r\n');
+
+        for (var i = 0; i < csvLines.length; i++) {
+
+            var line = csvLines[i];
+
+            if (i === 0) {
+                headers = line.split(seperator || ';');
+            } else {
+                if (line.length > 0) {
+                    processedData[i] = {};
+
+                    var csvCells = line.split(seperator || ';');
+
+                    for (var j = 0; j < csvCells.length; j++) {
+
+                        var cell = csvCells[j];
+                        processedData[i][headers[j]] = cell;
+                    }
+
+                }
+            }
+
+
+        }
+
+        return processedData;
+    }
+};
+
+// Register Module and define dependencies:
+plastic.modules.moduleManager.register({
+    moduleType: 'data',
     apiName: 'default',
     className: 'Default',
     dependencies: []
@@ -3851,6 +3930,22 @@ plastic.modules.data.Default = function(dataObj) {
             }
         },
         "required": ["data"]
+    };
+
+    this.example = {
+        data: [
+            {
+                "column1": ["cell1"],
+                "column2": ["cell2"]
+            }
+
+        ],
+        schema: {
+
+        },
+        description: {
+
+        }
     };
 
 };
@@ -4015,7 +4110,7 @@ plastic.modules.data.SparqlJson = function(dataObj) {
     };
 
     /**
-     * Maps ASK-Result-Format Schema to JSON-Schema
+     * Maps SPARQL Schema to JSON-Schema
      *
      * @type {{}}
      */
@@ -4033,7 +4128,7 @@ plastic.modules.data.SparqlJson = function(dataObj) {
     };
 
     /**
-     * Maps ASK-Result-Format Schema to JSON-Schema
+     * Maps SPARQL Schema to JSON-Schema
      *
      * @type {{}}
      */
@@ -4123,8 +4218,15 @@ plastic.modules.data.SparqlJson.prototype = {
             var row = this.dataObj.raw.results.bindings[i];
 
             for (var o in row) {
-                this.dataObj.processed[i][o] = [];
-                this.dataObj.processed[i][o].push(row[o].value);
+
+                var value = row[o].value;
+
+                // If value is a number type, parse it as float (takes care of integers, too)
+                if (this.dataDescription[o].type === 'number') {
+                    value = parseFloat(value);
+                }
+
+                this.dataObj.processed[i][o] = [value];
             }
         }
 
@@ -4168,34 +4270,42 @@ plastic.modules.display.AdvancedTable = function($el, elAttr) {
 
         "$schema": "http://json-schema.org/draft-04/schema#",
 
+        "title": "Advanced Table",
+
         "type": "object",
         "properties": {
             "tableClasses": {
+                "title": "Table Classes",
                 "description": "Table CSS Classes",
                 "type": "string",
                 "default": ""
             },
             "paging": {
+                "title": "Paging",
                 "description": "Enable Pagination of Table Elements",
                 "type": "boolean",
                 "default": false
             },
             "lengthMenu": {
-                "description": "Enable Pagination of Table Elements",
+                "title": "Menu Length",
+                "description": "Sets the available number of entries in the dropdown menu. Takes an 2dim array.",
                 "type": "array",
                 "default": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ]
             },
             "searching": {
+                "title": "Searching",
                 "description": "Enable Searching of Table Elements",
                 "type": "boolean",
                 "default": true
             },
             "ordering": {
+                "title": "Ordering",
                 "description": "Feature control ordering (sorting) abilities in DataTables.",
                 "type": "boolean",
                 "default": true
             },
             "orderMulti": {
+                "title": "Multiple Ordering",
                 "description": "Multiple column ordering ability control.",
                 "type": "boolean",
                 "default": true
@@ -4328,24 +4438,35 @@ plastic.modules.display.CumulativeLineChart = function($el, elAttr) {
 
         "$schema": "http://json-schema.org/draft-04/schema#",
 
+        "title": "Cumulative Line Chart",
+
         "type": "object",
         "properties": {
-//            "showLabels": {
-//                "description": "Show the labels.",
-//                "type": "boolean",
-//                "default": true
-//            },
-//            "tooltips": {
-//                "description": "Show tooltips",
-//                "type": "boolean",
-//                "default": true
-//            },
-//            "transitionDuration": {
-//                "description": "Duration of the animation in milliseconds.",
-//                "type": "number",
-//                "minimum": 0,
-//                "default": 350
-//            }
+            "useInteractiveGuideline": {
+                "title": "Interactive Guideline",
+                "description": "Show the interactive Guideline.",
+                "type": "boolean",
+                "default": true
+            },
+            "transitionDuration": {
+                "title": "Transition Duration",
+                "description": "Duration of the animation in milliseconds.",
+                "type": "number",
+                "minimum": 0,
+                "default": 350
+            },
+            "showLegend": {
+                "title": "Display Legend",
+                "description": "Show the legend, allowing users to turn on/off line series.",
+                "type": "boolean",
+                "default": true
+            },
+            "marginLeft": {
+                "title": "Left Margin",
+                "description": "Adjust chart margins to give the x-axis some breathing room.",
+                "type": "boolean",
+                "default": true
+            }
         },
         "additionalProperties": false,
         "required": []
@@ -4379,48 +4500,100 @@ plastic.modules.display.CumulativeLineChart.prototype = {
      * @returns {*}
      */
     execute: function () {
+
+        var options = this.elAttr.display.options;
+
         var data = this.elAttr.data.processed;
+        var mappedData = this.mapData(data);
 
         var svg = this.$el.append('<svg></svg>');
 
-//        var options = this.elAttr.display.options;
+        var chart = nv.models.lineChart()
+                .margin({left: options.margin})  //Adjust chart margins to give the x-axis some breathing room.
+                .useInteractiveGuideline(options.useInteractiveGuideline)  //We want nice looking tooltips and a guideline!
+                .transitionDuration(options.transitionDuration)  //how fast do you want the lines to transition?
+                .showLegend(options.showLegend)       //Show the legend, allowing users to turn on/off line series.
+                .showYAxis(true)        //Show the y-axis
+                .showXAxis(true)        //Show the x-axis
+            ;
 
-        console.dir('Data: ' + data);
+//        chart.xAxis     //Chart x-axis settings
+//            .axisLabel('Time (ms)')
+//            .tickFormat(d3.format(',r'));
+//
+//        chart.yAxis     //Chart y-axis settings
+//            .axisLabel('Voltage (v)')
+//            .tickFormat(d3.format('.02f'));
 
-        var chart = nv.models.cumulativeLineChart()
-            .x(function(d) { return d.label; })
-            .y(function(d) { return d.value; })
-            .color(d3.scale.category10().range())
-            .useInteractiveGuideline(true)
-        ;
 
-        var mappedData = this.mapData(data);
+        d3.select(this.$el[0].children[0])    //Select the <svg> element you want to render the chart in.
+            .datum(mappedData)         //Populate the <svg> element with chart data...
+            .call(chart);          //Finally, render the chart!
 
-        chart.xAxis
-            .tickValues([1078030800000,1122782400000,1167541200000,1251691200000])
-            .tickFormat(function(d) {
-                return d3.time.format('%x')(new Date(d));
-            });
-
-        chart.yAxis
-            .tickFormat(d3.format(',.1%'));
-
-        d3.select(this.$el[0].children[0])
-            .datum(mappedData)
-            .call(chart);
-
-        nv.utils.windowResize(chart.update);
-        return chart;
+        //Update the chart when window resizes.
+        nv.utils.windowResize(function() {
+            chart.update();
+        });
 
     },
 
     mapData: function(data) {
         "use strict";
+
         var mappedData = [];
+        var dataDescription = this.elAttr.data.description;
 
+        var xAxis = this.findX(dataDescription);
 
+        for (var columnName in dataDescription ) {
+
+            var column = dataDescription[columnName];
+
+            if (columnName !== xAxis && column.type === "number") {
+
+                var seriesData = {};
+                seriesData.key = columnName;
+                seriesData.values = [];
+
+                // TODO: If xAxis can be used as Timestamp or Scala, use it as X entry
+
+                for (var i = 0; i < data.length; i++) {
+                    var row = data[i];
+//                    console.dir(row[columnName][0]);
+                    var dataEntry = {
+                        "x": i,
+                        "y": row[columnName][0]
+                    };
+                    seriesData.values.push(dataEntry);
+                }
+
+                mappedData.push(seriesData);
+            }
+        }
 
         return mappedData;
+    },
+
+    /**
+     * Analyzes the Data Description which column should be used as X-Axis.
+     * Fallback to first Column (which should be the x-axis anyway)
+     *
+     * @param dataDescription
+     * @returns {*}
+     */
+    findX: function (dataDescription) {
+        "use strict";
+        for (var columnName in dataDescription) {
+            var column = dataDescription[columnName];
+            if (column.type === 'string' || (column.format && column.format === 'date'))  {
+                return columnName;
+            }
+        }
+
+        for (columnName in dataDescription) {
+            return columnName;
+        }
+
     },
 
     update: function() {
@@ -4464,24 +4637,30 @@ plastic.modules.display.DiscreteBarChart = function($el, elAttr) {
 
         "$schema": "http://json-schema.org/draft-04/schema#",
 
+        "title": "Discrete Bar Chart",
+
         "type": "object",
         "properties": {
             "staggerLabels": {
+                "title": "Label Staggering",
                 "description": "Too many bars and not enough room? Try staggering labels.",
                 "type": "boolean",
                 "default": false
             },
             "tooltips": {
+                "title": "Tooltips",
                 "description": "Show tooltips",
                 "type": "boolean",
                 "default": true
             },
             "showValues": {
+                "title": "Display Values",
                 "description": "Show the bar value right on top of each bar.",
                 "type": "boolean",
                 "default": true
             },
             "transitionDuration": {
+                "title": "Transition Duration",
                 "description": "Duration of the animation in milliseconds.",
                 "type": "number",
                 "minimum": 0,
@@ -4629,19 +4808,24 @@ plastic.modules.display.PieChart = function($el, elAttr) {
 
         "$schema": "http://json-schema.org/draft-04/schema#",
 
+        "title": "Pie Chart",
+
         "type": "object",
         "properties": {
             "showLabels": {
+                "title": "Display Labels",
                 "description": "Show the labels.",
                 "type": "boolean",
                 "default": true
             },
             "tooltips": {
+                "title": "Tooltips",
                 "description": "Show tooltips",
                 "type": "boolean",
                 "default": true
             },
             "transitionDuration": {
+                "title": "Transition Duration",
                 "description": "Duration of the animation in milliseconds.",
                 "type": "number",
                 "minimum": 0,
@@ -4838,9 +5022,12 @@ plastic.modules.display.SimpleTable = function($el, elAttr) {
 
         "$schema": "http://json-schema.org/draft-04/schema#",
 
+        "title": "Simple Table",
+
         "type": "object",
         "properties": {
             "tableClasses": {
+                "title": "Table Classes",
                 "description": "Table CSS Classes",
                 "type": "string",
                 "default": ""
@@ -4993,7 +5180,7 @@ plastic.modules.query.Ask.prototype = {
 
         // Set Data Parser Module
         var dataObj = {
-            module: 'ask-json'
+            dataFormat: 'ask-json'
         };
 
         var url = this.queryObj.url;
@@ -5065,7 +5252,7 @@ plastic.modules.query.Sparql.prototype = {
 
         // Set Data Parser Module
         var dataObj = {
-            module: 'sparql-json'
+            dataFormat: 'sparql-json'
         };
 
         var url = this.queryObj.url;
@@ -5083,3 +5270,8 @@ plastic.modules.query.Sparql.prototype = {
     }
 
 };
+
+// Execute plastic.js on DOM Ready
+$(document).ready(function() {
+    plastic.execute();
+});

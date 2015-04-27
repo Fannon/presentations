@@ -17,7 +17,7 @@ $headingFont: 'Roboto', sans-serif;
 $headingColor: #555;
 $headingTextShadow: none;
 $headingTextTransform: none;
-$backgroundColor: #F7F7F7;
+$backgroundColor: #FFF;
 $linkColor: rgba(0, 0, 0, 0.3);
 $linkColorHover: rgba(0, 0, 0, 0.9);
 $selectionBackgroundColor: rgba(0, 0, 0, 0.5);
@@ -198,7 +198,7 @@ $code-font: Consolas, monaco, monospace;
     color: rgba(0, 0, 0, 0.85);
     margin-bottom: 1.6rem;
     font-size: 8rem;
-    line-height: 8rem;
+    line-height: 1.05em;
   }
 
   h2, h3, h4 {
@@ -239,8 +239,8 @@ $code-font: Consolas, monaco, monospace;
 
   }
 
-  a, a:hover {
-    color: #A0D349;
+  a, a:hover, a:visited {
+    color: rgba(0, 0, 0, 0.5) !important;
     display: inline-block;
     padding: 0 0.2em;
     // border-bottom: 1px dotted rgba(255, 255, 255, 0.3) !important;
@@ -310,7 +310,7 @@ $code-font: Consolas, monaco, monospace;
   p, ol, ul {
     font-weight: 300;
     font-size: 3rem;
-    line-height: 3.4rem;
+    line-height: 1.2em;
 
     strong {
       font-weight: 400;
@@ -323,7 +323,7 @@ $code-font: Consolas, monaco, monospace;
 
   ul ul, ul ul ul {
     font-size: 2.4rem;
-    line-height: 2.8rem;
+    line-height: 1.2em;
   }
 
   ul li {
@@ -374,7 +374,7 @@ $code-font: Consolas, monaco, monospace;
 
   .hljs { // Highlight.js
     font-size: 1.6rem;
-    line-height: 2.2rem;
+    line-height: 1.25em;
     padding: 14px;
     border-radius: $border-radius;
     width: 100%;
@@ -384,7 +384,7 @@ $code-font: Consolas, monaco, monospace;
 
   .tiny {
     font-size: 1.6rem;
-    line-height: 1.8rem;
+    line-height: 1.2em;
   }
 
   .code-with-header {
@@ -393,6 +393,20 @@ $code-font: Consolas, monaco, monospace;
 
   .code-full-height {
     min-height: 640px;
+  }
+
+
+
+  .green {
+    color: #9FD249;
+  }
+
+  .yellow {
+    color: #DFDD13;
+  }
+
+  .red {
+    color: #D24949;
   }
 
 
@@ -448,13 +462,13 @@ $code-font: Consolas, monaco, monospace;
 
   .smaller {
     font-size: 2.4rem;
-    line-height: 2.6rem;
+    line-height: 1.2em;
   }
 
   small {
     vertical-align: middle;
     font-size: 1.8rem;
-    line-height: 2rem;
+    line-height: 1.2em;
   }
 
   small * {
@@ -515,9 +529,11 @@ $code-font: Consolas, monaco, monospace;
     border-radius: $border-radius;
     box-shadow: none;
 
+    font-size: 2.8rem;
+    line-height: 1.2em;
+
     ol, ul, p {
-      font-size: 2.4rem;
-      line-height: 2.8rem;
+
     }
 
     strong, b {
@@ -527,6 +543,7 @@ $code-font: Consolas, monaco, monospace;
     .citation {
       display: block;
       font-family: Roboto;
+      color: rgba(0, 0, 0, 0.7);
       text-align: right;
       font-size: 1.4rem;
       height: 1.5rem;
@@ -562,7 +579,7 @@ $code-font: Consolas, monaco, monospace;
       font-family: Roboto;
       font-weight: 100;
       font-size: 1.6rem;
-      line-height: 1.6rem;
+      line-height: 1.2em;
       margin-top: -0.2rem;
     }
   }
@@ -587,7 +604,7 @@ $code-font: Consolas, monaco, monospace;
   .bibliography {
 
     font-size: 1.6rem;
-    line-height: 1.8rem;
+    line-height: 1.2em;
 
     margin-left: 2rem;
 
@@ -670,4 +687,30 @@ $code-font: Consolas, monaco, monospace;
     background: #C4EE29;
   }
 
+}
+
+
+
+//////////////////////////////////////////
+// Footer                               //
+//////////////////////////////////////////
+
+footer {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  font-family: Roboto;
+  font-weight: 100;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px 8px;
+
+  border-radius: 0 3px 0 0;
+  z-index: 9999;
+
+  a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+  }
 }

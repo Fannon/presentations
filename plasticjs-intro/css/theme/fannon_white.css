@@ -7,8 +7,8 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #FAFAFA;
-  background-color: #FAFAFA; }
+  background: #FFF;
+  background-color: #FFF; }
 
 .reveal {
   font-family: "Roboto", sans-serif;
@@ -238,8 +238,8 @@ body {
   font-size: 2.4rem; }
 .reveal .subtitle {
   background: rgba(0, 0, 0, 0.8); }
-.reveal a, .reveal a:hover {
-  color: #A0D349;
+.reveal a, .reveal a:hover, .reveal a:visited {
+  color: rgba(0, 0, 0, 0.5) !important;
   display: inline-block;
   padding: 0 0.2em;
   border-radius: 0.2rem; }

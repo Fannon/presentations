@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/theme/fannon_white.css" id="theme">
     <link rel="stylesheet" href="css/github.css">
     <link rel="stylesheet" href="lib/nv.d3.min.css">
+    <link rel="stylesheet" href="lib/plasticjs/plastic.css">
     <link rel="stylesheet" type="text/css" href="lib/font-awesome.css"/>
     <!-- endbuild -->
 
@@ -48,40 +49,44 @@
     <div class="logo-4"></div>
 </div>
 
-
-<!-- Reveal Presentation -->
 <div class="reveal">
 
+<!--
+* Title
+* Preface
+* About plastic.js
+* How to use plastic.js
+*
 
-<!-- Any section element inside of this container is displayed as a slide -->
+
+ -->
+
     <div class="slides">
 
         <section>
             <img id="logo" src="img/logo.svg" alt="" style="border: none; width: 70%">
+            <p class="faded">A JavaScript Data Display Framework</p>
+
+            <br>
 
             <h3><a href="http://plasticjs.org/" target="_blank">www.plasticjs.org</a></h3>
 
             <p>
                 <small class="faded">
-                    Simon Heimler (<a href="http://www.fannon.de">www.fannon.de</a>)
+                    <a href="http://www.fannon.de">Simon Heimler</a>  University of Applied Sciences Augsburg
                 </small>
             </p>
         </section>
 
+
+
         <section>
             <h2>Preface</h2>
-            <p>Currently a working Prototype / Proof of concept.</p>
+            <ul class="fa-ul">
+                <li><i class="fa-li fa fa-angle-double-right"></i>Side project of my masters degree</li>
+                <li><i class="fa-li fa fa-angle-double-right"></i>Working prototype / proof of concept</li>
+            </ul>
         </section>
-
-        <!-- <section class="align-left">
-            <h2>Overview</h2>
-            <div class="spec-list">
-                <h3 class="fragment">plastic.js</h3>
-                <h3 class="fragment">Examples</h3>
-                <h3 class="fragment">Current state</h3>
-                <h3 class="fragment">Roadmap</h3>
-            </div>
-        </section> -->
 
         <section>
             <section>
@@ -93,7 +98,7 @@
                 <h2>Data Display Framework</h2>
                 <p>
                     <strong>Data Display</strong><br>
-                    Data representation in general (including tables etc.)
+                    Data representation in general, not just visualizations
                 </p>
                 <p>
                     <strong>Framework</strong><br>
@@ -104,11 +109,11 @@
             <section>
                 <h2>Current Situation</h2>
                 <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-angle-double-right"></i>A lot of Visualisation Libraries out there</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Countless JavaScript visualization libraries available</li>
                     <li><i class="fa-li fa fa-angle-double-right"></i>Each works differently</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Some are specialized for one task</li>
                     <li><i class="fa-li fa fa-angle-double-right"></i>Some are tied to a very specific envirionment</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Nearly all of them require JavaScript knowledge</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Data comes in a variety of ways<br> ... which complicates everything</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Nearly all of them require programming knowledge</li>
                 </ul>
             </section>
 
@@ -117,8 +122,10 @@
                 <ul class="fa-ul">
                     <li><i class="fa-li fa fa-angle-double-right"></i><strong>Open Source</strong>: <a href="https://github.com/Fannon/plastic.js">github.com/Fannon/plastic.js</a></li>
                     <li><i class="fa-li fa fa-angle-double-right"></i><strong>Platform neutral</strong>: Pure HTML5</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Framework</strong>: Providing a platform for existing libraries</li>
                     <li><i class="fa-li fa fa-angle-double-right"></i><strong>Easy to use</strong>: No programming skills required</li>
+
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Modular</strong>: Loosely coupled architecture</li>
+
                     <li><i class="fa-li fa fa-angle-double-right"></i><strong>Extensible</strong>: Data Modules, Query Modules, Display Modules</li>
                 </ul>
             </section>
@@ -126,19 +133,10 @@
             <section>
                 <h2>plastic.js Specs (2/2)</h2>
                 <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Modular</strong>: Loosely coupled architecture</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Async</strong>: Runs asyncronally and possibly multithreaded</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Framework</strong>: Providing a platform for existing libraries</li>
                     <li><i class="fa-li fa fa-angle-double-right"></i><strong>Dependency Management</strong>: "Smart" lazy loading</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Schemas</strong>: Makes use of schemas, does duck-typing if that failes</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>plastic.js Usage</h2>
-                <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Include plastic.js JavaScript and CSS (as usual)</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Write a HTML embed code</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Data and Options are provided through HTML tags and their attributes (WebComponents Style)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Schemas</strong>: Uses schemas, falls back to duck-typing</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>Async</strong>: Runs asyncronally and possibly multithreaded</li>
                 </ul>
             </section>
 
@@ -146,39 +144,66 @@
 
         <section>
             <section>
-                <h1>Examples</h1>
+                <h1>Usage & Examples</h1>
                 <i class="fa fa-angle-double-down bg-bottom"></i>
             </section>
+
+
+            <section>
+                <h3>Download from www.plasticjs.org</h3>
+                <img src="img/download.png" width="100%" height="auto"></img>
+            </section>
+
+            <section>
+                <h3>Include plastic.js in a HTML page</h3>
+                <pre><code data-trim class="html">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;lib/plasticjs/plastic.css&quot;&gt;
+&lt;script src=&quot;lib/plasticjs/plastic.js&quot;&gt;&lt;/script&gt;
+
+                </code></pre>
+            </section>
+
+
+            <section>
+                <h2>plastic.js Usage</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Can be put into any HTML page through an embed code</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Lightweight wrapper extensions for common CMS</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Example: <a href="https://www.mediawiki.org/wiki/Extension:PlasticMW">MediaWiki Wrapper Extension</a></li>
+
+
+                </ul>
+            </section>
+
+
 
             <section>
                 <h3>Simple Table from JSON</h3>
                 <pre><code data-trim class="html">
-&lt;plastic id=&quot;table-json-file&quot; style=&quot;height: 400px; width: 100%;&quot;&gt;
-    &lt;script class=&quot;plastic-data&quot; type=&quot;application/json&quot;
-            data-url=&quot;data/simple-default.json&quot; data-format=&quot;simple-default&quot;&gt; &lt;/script&gt;
-    &lt;script class=&quot;plastic-display&quot; data-display-module=&quot;simple-table&quot;
-            type=&quot;application/json&quot;&gt;&lt;/script&gt;
+&lt;plastic style=&quot;height: 400px; width: 800px;&quot;&gt;
+
+    &lt;div class=&quot;plastic-data&quot;
+         data-url=&quot;data/simple-default.json&quot;
+         data-format=&quot;simple-default&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;plastic-display&quot; data-module=&quot;simple-table&quot;&gt;&lt;/div&gt;
+
 &lt;/plastic&gt;
                 </code></pre>
             </section>
 
             <section>
                 <h3>Simple Table from JSON</h3>
-                <plastic id="table-json-file" style="height: 400px; width: 800px;">
-                    <script class="plastic-data" type="application/json" data-url="data/simple-default.json" data-format="simple-default"></script>
-                    <script class="plastic-display" data-display-module="simple-table" type="application/json"></script>
-                    <script class="plastic-options" type="application/json">
-                        {
-                            "benchmark": false,
-                            "showInfoBox": false
-                        }
-                    </script>
+                <plastic style="height: 400px; width: 800px;">
+                    <div class="plastic-data" data-url="data/simple-default.json" data-format="simple-default"></div>
+                    <div class="plastic-display" data-module="simple-table"></div>
                 </plastic>
             </section>
 
             <section>
                 <h3>Simple Bars from SPARQL Endpoint</h3>
-                                <pre><code data-trim class="html tiny code-with-header">
+                                <pre><code data-trim class="html tiny code-with-header" style="font-size: 1.25rem">
 &lt;div class=&quot;plastic-js&quot; style=&quot;height: 400px&quot;&gt;
     &lt;script class=&quot;plastic-query&quot; type=&quot;application/sparql-query&quot; data-query-url=&quot;http://dbpedia.org/sparql&quot;&gt;
         PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
@@ -195,14 +220,8 @@
         }
         ORDER BY DESC(?population)
     &lt;/script&gt;
-    &lt;script class=&quot;plastic-options&quot; type=&quot;application/json&quot;&gt;
+    &lt;script class=&quot;plastic-display&quot; data-module=&quot;discrete-bar-chart&quot; type=&quot;application/json&quot;&gt;
         {
-            &quot;benchmark&quot;: true
-        }
-    &lt;/script&gt;
-    &lt;script class=&quot;plastic-display&quot; data-display-module=&quot;discrete-bar-chart&quot; type=&quot;application/json&quot;&gt;
-        {
-            &quot;staggerLabels&quot;: false,
             &quot;tooltips&quot;: true,
             &quot;showValues&quot;: true
         }
@@ -234,13 +253,7 @@
         ORDER BY DESC(?population)
     </script> -->
 
-    <script class="plastic-options" type="application/json">
-        {
-            "benchmark": true
-        }
-    </script>
-
-    <script class="plastic-display" data-display-module="discrete-bar-chart" type="application/json">
+    <script class="plastic-display" data-module="discrete-bar-chart" type="application/json">
         {
             "staggerLabels": false,
             "tooltips": true,
@@ -253,24 +266,45 @@
             </section>
 
             <section>
-                <h3>Module Sequence Flow</h3>
-                <img src="img/Modules.png" alt="">
+                <h3>User Documentation</h3>
+                <!-- <iframe src="www/docs/index.html" frameborder="0" width="100%" height="540px"></iframe> -->
+                <iframe src="http://plasticjs.org/docs/displayModules/advancedTable.html" frameborder="0" width="100%" height="620px"></iframe>
+            </section>
+
+            <section>
+                <h3>Developer Documentation</h3>
+                <iframe src="www/devdocs/plastic.Element.html" frameborder="0" width="100%" height="620px"></iframe>
             </section>
 
         </section>
 
+
         <section>
              <section>
-                <h1>SMW</h1>
+                <h1>Technical Details</h1>
                 <i class="fa fa-angle-double-down bg-bottom"></i>
             </section>
 
             <section>
+                <h3>Module Sequence Flow</h3>
+                <img src="img/Modules.png" alt="">
+            </section>
+
+            <section>
+                <h3>Internal datastructure</h3>
                 <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-angle-double-right"></i>CMS independend. A simple wrapper extension could integrate it.</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Performance: Data is loaded asynchronally / multithreaded and rendered when its done. Site loading is not slowed.</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>SPARQL / ASK / CVS / JSON data (even from different sources) can share the same Visualisation modules</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>SMW Data can be queried / visualized on ANY page</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i><strong>2.5D Table:</strong> Table where each cell is an array of values of the same datatype</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Not the most flexible dataformat, but a good compromise of flexibility and easy usage.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>JSON Schema at heart</h3>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Lightweight alternative to XMLSchema</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Describes the data to the display modules</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Validating incoming data and options</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Auto-generate parts of the user documentation</li>
                 </ul>
             </section>
 
@@ -287,8 +321,28 @@
                 <ul class="fa-ul">
                     <li><i class="fa-li fa fa-angle-double-right"></i>Working Architecture</li>
                     <li><i class="fa-li fa fa-angle-double-right"></i>Several data formats supported</li>
-                    <li><i class="fa-li fa fa-angle-double-right"></i>Able to query SPARQL Endpoints and semantic Wikis</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Able to query SPARQL Endpoints and semantic wikis</li>
                     <li><i class="fa-li fa fa-angle-double-right"></i>A few simple display modules (tables, bars, pies)</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Wrapper Extension for MediaWiki</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Roadmap</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Automatically reflect and apply changes from the embed code</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Provide more modules</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Documentation++</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Problems to solve</h2>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>How to deal with tree and graph data?</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Some Display Modules make only sense with a specific kind of data.</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Manage Module Requirements and Features.</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Asynchronous exception handling</li>
                 </ul>
             </section>
 
@@ -355,11 +409,6 @@
         backgroundTransition: 'slide', // default/none/slide/concave/convex/zoom
         transitionSpeed: 'normal',
 
-        // Parallax scrolling
-        // parallaxBackgroundImage: 'img/bg.jpg',
-        // parallaxBackgroundSize: '1920px 1080px',
-
-
         dependencies: [
             { src: 'lib/js/classList.js', condition: function() {
                 return !document.body.classList;
@@ -369,19 +418,30 @@
                 hljs.initHighlightingOnLoad();
             } },
 
-            // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-
-            // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-
             { src: 'plugin/notes/notes.js', async: true, condition: function() {
                 return !!document.body.classList;
-            } },
-
-            // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+            } }
 
         ]
     });
 
+    Reveal.configure({
+      keyboard: {
+        13: 'next', // go to the next slide when the ENTER key is pressed
+        32: 'next' // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)
+      }
+    });
+
+</script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3720145-11', 'auto');
+    ga('send', 'pageview');
 </script>
 
 </body>
